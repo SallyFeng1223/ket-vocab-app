@@ -20,6 +20,7 @@ from pathlib import Path
 
 SNAPSHOT_CSV = Path("data/words_snapshot.csv")
 OUTPUT_SQL = Path("data/sql/A4_diagnostic_items.sql")
+REVIEW_CSV = Path("data/A4_diagnostic_review.csv")
 SEED = 20260823
 
 
@@ -146,8 +147,15 @@ def main() -> None:
 
     OUTPUT_SQL.write_text("\n".join(lines), encoding="utf-8")
 
+    with REVIEW_CSV.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(["序號", "分層", "單字", "詞性", "正確答案", "干擾選項1", "干擾選項2", "干擾選項3"])
+        for i, ((tier, w), distractors) in enumerate(zip(diagnostic, all_distractors), 1):
+            writer.writerow([i, tier, w["headword"], w["pos"], w["zh"], *distractors])
+
     print("抽樣結果：", tier_counts, "總計", sum(tier_counts.values()))
     print(f"寫入 {OUTPUT_SQL}")
+    print(f"寫入 {REVIEW_CSV}")
 
     # 供人工抽查用：印出全部 80 題
     print("\n=== 全部 80 題（供抽查） ===")

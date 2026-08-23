@@ -1,0 +1,81 @@
+序號,分層,單字,詞性,正確答案,干擾選項1,干擾選項2,干擾選項3
+1,STARTERS,stop,n,站牌、停止,攀岩、攀爬,拼圖、謎題,球門；進球
+2,STARTERS,paper,n,紙,蛋,愛,踢
+3,STARTERS,write,v,寫,丟,飛,讓
+4,STARTERS,classmate,n,同班同學,流行音樂,銀、銀色,課、課程
+5,STARTERS,young,adj,年輕的,安靜的,金髮的,清楚的
+6,STARTERS,grandpa,n,爺爺,曲調,名人,麻煩
+7,STARTERS,beautiful,adj,美麗的,更糟的,成功的,年輕的
+8,STARTERS,guitar,n,吉他,顏色,電車,密碼
+9,STARTERS,some,det,一些,每個,一個,那些
+10,STARTERS,sofa,n,沙發,同事,襯衫,果醬
+11,STARTERS,pink,adj,粉紅色的,受歡迎的,不尋常的,你真可憐
+12,STARTERS,wear,v,穿、戴,結束,嘗試,完成
+13,STARTERS,giraffe,n,長頸鹿,馬鈴薯,零錢包,咖啡店
+14,STARTERS,come,v,來,笑,飛,教
+15,STARTERS,know,v,知道,潛水,停留,加入
+16,MOVERS,always,adv,總是,這裡,相當,是的
+17,MOVERS,slowly,adv,慢慢地,輕易地,為什麼,特別是
+18,MOVERS,move,v,移動,回來,放鬆,閱讀
+19,MOVERS,after,adv,在……之後,大約、關於,可能、大概,在……上方
+20,MOVERS,wind,n,風,票,鳥,門
+21,MOVERS,field,n,田野、場地,站牌、停止,攀岩、攀爬,簡訊；文字
+22,MOVERS,rain,n,雨,踢,馬,門
+23,MOVERS,terrible,adj,糟糕的,友善的,有霧的,大聲的
+24,MOVERS,difference,n,差異,水母,工作,桌遊
+25,MOVERS,swimming pool,n,游泳池,小提琴,信用卡,紅綠燈
+26,MOVERS,up,prep,向上,穿過,進入,自從
+27,MOVERS,Friday,n,星期五,救護車,一點點,工程師
+28,MOVERS,temperature,n,溫度,臥室,領帶,刷子
+29,MOVERS,sports centre,n,運動中心,網際網路,太陽眼鏡,銀、銀色
+30,MOVERS,seat,n,座位,訓練,條紋,南方
+31,MOVERS,below,adv,在……下方,當然（不）,在……上方,在……後面
+32,MOVERS,cloudy,adj,多雲的,苗條的,漂亮的,延誤的
+33,MOVERS,homework,n,作業,信封,翅膀,耳朵
+34,MOVERS,thin,adj,瘦的、薄的,下一個的,令人興奮的,感到無聊的
+35,MOVERS,coffee,n,咖啡,手套,時間,背包
+36,MOVERS,brilliant,adj,很棒的、傑出的,遺失的、不見的,難過的、不安的,愉快的、宜人的
+37,MOVERS,busy,adj,忙碌的,成功的,獨自的,健康的
+38,MOVERS,have to,mv,必須,將會,將要（提議）,不能、不可以
+39,MOVERS,map,n,地圖,毯子,河流,商人
+40,MOVERS,build,v,建造,邀請,嘗試,修理
+41,MOVERS,bus station,n,公車總站,牛、母牛,傢伙、人,個人電腦
+42,MOVERS,city,n,城市,叉子,烤箱,短褲
+43,MOVERS,pair,n,一雙、一對,專輯、相簿,景色、看法,活動、事件
+44,MOVERS,dentist,n,牙醫,導遊,皮夾,烤肉
+45,MOVERS,weather,n,天氣,導遊,類型,剪刀
+46,KET_HIGH,foot,n,腳,腿,球,油
+47,KET_HIGH,dish,n,菜餚；盤子,一組、一套,一塊、一片,年級；成績
+48,KET_HIGH,guest-house,n,民宿,明天,牙痛,棒球
+49,KET_HIGH,girlfriend,n,女朋友,橡皮擦,滑雪板,洗衣機
+50,KET_HIGH,refrigerator,n,冰箱,鯨魚,鱷魚,名人
+51,KET_HIGH,hoodie,n,連帽外套,自助餐廳,公車總站,檸檬汽水
+52,KET_HIGH,lorry,n,卡車,棒球,七月,浴缸
+53,KET_HIGH,PC,n,個人電腦,身分證明,詳細資料,網球選手
+54,KET_HIGH,thunderstorm,n,雷雨,領帶,攝影,親吻
+55,KET_HIGH,tennis player,n,網球選手,資訊科技,頁面、頁,自助餐廳
+56,KET_HIGH,assistant,n,助理、店員,訂單、點餐,點子、想法,轉角、角落
+57,KET_HIGH,petrol station,n,加油站,出售中,牛仔褲,工程師
+58,KET_HIGH,shopper,n,購物者,游泳池,地下鐵,清潔工
+59,KET_HIGH,wardrobe,n,衣櫃,世界,七月,溜冰
+60,KET_HIGH,runner,n,跑者,點心,訪客,斑馬
+61,KET_HIGH,airport,n,機場,輪子,奶油,吐司
+62,KET_HIGH,movie theater,n,電影院（美式）,DVD 播放器,橡皮擦（美式）,停車場（美式）
+63,KET_HIGH,television,n,電視,英鎊,便士,咖哩
+64,KET_HIGH,harbour,n,港口,姓氏,短褲,樂團
+65,KET_HIGH,kids,n,小孩們,教科書,垃圾桶,市中心
+66,KET_LOW,v,prep,對……（比賽用語）,在（時間、地點）,因為、由於,從……出來
+67,KET_LOW,pity,n,可惜、遺憾,祝福、願望,樂器；儀器,滑鼠；老鼠
+68,KET_LOW,pay,v,付錢,等待,回來,記得
+69,KET_LOW,cost,n,費用、成本,滑鼠；老鼠,提供、提議,運動；練習
+70,KET_LOW,Mr,n,……先生（稱謂）,帽子（鴨舌帽）,……太太（稱謂）,騎腳踏車（運動）
+71,KET_LOW,immediately,adv,立刻,至少,然後,通常
+72,KET_LOW,cooking,n,烹飪,耳朵,信封,網頁
+73,KET_LOW,fill,v,填滿,嘗試,擔心,攀爬
+74,KET_LOW,action,adj,動作的（如動作片）,可取得的、有空的,很糟的、可怕的,可愛的、宜人的
+75,KET_LOW,available,adj,可取得的、有空的,單一的；單身的,蒼白的、淺色的,很棒的、傑出的
+76,KET_LOW,tidy up,v,整理,理解,烘烤,上傳
+77,KET_LOW,side,n,邊、側,祖父母,直升機,信用卡
+78,KET_LOW,look out,phr v,小心,寫下來,上車,外出
+79,KET_LOW,fried,adj,油炸的,有用的,無聊的,便宜的
+80,KET_LOW,whole,n,整個,時鐘,禮物,客人
