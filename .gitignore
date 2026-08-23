@@ -14,3 +14,6 @@ secrets.json
 node_modules/
 *.log
 .cache/
+
+# 原始資料來源
+data/source/
