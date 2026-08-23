@@ -20,7 +20,7 @@
 
 | 階段 | 週次 | 完成 / 總數 | 狀態 |
 |---|---|---|---|
-| A 資料奠基 + 診斷 | W1（8/24–8/30） | 3 / 8 | 進行中 |
+| A 資料奠基 + 診斷 | W1（8/24–8/30） | 4 / 8 | 進行中 |
 | B 核心引擎上線 | W2（8/31–9/6） | 0 / 7 | 未開始 |
 | C 內容深化與拼寫 | W3–4（9/7–9/20） | 0 / 5 | 未開始 |
 | D 獎勵系統 | W5（9/21–9/27） | 0 / 5 | 未開始 |
@@ -44,13 +44,14 @@
   - 驗收：`select count(*) from words` ≈ 1,500，且無 `zh` 為空
   - 時間不足時優先做：**Movers + KET-only 高頻具體**
   - 實際 1,733 筆（原詞表估計偏低），已在 Supabase 執行 `data/sql/A3_all.sql` 並確認無誤
-- [ ] **A4 診斷抽樣 80 字的 L0 干擾選項**
+- [x] **A4 診斷抽樣 80 字的 L0 干擾選項**
   - 抽樣：Starters 15 / Movers 30 / KET-only 高頻具體 20 / KET-only 低頻抽象 15
   - 驗收：80 題皆有 3 個同詞性、長度相近的干擾選項
 - [ ] **A5 出題畫面第一版（診斷模式）**
   - **這是正式介面的第一塊，非拋棄式**（見規劃書 §2.2）
   - 此版不含 SRS 引擎、profile 管理、金幣
   - 驗收：能出題、判分、寫入 `attempts`，`session_type = 'diagnostic'`
+  - > 待確認：程式已寫完（`docs/index.html` + `docs/js/{provider,renderer,recorder,main}.js`），provider/renderer/recorder 已分離。本機用假資料測過 renderer 顯示與判分邏輯正常，但**還沒接過真的 Supabase**（`docs/js/supabaseClient.js` 裡的 URL / anon key 還是預留值，需要你填入），也還沒在 iPad 上跑過。照 CLAUDE_CODE_A5_task.md 的規則，這項要你實際跑過驗收查詢才能勾。
 - [ ] **A6 跑診斷測驗**
   - 分 2 次，每次 40 題
   - 開始前跟哥哥說：「這不是考試，是讓電腦知道你已經會哪些，才不會浪費你時間重複練。」
