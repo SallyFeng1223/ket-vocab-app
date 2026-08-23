@@ -1,0 +1,16 @@
+# 環境變數與金鑰（絕對不可外流）
+.env
+.env.*
+*.key
+secrets.json
+
+# 版權文件，不放公開 repo
+*.pdf
+
+# macOS 系統檔
+.DS_Store
+
+# 套件與暫存
+node_modules/
+*.log
+.cache/
