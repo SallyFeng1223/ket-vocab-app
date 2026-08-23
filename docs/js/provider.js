@@ -34,17 +34,34 @@ export async function getDiagnosticQueue(supabase, profileId) {
     throw new Error(`撈題目失敗：${itemsError.message}`);
   }
 
-  const { data: answered, error: answeredError } = await supabase
-    .from("attempts")
-    .select("item_id, sessions!inner(session_type)")
+  // 這個 profile 所有 diagnostic session（不分 completed 與否，中途關掉的也算）
+  // 底下已經答過的 item，兩段式查詢、不用 embedded join，避免 RLS 卡住 join 卻
+  // 不報錯、靜默回傳空陣列的狀況（撈題撈得到，撈已答紀錄撈不到，續作機制就失效）。
+  const { data: diagnosticSessions, error: sessionsError } = await supabase
+    .from("sessions")
+    .select("id")
     .eq("profile_id", profileId)
-    .eq("sessions.session_type", "diagnostic");
+    .eq("session_type", "diagnostic");
 
-  if (answeredError) {
-    throw new Error(`撈已作答紀錄失敗：${answeredError.message}`);
+  if (sessionsError) {
+    throw new Error(`撈診斷 session 失敗：${sessionsError.message}`);
   }
 
-  const answeredIds = new Set((answered ?? []).map((a) => a.item_id));
+  const sessionIds = (diagnosticSessions ?? []).map((s) => s.id);
+
+  let answeredIds = new Set();
+  if (sessionIds.length > 0) {
+    const { data: answered, error: answeredError } = await supabase
+      .from("attempts")
+      .select("item_id")
+      .in("session_id", sessionIds);
+
+    if (answeredError) {
+      throw new Error(`撈已作答紀錄失敗：${answeredError.message}`);
+    }
+    answeredIds = new Set((answered ?? []).map((a) => a.item_id));
+  }
+
   const remaining = (items ?? []).filter((i) => !answeredIds.has(i.id));
 
   const shuffled = shuffle(remaining).slice(0, MAX_PER_SESSION);
