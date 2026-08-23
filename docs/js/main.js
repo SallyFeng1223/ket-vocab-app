@@ -1,10 +1,10 @@
 // main：膠水層。處理登入、抓 profile、串起 provider → renderer → recorder，
 // 管 session 的開始/收尾。這層不會被 W2 沿用，但 provider/renderer/recorder 都會。
 
-import { supabase } from "./supabaseClient.js";
-import { getDiagnosticQueue } from "./provider.js";
-import { startSession, recordAnswer, finishSession, flushPendingAttempts } from "./recorder.js";
-import { runDiagnostic } from "./renderer.js";
+import { supabase } from "./supabaseClient.js?v=3";
+import { getDiagnosticQueue } from "./provider.js?v=3";
+import { startSession, recordAnswer, finishSession, flushPendingAttempts } from "./recorder.js?v=3";
+import { runDiagnostic } from "./renderer.js?v=3";
 
 const loginSection = document.getElementById("login-section");
 const appSection = document.getElementById("app-section");

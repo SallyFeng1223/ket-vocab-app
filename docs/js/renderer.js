@@ -4,7 +4,7 @@
 // 目前只認得 L0（英→中四選一）的 payload 形狀。之後 L1–L6 上線時，
 // 在 buildChoicesForItem() 依 item.skill 加對應分支即可，其他部分不用動。
 
-import { shuffle, escapeHtml } from "./utils.js";
+import { shuffle, escapeHtml } from "./utils.js?v=3";
 
 function buildChoicesForItem(item) {
   if (item.skill === "L0") {
