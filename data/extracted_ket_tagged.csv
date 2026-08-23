@@ -1,0 +1,1733 @@
+headword,pos,sense_note,is_phrasal,level_tags
+a,det,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+an,det,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+a few,det,I invited a few of my friends.; I’ll be ready in a few minutes.,False,"{KET,FLYERS}"
+able,adj,be able to,False,{KET}
+about,adv,What about a cold drink?; I have about £3. (adv); a book about animals (prep),False,"{KET,STARTERS,MOVERS,FLYERS}"
+above,adv,,False,"{KET,MOVERS,FLYERS}"
+accident,n,,False,{KET}
+accommodation,n,,False,{KET}
+across,adv,The bank’s across the road.; He walked across the bridge.,False,{KET}
+act,v,,False,"{KET,FLYERS}"
+action,adj,,False,{KET}
+activity,n,,False,{KET}
+actor,n,,False,"{KET,FLYERS}"
+actually,adv,,False,"{KET,FLYERS}"
+ad,n,an ad on TV,False,{KET}
+add,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+address,n,,False,"{KET,MOVERS,FLYERS}"
+adult,n,,False,{KET}
+advanced,adj,,False,{KET}
+adventure,n,,False,"{KET,FLYERS}"
+advert,n,,False,{KET}
+advertisement,n,,False,{KET}
+advice,n,,False,{KET}
+aeroplane,n,,False,{KET}
+afraid,adj,,False,"{KET,MOVERS,FLYERS}"
+after,adv,,False,"{KET,MOVERS,FLYERS}"
+afternoon,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+afterwards,adv,,False,{KET}
+again,adv,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+against,prep,We watched England play against France.,False,{KET}
+age,n,I don’t know his age.,False,"{KET,MOVERS,FLYERS}"
+aged,adj,aged 10 – 16,False,{KET}
+ago,adv,,False,"{KET,FLYERS}"
+agree,v,"Yes, I agree with you.; Don’t you agree, Sam?",False,"{KET,FLYERS}"
+air,n,to travel by air,False,"{KET,FLYERS}"
+airport,n,,False,{KET}
+alarm clock,n,,False,{KET}
+album,n,,False,{KET}
+all,adv,,False,"{KET,MOVERS,FLYERS}"
+all kinds of,det,,False,{KET}
+allow,v,,False,{KET}
+all right,adj,,False,"{KET,MOVERS,FLYERS}"
+alright,adj,,False,{KET}
+all sorts of,det,,False,{KET}
+all the time,det,,False,{KET}
+almost,adv,,False,{KET}
+alone,adj,,False,"{KET,FLYERS}"
+along,prep,,False,"{KET,MOVERS,FLYERS}"
+already,adv,,False,"{KET,FLYERS}"
+also,adv,,False,"{KET,FLYERS}"
+always,adv,,False,"{KET,MOVERS,FLYERS}"
+a.m.,adv,,False,{KET}
+amazed,adj,,False,{KET}
+amazing,adj,,False,"{KET,FLYERS}"
+ambulance,n,,False,"{KET,FLYERS}"
+among,prep,,False,{KET}
+and,conj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+angry,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+animal,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+another,det,,False,"{KET,MOVERS,FLYERS}"
+answer,n,,False,{KET}
+any,det,,False,"{KET,MOVERS,FLYERS}"
+anybody,pron,,False,{KET}
+anymore,adv,,False,{KET}
+anyone,pron,,False,"{KET,FLYERS}"
+anything,pron,,False,"{KET,FLYERS}"
+anyway,adv,,False,{KET}
+anywhere,adv,,False,"{KET,FLYERS}"
+apartment,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+apartment building,n,,False,{KET}
+app,n,,False,{KET}
+apple,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+appointment,n,an appointment with the doctor,False,{KET}
+April,n,,False,{KET}
+area,n,,False,{KET}
+arm,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+armchair,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+around,adv,to travel around (adv); to sit around the table (prep),False,"{KET,MOVERS,FLYERS}"
+arrive,v,,False,"{KET,FLYERS}"
+art,n,,False,"{KET,FLYERS}"
+article,n,an article about skiing,False,{KET}
+artist,n,,False,"{KET,FLYERS}"
+as,conj,as good as; as soon as possible; the same as; as well; as well as,False,"{KET,FLYERS}"
+ask,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+assistant,n,,False,{KET}
+as well,adv,,False,{KET}
+at,prep,,False,"{KET,MOVERS,FLYERS}"
+at all,prep,,False,{KET}
+attractive,adj,The walls are an attractive colour.,False,{KET}
+August,n,,False,{KET}
+aunt,n,,False,{KET}
+autumn,n,,False,{KET}
+available,adj,,False,{KET}
+away,adv,He’s gone away.; It’s two kilometres away.,False,{KET}
+awesome,adj,,False,{KET}
+awful,adj,,False,{KET}
+baby,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+back,n,,False,"{KET,MOVERS,FLYERS}"
+backpack,n,,False,"{KET,FLYERS}"
+bad,adj,(be) bad for somebody,False,"{KET,MOVERS,FLYERS}"
+badly,adv,,False,"{KET,MOVERS,FLYERS}"
+badminton,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+bag,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+bake,v,,False,{KET}
+ball,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+balloon,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+banana,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+band,n,The band are on tour this month.,False,"{KET,MOVERS,FLYERS}"
+bank,n,I changed my money in the bank.,False,"{KET,FLYERS}"
+barbecue,n,,False,{KET}
+barbeque,n,,False,{KET}
+baseball,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+basketball,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+bat,n,a baseball bat,False,"{KET,STARTERS,MOVERS,FLYERS}"
+bath,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+bathing suit,n,,False,{KET}
+bathroom,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+bathtub,n,,False,{KET}
+battery,n,,False,{KET}
+be,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+beach,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+bean,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+bear,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+beard,n,,False,"{KET,MOVERS,FLYERS}"
+beautiful,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+because,conj,,False,"{KET,MOVERS,FLYERS}"
+because of,prep,,False,{KET}
+become,v,,False,{KET}
+bed,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+bedroom,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+bee,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+beetle,n,,False,"{KET,FLYERS}"
+before,adv,,False,"{KET,MOVERS,FLYERS}"
+begin,v,,False,"{KET,FLYERS}"
+beginner,n,,False,{KET}
+beginning,n,,False,{KET}
+behind,adv,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+believe,v,,False,"{KET,FLYERS}"
+belong,v,The bag belongs to me.,False,{KET}
+below,adv,,False,"{KET,MOVERS,FLYERS}"
+belt,n,,False,"{KET,FLYERS}"
+beside,prep,,False,{KET}
+best,adj,,False,"{KET,MOVERS,FLYERS}"
+better,adj,,False,"{KET,MOVERS,FLYERS}"
+between,prep,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+bicycle,n,,False,"{KET,FLYERS}"
+big,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+bike,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+bill,n,"Can I have my bill, please?",False,{KET}
+bin,n,Can you throw the rubbish in the bin?,False,"{KET,FLYERS}"
+biology,n,,False,{KET}
+bird,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+birth,n,,False,{KET}
+birthday,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+biscuit,n,(Br Eng) (Am Eng: cookie),False,"{KET,FLYERS}"
+bit,n,"Just a little bit of cake, please.; I’m feeling a bit tired.",False,"{KET,FLYERS}"
+black,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+blackboard,n,,False,{KET}
+blanket,n,,False,"{KET,MOVERS,FLYERS}"
+block,n,Shall we walk round the block?,False,{KET}
+blog,n,,False,{KET}
+blonde,adj,,False,{KET}
+blood,n,,False,{KET}
+blouse,n,,False,{KET}
+blue,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+board,n,The teacher’s writing on the (black/white) board.,False,"{KET,STARTERS,MOVERS,FLYERS}"
+board game,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+boat,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+body,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+boil,v,,False,{KET}
+boiled,adj,,False,{KET}
+book,n,a good book; book a place on the course,False,"{KET,STARTERS,MOVERS,FLYERS}"
+bookcase,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+bookshelf,n,,False,{KET}
+bookshop,n,(Br Eng) (Am Eng: bookstore),False,"{KET,STARTERS,MOVERS,FLYERS}"
+bookstore,n,(Am Eng) (Br Eng: bookshop),False,{KET}
+boot,n,a pair of boots,False,{KET}
+bored,adj,,False,"{KET,FLYERS}"
+boring,adj,,False,"{KET,MOVERS,FLYERS}"
+born,v,I was born in Manchester.,False,{KET}
+borrow,v,She borrowed a book from the library.,False,{KET}
+boss,n,,False,{KET}
+both,pron,,False,"{KET,MOVERS,FLYERS}"
+bother,v,Sorry to bother you.,False,{KET}
+bottle,n,,False,"{KET,MOVERS,FLYERS}"
+bottom,n,at the bottom of the stairs,False,"{KET,MOVERS,FLYERS}"
+bowl,n,,False,"{KET,MOVERS,FLYERS}"
+box,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+boy,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+boyfriend,n,,False,{KET}
+bracelet,n,,False,"{KET,FLYERS}"
+brain,n,,False,{KET}
+brave,adj,,False,"{KET,MOVERS,FLYERS}"
+bread,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+break,n,a break for lunch (n); Someone’s broken the window. (v),False,"{KET,MOVERS,FLYERS}"
+break down,phr v,The car has broken down.,True,{KET}
+breakfast,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+bridge,n,,False,"{KET,FLYERS}"
+bright,adj,bright pink,False,{KET}
+brilliant,adj,I thought the film was brilliant!,False,"{KET,MOVERS,FLYERS}"
+bring,v,,False,{KET}
+bring back,v,,False,{KET}
+broken,adj,,False,"{KET,FLYERS}"
+brother,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+brown,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+brush,n,,False,"{KET,FLYERS}"
+build,v,,False,"{KET,MOVERS,FLYERS}"
+building,n,,False,"{KET,MOVERS,FLYERS}"
+burger,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+bus,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+business,n,,False,"{KET,FLYERS}"
+businessman,n,,False,{KET}
+businesswoman,n,,False,{KET}
+business person,n,,False,{KET}
+bus station,n,,False,"{KET,MOVERS,FLYERS}"
+bus stop,n,,False,"{KET,MOVERS,FLYERS}"
+busy,adj,,False,"{KET,MOVERS,FLYERS}"
+but,conj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+butter,n,,False,"{KET,FLYERS}"
+butterfly,n,,False,"{KET,FLYERS}"
+buy,v,,False,"{KET,MOVERS,FLYERS}"
+by,prep,,False,"{KET,MOVERS,FLYERS}"
+by accident,prep,,False,{KET}
+by the way,prep,,False,{KET}
+by post,prep,,False,{KET}
+bye,exclam,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+cabinet,n,,False,{KET}
+cafe,n,,False,{KET}
+café,n,,False,"{KET,MOVERS,FLYERS}"
+cafeteria,n,,False,{KET}
+cake,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+calendar,n,,False,"{KET,FLYERS}"
+call,n,I’ll call (phone) again later this afternoon.; He’s called John.; I’m waiting for a call from Anna.,False,"{KET,MOVERS,FLYERS}"
+camel,n,,False,"{KET,FLYERS}"
+camera,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+camp,v,,False,"{KET,FLYERS}"
+camping,n,,False,{KET}
+campsite,n,,False,{KET}
+cap,n,,False,{KET}
+capital,n,,False,{KET}
+can,n,I can ride a bike. (ability); Can I have one? (request); Can I help you? (offer); It can be cold here in winter. (possibility); You can watch TV now. (permission),False,"{KET,STARTERS,MOVERS,FLYERS}"
+candy,n,,False,{KET}
+cannot,mv,,False,{KET}
+car,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+card,n,birthday card; credit card; card game (e.g. We played a card game in class.),False,"{KET,FLYERS}"
+career,n,,False,{KET}
+careful,adj,Be careful!,False,"{KET,MOVERS,FLYERS}"
+carefully,adv,,False,"{KET,MOVERS,FLYERS}"
+car park,n,(Br Eng) (Am Eng: parking lot),False,"{KET,MOVERS,FLYERS}"
+carpet,n,,False,{KET}
+carrot,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+carry,v,,False,"{KET,MOVERS,FLYERS}"
+cartoon,n,,False,"{KET,FLYERS}"
+case,n,,False,{KET}
+cash,n,,False,{KET}
+castle,n,,False,"{KET,FLYERS}"
+cat,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+catch,v,,False,"{KET,MOVERS,FLYERS}"
+CD,n,,False,"{KET,MOVERS,FLYERS}"
+CD player,n,,False,{KET}
+ceiling,n,,False,{KET}
+cell phone,n,,False,{KET}
+celebrate,v,,False,{KET}
+celebrity,n,,False,{KET}
+cent,n,,False,{KET}
+centre,n,(Br Eng),False,"{KET,MOVERS,FLYERS}"
+center,n,(Am Eng),False,{KET}
+centimetre,n,(cm),False,{KET}
+centimeter,n,(cm),False,{KET}
+century,n,,False,"{KET,FLYERS}"
+cereal,n,,False,"{KET,FLYERS}"
+certainly,adv,,False,{KET}
+chain,n,She wore a gold chain.; I need a new bicycle chain.,False,{KET}
+chair,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+change,v,There is a change of room for this course.,False,"{KET,MOVERS,FLYERS}"
+channel,n,,False,"{KET,FLYERS}"
+character,n,He was my favourite character in the film.,False,{KET}
+chat,n,,False,"{KET,FLYERS}"
+chatroom,n,,False,{KET}
+cheap,adj,,False,"{KET,FLYERS}"
+check,v,,False,{KET}
+cheese,n,,False,"{KET,MOVERS,FLYERS}"
+chef,n,,False,{KET}
+chemist,n,(Br Eng) (Am Eng: drugstore),False,"{KET,FLYERS}"
+chemistry,n,,False,{KET}
+cheque,n,,False,{KET}
+chess,n,,False,"{KET,FLYERS}"
+chicken,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+child,n,,False,{KET}
+chilli,n,,False,{KET}
+chips,n,egg and chips; (Br Eng) (Am Eng: biscuit),False,"{KET,STARTERS,MOVERS,FLYERS}"
+chocolate,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+choose,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+cinema,n,,False,"{KET,MOVERS,FLYERS}"
+circle,n,,False,"{KET,MOVERS,FLYERS}"
+circus,n,,False,"{KET,MOVERS,FLYERS}"
+city,n,,False,"{KET,MOVERS,FLYERS}"
+city centre,n,,False,{KET}
+class,n,a language class; a first-class ticket,False,"{KET,STARTERS,MOVERS,FLYERS}"
+classical,adj,,False,{KET}
+classmate,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+classroom,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+clean,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+cleaner,n,,False,{KET}
+clear,adj,It’s not clear to me.,False,{KET}
+clearly,adv,,False,{KET}
+clever,adj,,False,"{KET,MOVERS,FLYERS}"
+click,n,Click here to go to our website.,False,{KET}
+climb,v,,False,"{KET,MOVERS,FLYERS}"
+climbing,n,,False,{KET}
+clock,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+close,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+close to,prep,,False,{KET}
+closed,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+closet,n,,False,{KET}
+clothes,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+cloud,n,,False,"{KET,MOVERS,FLYERS}"
+cloudy,adj,,False,"{KET,MOVERS,FLYERS}"
+clown,n,,False,"{KET,MOVERS,FLYERS}"
+club,n,to join a club,False,"{KET,FLYERS}"
+coach,n,a coach trip; a tennis coach,False,{KET}
+coat,n,,False,"{KET,MOVERS,FLYERS}"
+coast,n,,False,{KET}
+coffee,n,,False,"{KET,MOVERS,FLYERS}"
+cola,n,,False,{KET}
+cold,n,,False,"{KET,MOVERS,FLYERS}"
+colleague,n,,False,{KET}
+collect,v,,False,"{KET,FLYERS}"
+college,n,,False,"{KET,FLYERS}"
+colour,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+comb,n,,False,"{KET,FLYERS}"
+come,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+come back,v,We came back from our holiday yesterday.,False,{KET}
+comedy,n,,False,{KET}
+comfortable,adj,,False,{KET}
+comic,n,,False,"{KET,MOVERS,FLYERS}"
+company,n,What’s the name of your company?,False,{KET}
+competition,n,,False,"{KET,FLYERS}"
+complete,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+computer,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+concert,n,,False,"{KET,FLYERS}"
+congratulations,exclam,,False,{KET}
+contact,n,,False,{KET}
+continue,v,,False,{KET}
+conversation,n,,False,"{KET,FLYERS}"
+cook,n,,False,"{KET,MOVERS,FLYERS}"
+cooker,n,,False,"{KET,FLYERS}"
+cookie,n,(Am Eng) (Br Eng: biscuit),False,"{KET,FLYERS}"
+cooking,n,,False,{KET}
+cool,adj,That’s a cool bike! (adj),False,"{KET,STARTERS,MOVERS,FLYERS}"
+copy,v,,False,{KET}
+corner,n,the corner of the street,False,"{KET,FLYERS}"
+correct,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+cost,n,,False,{KET}
+costume,n,I forgot my swimming costume.,False,"{KET,FLYERS}"
+could,mv,I couldn’t find the information; Could you lend me some money?; We could go to the cinema tonight.,False,"{KET,FLYERS}"
+country,n,,False,{KET}
+countryside,n,,False,"{KET,MOVERS,FLYERS}"
+course,n,a university course; a main course; of course (not),False,{KET}
+court,n,a tennis court,False,{KET}
+cousin,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+cover,v,I had to cover my eyes.; There was a flower on the book’s cover.,False,{KET}
+cow,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+cream,n,I like strawberries and cream.; Mum’s cream T-shirt got dirty.,False,{KET}
+creature,n,,False,"{KET,FLYERS}"
+credit card,n,,False,{KET}
+cricket,n,,False,{KET}
+crocodile,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+cross,n,Don’t cross the road here! (v),False,"{KET,STARTERS,MOVERS,FLYERS}"
+crossing,n,Use the crossing to cross the street.,False,{KET}
+crowd,n,,False,{KET}
+crowded,adj,,False,{KET}
+cry,v,The baby’s crying.,False,"{KET,MOVERS,FLYERS}"
+cup,n,,False,"{KET,MOVERS,FLYERS}"
+cupboard,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+curry,n,,False,{KET}
+curtain,n,,False,{KET}
+customer,n,,False,{KET}
+cut,v,,False,"{KET,FLYERS}"
+cycle,v,,False,"{KET,FLYERS}"
+cycling,n,,False,{KET}
+dad,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+daily,adj,,False,{KET}
+dance,n,,False,"{KET,MOVERS,FLYERS}"
+dancer,n,,False,{KET}
+dancing,n,,False,{KET}
+danger,n,,False,{KET}
+dangerous,adj,,False,"{KET,MOVERS,FLYERS}"
+dark,adj,,False,"{KET,FLYERS}"
+date,n,What’s the date today?,False,"{KET,FLYERS}"
+daughter,n,,False,"{KET,MOVERS,FLYERS}"
+day,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+dead,adj,,False,{KET}
+dear,adj,"Dear Anne,",False,"{KET,FLYERS}"
+December,n,,False,"{KET,FLYERS}"
+decide,v,,False,"{KET,FLYERS}"
+deep,adj,,False,"{KET,FLYERS}"
+degree,n,The temperature’s 30 degrees today.,False,{KET}
+delay,n,There will be a delay of two hours. (n),False,{KET}
+delayed,adj,The flight is delayed.,False,{KET}
+delicious,adj,,False,"{KET,FLYERS}"
+deliver,v,,False,{KET}
+dentist,n,,False,"{KET,MOVERS,FLYERS}"
+department,n,,False,{KET}
+department store,n,,False,{KET}
+describe,v,,False,{KET}
+desert,n,,False,"{KET,FLYERS}"
+design,v,,False,"{KET,FLYERS}"
+desk,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+dessert,n,,False,{KET}
+details,n,,False,{KET}
+diary,n,,False,"{KET,FLYERS}"
+dictionary,n,,False,"{KET,FLYERS}"
+die,v,,False,{KET}
+difference,n,,False,"{KET,MOVERS,FLYERS}"
+different,adj,,False,"{KET,MOVERS,FLYERS}"
+difficult,adj,,False,"{KET,MOVERS,FLYERS}"
+digital,adj,,False,{KET}
+digital camera,n,,False,{KET}
+dining room,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+dinner,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+dinosaur,n,,False,"{KET,FLYERS}"
+diploma,n,,False,{KET}
+directions,n,,False,{KET}
+dirty,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+disco,n,,False,{KET}
+discount,n,,False,{KET}
+discover,v,,False,{KET}
+discuss,v,,False,{KET}
+dish,n,Chicken and chips is my favourite dish.; I broke a dish when I was doing the washing up.,False,{KET}
+dive,v,I learnt to dive at the swimming pool.,False,{KET}
+diving,adj,I’ve j oined a diving club.,False,{KET}
+do,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+doctor,n,,False,"{KET,MOVERS,FLYERS}"
+document,n,,False,{KET}
+dog,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+doll,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+dollar,n,,False,{KET}
+dolphin,n,,False,"{KET,MOVERS,FLYERS}"
+donkey,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+door,n,,False,{KET}
+dot,n,dot com,False,{KET}
+double,adj,a double room,False,"{KET,STARTERS,MOVERS,FLYERS}"
+down,adv,,False,"{KET,MOVERS,FLYERS}"
+download,n,I downloaded the songs from the internet.,False,{KET}
+downstairs,adv,,False,"{KET,MOVERS,FLYERS}"
+Dr,n,,False,{KET}
+draw,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+drawer,n,,False,{KET}
+drawing,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+dream,n,,False,{KET}
+dress,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+dressed,adj,"Hurry, you need to get dressed!",False,{KET}
+drink,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+drive,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+driver,n,,False,"{KET,MOVERS,FLYERS}"
+driving,n,(Br Eng) (Br Eng: driver’s license),False,{KET}
+driver’s licence,n,(Br Eng) (Br Eng: driver’s license),False,{KET}
+drop,v,,False,"{KET,MOVERS,FLYERS}"
+drugstore,n,(Am Eng) (Br Eng: chemist),False,{KET}
+drum,n,,False,"{KET,FLYERS}"
+dry,adj,,False,"{KET,MOVERS,FLYERS}"
+duck,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+during,prep,,False,"{KET,FLYERS}"
+DVD,n,,False,"{KET,MOVERS,FLYERS}"
+DVD player,n,,False,{KET}
+each,det,,False,"{KET,FLYERS}"
+each other,pron,,False,{KET}
+eagle,n,,False,"{KET,FLYERS}"
+ear,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+early,adj,,False,"{KET,FLYERS}"
+earn,v,,False,{KET}
+earring,n,,False,{KET}
+easily,adv,,False,{KET}
+east,n,,False,"{KET,FLYERS}"
+easy,adj,,False,"{KET,MOVERS,FLYERS}"
+eat,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+egg,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+electric,adj,,False,{KET}
+electricity,n,,False,{KET}
+elephant,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+elevator,n,(Am Eng) (Br Eng: lift),False,"{KET,MOVERS,FLYERS}"
+else,adv,Anything else?,False,"{KET,FLYERS}"
+email,n,,False,"{KET,MOVERS,FLYERS}"
+empty,adj,,False,"{KET,FLYERS}"
+end,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+engine,n,,False,"{KET,FLYERS}"
+engineer,n,,False,"{KET,FLYERS}"
+enjoy,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+enough,adv,,False,"{KET,FLYERS}"
+enter,v,Are you going to enter the poster competition?; Please enter through the side door.,False,"{KET,FLYERS}"
+entrance,n,,False,"{KET,FLYERS}"
+envelope,n,,False,"{KET,FLYERS}"
+environment,n,,False,"{KET,FLYERS}"
+equipment,n,You need special equipment to go diving.,False,{KET}
+eraser,n,(Am Eng) (Br Eng: rubber),False,"{KET,STARTERS,MOVERS,FLYERS}"
+especially,adv,,False,{KET}
+euro,n,,False,{KET}
+even,adv,,False,{KET}
+evening,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+event,n,The Olympic games is a great event.,False,{KET}
+ever,adv,,False,"{KET,FLYERS}"
+every,det,,False,"{KET,MOVERS,FLYERS}"
+everybody,pron,,False,{KET}
+everyone,pron,,False,"{KET,MOVERS,FLYERS}"
+everything,pron,,False,"{KET,MOVERS,FLYERS}"
+everywhere,adv,,False,"{KET,FLYERS}"
+exactly,adv,,False,{KET}
+examination,n,,False,{KET}
+exam,n,,False,{KET}
+example,n,Look at the example first.; for example,False,"{KET,STARTERS,MOVERS,FLYERS}"
+excellent,adj,,False,"{KET,FLYERS}"
+except,conj,,False,{KET}
+excited,adj,,False,"{KET,FLYERS}"
+exciting,adj,,False,"{KET,MOVERS,FLYERS}"
+excuse,v,Excuse me!,False,{KET}
+exercise,n,He should do more exercise to get fit.; I’ve got a maths exercise to finish.,False,{KET}
+exhibition,n,art exhibition,False,{KET}
+exit,n,,False,"{KET,FLYERS}"
+expensive,adj,,False,"{KET,FLYERS}"
+experience,n,,False,{KET}
+experiment,n,The science experiment was fun.,False,{KET}
+explain,v,,False,"{KET,FLYERS}"
+explore,v,,False,"{KET,FLYERS}"
+explorer,n,This book’s about famous explorers.,False,{KET}
+extinct,adj,,False,"{KET,FLYERS}"
+extra,adj,,False,{KET}
+eye,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+face,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+fact,n,,False,{KET}
+factory,n,,False,"{KET,FLYERS}"
+fail,v,,False,{KET}
+fair,adj,She has fair hair.,False,"{KET,MOVERS,FLYERS}"
+fall,n,in the fall (n) (Am Eng) (Br Eng: autumn); He fell and hurt his leg. (v),False,"{KET,MOVERS,FLYERS}"
+fall over,phr v,,True,"{KET,FLYERS}"
+family,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+famous,adj,,False,"{KET,MOVERS,FLYERS}"
+fan,n,She’s a football fan.,False,{KET}
+fantastic,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+far,adv,How far is the next garage?,False,"{KET,FLYERS}"
+farm,n,,False,"{KET,MOVERS,FLYERS}"
+farmer,n,,False,"{KET,MOVERS,FLYERS}"
+fashion,n,,False,{KET}
+fast,adj,,False,"{KET,FLYERS}"
+fast food,n,,False,{KET}
+fat,adj,,False,"{KET,MOVERS,FLYERS}"
+father,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+favourite,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+February,n,,False,"{KET,FLYERS}"
+feel,v,to feel well,False,"{KET,FLYERS}"
+feelings,n,,False,{KET}
+festival,n,,False,"{KET,FLYERS}"
+few,det,,False,{KET}
+field,n,,False,"{KET,MOVERS,FLYERS}"
+file,n,,False,"{KET,FLYERS}"
+fill,v,,False,{KET}
+fill in,phr v,to fill in a form,True,{KET}
+film,n,,False,"{KET,MOVERS,FLYERS}"
+final,adj,,False,{KET}
+finally,adv,,False,{KET}
+find,v,I found my keys under the sofa.,False,"{KET,STARTERS,MOVERS,FLYERS}"
+find out,phr v,,True,"{KET,FLYERS}"
+fine,adj,"That’s fine!; I’m fine, thank you.; The weather is fine.",False,"{KET,MOVERS,FLYERS}"
+finger,n,,False,"{KET,FLYERS}"
+finish,v,,False,"{KET,FLYERS}"
+fire,n,,False,"{KET,FLYERS}"
+first,adv,First… then… (adv); John came first. (adv); first prize (adj),False,"{KET,MOVERS,FLYERS}"
+first name,n,,False,{KET}
+first of all,adv,"First of all, you must wash your hands.",False,{KET}
+fish,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+fishing,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+fit,adj,I joined a gym to get fit.; I run to keep fit.,False,{KET}
+fix,v,,False,"{KET,MOVERS,FLYERS}"
+flat,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+flight,n,,False,{KET}
+floor,n,The bedrooms are on the first floor.; Don’t leave your clothes on the floor.,False,"{KET,STARTERS,MOVERS,FLYERS}"
+flower,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+fly,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+fog,n,,False,"{KET,FLYERS}"
+foggy,adj,,False,"{KET,FLYERS}"
+folder,n,,False,{KET}
+follow,v,,False,"{KET,FLYERS}"
+food,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+foot,n,my right foot,False,{KET}
+football,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+football player,n,,False,{KET}
+footballer,n,,False,{KET}
+for,prep,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+for sale,n,,False,{KET}
+foreign,adj,,False,{KET}
+forest,n,,False,"{KET,MOVERS,FLYERS}"
+forget,v,,False,{KET}
+fork,n,knife and fork,False,"{KET,FLYERS}"
+form,n,Fill in this form.,False,{KET}
+free,adj,I got a free ticket to the match.; Are you free on Saturday?,False,{KET}
+French fries,n,(Am Eng) (Br Eng: chips),False,{KET}
+fresh,adj,fresh fruit,False,{KET}
+fridge,n,,False,"{KET,FLYERS}"
+Friday,n,,False,"{KET,MOVERS,FLYERS}"
+fried,adj,,False,{KET}
+friend,n,It’s easy for her make friends.,False,"{KET,STARTERS,MOVERS,FLYERS}"
+friendly,adj,,False,"{KET,FLYERS}"
+frightened,adj,,False,"{KET,MOVERS,FLYERS}"
+frog,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+from,prep,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+front,n,at the front of the train; Stand in front of me.,False,"{KET,FLYERS}"
+fruit,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+full,adj,,False,"{KET,FLYERS}"
+fun,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+funny,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+fur,n,,False,"{KET,FLYERS}"
+furniture,n,,False,{KET}
+further,adj,,False,{KET}
+future,n,,False,"{KET,FLYERS}"
+gallery,n,,False,{KET}
+game,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+garage,n,,False,{KET}
+garden,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+garlic,n,,False,{KET}
+gas,n,(Am Eng) (Br Eng: petrol),False,{KET}
+gas station,n,(Am Eng) (Br Eng: petrol station),False,{KET}
+gate,n,,False,"{KET,FLYERS}"
+geography,n,,False,"{KET,FLYERS}"
+get,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+get back,v,I need to take the bus to get back home.,False,{KET}
+get dressed,v,,False,"{KET,MOVERS,FLYERS}"
+get fit,v,,False,{KET}
+get married,v,,False,{KET}
+get off,phr v,to get off the bus,True,"{KET,MOVERS,FLYERS}"
+get on,phr v,to get on the bus,True,"{KET,MOVERS,FLYERS}"
+get up,phr v,to get up in the morning,True,"{KET,MOVERS,FLYERS}"
+gift,n,,False,{KET}
+giraffe,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+girl,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+girlfriend,n,,False,{KET}
+give,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+give back,v,I’ll give them back to you tomorrow.; I’ll give back your books tomorrow.,False,{KET}
+give somebody a call,v,,False,{KET}
+ring,v,,False,"{KET,FLYERS}"
+glad,adj,,False,{KET}
+glass,n,,False,"{KET,MOVERS,FLYERS}"
+glasses,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+glove,n,,False,"{KET,FLYERS}"
+go,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+goal,n,,False,"{KET,MOVERS,FLYERS}"
+goat,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+gold,n,,False,"{KET,FLYERS}"
+golden,adj,,False,{KET}
+golf,n,,False,"{KET,FLYERS}"
+good,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+good afternoon,exclam,,False,{KET}
+goodbye,exclam,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+good evening,exclam,,False,{KET}
+good-looking,adj,,False,{KET}
+good morning,exclam,,False,{KET}
+good night,exclam,,False,{KET}
+go out,phr v,Are you going out this evening? go shopping,True,"{KET,FLYERS}"
+grade,n,,False,{KET}
+gram,n,,False,{KET}
+gramme,n,,False,{KET}
+grandchild,n,,False,{KET}
+grandad,n,,False,{KET}
+granddad,n,,False,{KET}
+granddaughter,n,,False,"{KET,MOVERS,FLYERS}"
+grandfather,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+grandma,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+grandmother,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+grandpa,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+grandparent,n,,False,"{KET,MOVERS,FLYERS}"
+grandson,n,,False,"{KET,MOVERS,FLYERS}"
+granny,n,,False,{KET}
+grape,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+grass,n,,False,"{KET,MOVERS,FLYERS}"
+great,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+green,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+grey,n,(Br Eng) (Am Eng: gray),False,"{KET,STARTERS,MOVERS,FLYERS}"
+grilled,adj,,False,{KET}
+grocery store,n,(Am Eng),False,{KET}
+ground,n,,False,"{KET,MOVERS,FLYERS}"
+group,n,,False,"{KET,FLYERS}"
+grow,v,,False,"{KET,MOVERS,FLYERS}"
+grow up,phr v,,True,{KET}
+guess,v,,False,"{KET,FLYERS}"
+Guess what,v,,False,{KET}
+guest,n,,False,{KET}
+guest-house,n,,False,{KET}
+guide,n,,False,{KET}
+guidebook,n,,False,{KET}
+guitar,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+guy,n,He’s a really nice guy.,False,{KET}
+gym,n,,False,"{KET,FLYERS}"
+hair,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+half,det,,False,"{KET,FLYERS}"
+half-price,adj,,False,{KET}
+hall,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+hand,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+handbag,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+happen,v,,False,"{KET,FLYERS}"
+happy,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+harbour,n,,False,{KET}
+hard,adj,hard wood (adj); the homework was hard (adj); to work hard (adv),False,"{KET,FLYERS}"
+hat,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+hate,v,,False,"{KET,FLYERS}"
+have,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+have got to,mv,,False,{KET}
+have to,mv,,False,"{KET,MOVERS,FLYERS}"
+he,pron,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+head,n,My head hurts.,False,"{KET,STARTERS,MOVERS,FLYERS}"
+headache,n,,False,"{KET,MOVERS,FLYERS}"
+headphones,n,,False,{KET}
+headteacher,n,,False,{KET}
+health,n,,False,{KET}
+healthy,adj,,False,{KET}
+hear,v,,False,"{KET,FLYERS}"
+heart,n,,False,{KET}
+heating,n,Can you turn the heating on?,False,{KET}
+heavy,adj,a heavy blanket,False,"{KET,FLYERS}"
+helicopter,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+hello,exclam,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+help,v,Call me if you need any help.,False,"{KET,MOVERS,FLYERS}"
+helpful,adj,,False,{KET}
+her,det,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+here,adv,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+hers,pron,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+herself,pron,by herself,False,{KET}
+hey,exclam,,False,{KET}
+hi,exclam,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+high,adj,,False,"{KET,FLYERS}"
+hill,n,,False,"{KET,FLYERS}"
+him,pron,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+himself,pron,by himself,False,{KET}
+hip hop,n,,False,{KET}
+hippo,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+his,det,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+history,n,,False,"{KET,FLYERS}"
+hit,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+hobby,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+hockey,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+hold,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+holiday,n,,False,"{KET,MOVERS,FLYERS}"
+home,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+homework,n,,False,"{KET,MOVERS,FLYERS}"
+honey,n,,False,"{KET,FLYERS}"
+hoodie,n,,False,{KET}
+hope,v,,False,"{KET,FLYERS}"
+horrible,adj,,False,"{KET,FLYERS}"
+horror,adj,,False,{KET}
+horse,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+hospital,n,,False,"{KET,MOVERS,FLYERS}"
+hot,adj,,False,"{KET,MOVERS,FLYERS}"
+hotel,n,,False,"{KET,FLYERS}"
+hour,n,,False,"{KET,FLYERS}"
+house,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+housewife,n,,False,{KET}
+how,adv,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+however,adv,,False,{KET}
+huge,adj,,False,{KET}
+hungry,adj,,False,"{KET,MOVERS,FLYERS}"
+hurry,v,,False,"{KET,FLYERS}"
+hurt,v,,False,"{KET,MOVERS,FLYERS}"
+husband,n,,False,"{KET,FLYERS}"
+I,pron,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+ice,n,,False,"{KET,MOVERS,FLYERS}"
+ice cream,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+ice skating,n,,False,"{KET,MOVERS,FLYERS}"
+ID,n,,False,{KET}
+ID card,n,,False,{KET}
+idea,n,,False,"{KET,MOVERS,FLYERS}"
+identification,n,,False,{KET}
+if,conj,,False,"{KET,FLYERS}"
+ill,adj,,False,"{KET,MOVERS,FLYERS}"
+immediately,adv,,False,{KET}
+important,adj,,False,"{KET,FLYERS}"
+impossible,adj,,False,{KET}
+improve,v,,False,"{KET,FLYERS}"
+in,adv,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+include,v,,False,{KET}
+including,prep,,False,{KET}
+indoor,adj,,False,{KET}
+indoors,adv,,False,{KET}
+information,n,,False,"{KET,FLYERS}"
+in front of,prep,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+ingredient,n,,False,{KET}
+insect,n,,False,"{KET,FLYERS}"
+inside,adv,,False,"{KET,MOVERS,FLYERS}"
+instead,adv,,False,"{KET,FLYERS}"
+instead of,prep,,False,{KET}
+instructions,n,,False,{KET}
+instrument,n,,False,"{KET,FLYERS}"
+interested,adj,,False,"{KET,FLYERS}"
+interesting,adj,,False,"{KET,FLYERS}"
+international,adj,,False,{KET}
+internet,n,,False,"{KET,MOVERS,FLYERS}"
+into,prep,,False,"{KET,MOVERS,FLYERS}"
+invent,v,,False,"{KET,FLYERS}"
+invention,n,,False,{KET}
+invitation,n,,False,"{KET,FLYERS}"
+invite,v,,False,"{KET,MOVERS,FLYERS}"
+island,n,,False,"{KET,MOVERS,FLYERS}"
+it,pron,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+IT,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+its,det,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+itself,pron,,False,{KET}
+jacket,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+jam,n,fruit jam,False,"{KET,FLYERS}"
+January,n,,False,"{KET,FLYERS}"
+jazz,n,,False,{KET}
+jeans,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+jellyfish,n,,False,{KET}
+jewellery,n,(Br Eng) (Am Eng: jewelry),False,{KET}
+job,n,,False,"{KET,FLYERS}"
+join,v,,False,"{KET,FLYERS}"
+journalist,n,,False,"{KET,FLYERS}"
+journey,n,,False,"{KET,FLYERS}"
+juice,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+July,n,,False,"{KET,FLYERS}"
+jump,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+jumper,n,,False,{KET}
+June,n,,False,"{KET,FLYERS}"
+just,adv,I’ve just seen Tom.; Just a moment.,False,"{KET,FLYERS}"
+kangaroo,n,,False,"{KET,MOVERS,FLYERS}"
+keep,v,May I keep this?; Keep right!,False,"{KET,FLYERS}"
+key,n,This is the key to my house.; The answer key is at the back of the book.,False,"{KET,FLYERS}"
+keyboard,n,I play the keyboard in a band.; The keyboard for my computer is broken.,False,"{KET,STARTERS,MOVERS,FLYERS}"
+kick,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+kid,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+kids,n,,False,{KET}
+kilogramme,n,(kg) (Br Eng) (Am Eng: kilogram),False,{KET}
+kilometre,n,(km) (Br Eng) (Am Eng: kilometer),False,"{KET,FLYERS}"
+kind,n,That’s very kind of you.; What kind of book do you want?,False,"{KET,MOVERS,FLYERS}"
+king,n,,False,"{KET,FLYERS}"
+kiss,n,,False,{KET}
+kit,n,,False,{KET}
+kitchen,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+kite,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+kitten,n,,False,"{KET,MOVERS,FLYERS}"
+knife,n,,False,"{KET,FLYERS}"
+know,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+lake,n,,False,"{KET,MOVERS,FLYERS}"
+lamp,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+language,n,,False,"{KET,FLYERS}"
+laptop,n,(computer),False,"{KET,MOVERS,FLYERS}"
+large,adj,,False,"{KET,FLYERS}"
+last,adj,,False,"{KET,MOVERS,FLYERS}"
+late,adv,The train is going to be late. (adj),False,"{KET,FLYERS}"
+later,adv,I’ll see you later.,False,"{KET,FLYERS}"
+latest,adj,,False,{KET}
+laugh,v,,False,"{KET,MOVERS,FLYERS}"
+lazy,adj,,False,"{KET,FLYERS}"
+learn,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+least,adv,at least,False,{KET}
+leather,n,,False,{KET}
+leave,v,The train leaves at 10 o’clock.; I left my bag in the cinema.; There isn’t any milk left.,False,"{KET,FLYERS}"
+left,adj,Go to the left. (n); left hand (adj); Turn left. (adv),False,"{KET,FLYERS}"
+left-hand,adj,,False,{KET}
+leg,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+lemon,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+lemonade,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+lend,v,,False,{KET}
+length,n,The length of the lesson/journey was 50 minutes.; The length of the race was 100 metres.; Can you swim a length of the pool?,False,{KET}
+less,adj,,False,{KET}
+lesson,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+let,v,Let’s go to the beach.; Let me know when you arrive.; My parents let me go to the beach.,False,"{KET,FLYERS}"
+letter,n,Saturday begins with a capital letter.; I posted the letter to you on Friday.,False,"{KET,STARTERS,MOVERS,FLYERS}"
+level,n,language level,False,{KET}
+library,n,,False,"{KET,MOVERS,FLYERS}"
+licence,n,driving licence,False,{KET}
+lie down,phr v,,True,{KET}
+life,n,,False,{KET}
+lift,n,Take the lift to the third floor.; Can I give you a lift to the station?,False,"{KET,MOVERS,FLYERS}"
+light,n,,False,"{KET,FLYERS}"
+like,adv,What’s the weather like? (adv); It’s like an orange but bigger. (prep); I’d like a drink. (v),False,"{KET,STARTERS,MOVERS,FLYERS}"
+line,n,draw a line; the next line,False,"{KET,STARTERS,MOVERS,FLYERS}"
+link,n,Click on the link.; (technology),False,{KET}
+lion,n,,False,"{KET,MOVERS,FLYERS}"
+list,n,,False,{KET}
+listen,v,(to),False,"{KET,STARTERS,MOVERS,FLYERS}"
+litre,n,(Br Eng) (Am Eng: liter),False,{KET}
+little,adj,,False,"{KET,MOVERS,FLYERS}"
+live,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+living room,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+lizard,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+local,adj,,False,{KET}
+long,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+look,v,You look happy.; Don’t look now!,False,"{KET,STARTERS,MOVERS,FLYERS}"
+look after,phr v,,True,"{KET,FLYERS}"
+look at,phr v,,True,"{KET,STARTERS,MOVERS,FLYERS}"
+look for,phr v,,True,"{KET,MOVERS,FLYERS}"
+look out,phr v,Look out – it’s going to fall!,True,{KET}
+lorry,n,,False,{KET}
+lose,v,We lost the game.; I’ve lost my passport.,False,"{KET,MOVERS,FLYERS}"
+lost,adj,,False,{KET}
+lots,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+a lot,n,a lot of homework.,False,{KET}
+loud,adj,,False,"{KET,MOVERS,FLYERS}"
+love,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+lovely,adj,,False,"{KET,FLYERS}"
+low,adj,,False,"{KET,FLYERS}"
+luck,n,,False,{KET}
+luckily,adv,,False,{KET}
+lucky,adj,,False,"{KET,FLYERS}"
+luggage,n,,False,{KET}
+lunch,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+lunchtime,n,,False,{KET}
+machine,n,,False,"{KET,MOVERS,FLYERS}"
+mad,adj,,False,{KET}
+magazine,n,,False,"{KET,FLYERS}"
+mail,n,,False,{KET}
+main course,n,,False,{KET}
+make,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+make sure,v,(that),False,"{KET,FLYERS}"
+make-up,n,,False,{KET}
+man,n,,False,{KET}
+manager,n,,False,"{KET,FLYERS}"
+mango,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+many,det,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+map,n,,False,"{KET,MOVERS,FLYERS}"
+March,n,,False,"{KET,FLYERS}"
+mark,n,,False,{KET}
+market,n,,False,"{KET,MOVERS,FLYERS}"
+married,adj,,False,"{KET,FLYERS}"
+match,n,football match,False,"{KET,FLYERS}"
+maths,n,(Br Eng) (Am Eng: math),False,"{KET,FLYERS}"
+mathematics,n,(Br Eng) (Am Eng: math),False,{KET}
+matter,n,It doesn’t matter. (v); What’s the matter? (n),False,"{KET,MOVERS,FLYERS}"
+May,n,,False,"{KET,FLYERS}"
+may,mv,,False,"{KET,FLYERS}"
+maybe,adv,,False,{KET}
+me,pron,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+meal,n,,False,"{KET,FLYERS}"
+mean,v,,False,"{KET,MOVERS,FLYERS}"
+meat,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+mechanic,n,,False,"{KET,FLYERS}"
+medicine,n,,False,"{KET,FLYERS}"
+meet,v,,False,"{KET,FLYERS}"
+meeting,n,,False,"{KET,FLYERS}"
+melon,n,,False,{KET}
+member,n,a member of a club,False,"{KET,FLYERS}"
+memory,n,My computer has 100GB of memory.,False,{KET}
+menu,n,,False,{KET}
+message,n,,False,"{KET,MOVERS,FLYERS}"
+metal,n,,False,"{KET,FLYERS}"
+metre,n,(Br Eng) (Am Eng: meter),False,{KET}
+microphone,n,,False,{KET}
+midday,n,,False,"{KET,FLYERS}"
+middle,n,Bob’s the one in the middle of the photo.,False,"{KET,FLYERS}"
+midnight,n,,False,"{KET,FLYERS}"
+might,mv,,False,"{KET,FLYERS}"
+mile,n,,False,{KET}
+milk,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+million,n,,False,"{KET,FLYERS}"
+mind,v,Do you mind if I close the window?; I don’t mind if…; Never mind.; Mind your head!,False,"{KET,FLYERS}"
+mine,pron,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+mineral water,n,,False,{KET}
+minus,prep,,False,{KET}
+minute,n,,False,"{KET,FLYERS}"
+mirror,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+Miss,n,,False,{KET}
+miss,v,,False,{KET}
+missing,adj,,False,"{KET,FLYERS}"
+mistake,n,,False,"{KET,MOVERS,FLYERS}"
+mix,v,,False,"{KET,FLYERS}"
+mobile,n,(phone),False,{KET}
+model,n,,False,"{KET,MOVERS,FLYERS}"
+modern,adj,,False,{KET}
+mom,n,(Am Eng),False,{KET}
+moment,n,I’m in England at the moment.,False,{KET}
+Monday,n,,False,"{KET,MOVERS,FLYERS}"
+money,n,,False,"{KET,FLYERS}"
+monkey,n,,False,{KET}
+month,n,,False,"{KET,FLYERS}"
+monthly,adj,,False,{KET}
+moon,n,,False,"{KET,MOVERS,FLYERS}"
+more,adj,,False,"{KET,MOVERS,FLYERS}"
+morning,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+most,adj,,False,"{KET,MOVERS,FLYERS}"
+mother,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+motorbike,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+motorway,n,,False,"{KET,FLYERS}"
+mountain,n,,False,"{KET,MOVERS,FLYERS}"
+mouse,n,I got a new mouse for my laptop.; I’ve got a pet mouse.,False,{KET}
+mouth,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+move,v,,False,"{KET,MOVERS,FLYERS}"
+movie,n,(Am Eng) (Br Eng: film),False,"{KET,MOVERS,FLYERS}"
+movie star,n,(Am Eng) (Br Eng: film star),False,{KET}
+movie theater,n,(Am Eng) (Br Eng: cinema),False,{KET}
+Mr,n,,False,{KET}
+Mrs,n,,False,{KET}
+Ms,n,,False,{KET}
+much,adj,,False,"{KET,FLYERS}"
+mug,n,,False,{KET}
+mum,n,(Br Eng),False,{KET}
+museum,n,,False,"{KET,FLYERS}"
+mushroom,n,,False,{KET}
+music,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+musical,adj,,False,{KET}
+musician,n,,False,{KET}
+must,mv,,False,"{KET,MOVERS,FLYERS}"
+my,det,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+myself,pron,by myself,False,{KET}
+name,n,,False,{KET}
+national,adj,,False,{KET}
+nationality,n,,False,{KET}
+nature,n,,False,{KET}
+natural,adj,(NOT ARTIFICIAL),False,{KET}
+near,adv,,False,"{KET,MOVERS,FLYERS}"
+nearly,adv,,False,{KET}
+neck,n,,False,"{KET,MOVERS,FLYERS}"
+necklace,n,,False,"{KET,FLYERS}"
+need,v,,False,"{KET,MOVERS,FLYERS}"
+neighbour,n,,False,{KET}
+nervous,adj,,False,{KET}
+nest,n,,False,"{KET,FLYERS}"
+net,n,I found a great website on the net.,False,"{KET,MOVERS,FLYERS}"
+never,adv,,False,"{KET,MOVERS,FLYERS}"
+new,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+news,n,,False,"{KET,FLYERS}"
+newspaper,n,,False,"{KET,FLYERS}"
+next,adj,,False,"{KET,FLYERS}"
+next to,prep,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+nice,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+night,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+no,adv,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+nobody,pron,,False,{KET}
+noise,n,,False,"{KET,MOVERS,FLYERS}"
+noisy,adj,,False,"{KET,FLYERS}"
+noon,n,,False,{KET}
+no one,pron,,False,{KET}
+normal,adj,,False,{KET}
+north,n,,False,"{KET,FLYERS}"
+nose,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+not,adv,,False,{KET}
+note,n,The students took notes during the class.; She noted the name of the company.,False,{KET}
+notebook,n,,False,{KET}
+nothing,pron,,False,"{KET,MOVERS,FLYERS}"
+notice,n,,False,{KET}
+November,n,,False,"{KET,FLYERS}"
+now,adv,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+number,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+nurse,n,,False,"{KET,MOVERS,FLYERS}"
+ocean,n,,False,"{KET,FLYERS}"
+occupation,n,,False,{KET}
+October,n,,False,"{KET,FLYERS}"
+octopus,n,,False,"{KET,FLYERS}"
+o'clock,adv,,False,{KET}
+of,prep,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+of course,adv,(not),False,"{KET,FLYERS}"
+off,adv,,False,"{KET,MOVERS,FLYERS}"
+offer,n,,False,{KET}
+office,n,,False,"{KET,FLYERS}"
+often,adv,,False,"{KET,MOVERS,FLYERS}"
+oh,exclam,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+oh dear,exclam,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+oil,n,My car needs more oil.; cooking oil,False,{KET}
+OK,exclam,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+okay,exclam,,False,{KET}
+old,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+Olympic,adj,,False,{KET}
+omelette,n,,False,{KET}
+on,prep,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+once,adv,only once,False,"{KET,FLYERS}"
+one,det,,False,{KET}
+onion,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+online,adj,,False,"{KET,FLYERS}"
+only,adv,I only wanted to help.; the only one,False,{KET}
+open,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+opera,n,,False,{KET}
+opinion,n,,False,{KET}
+opposite,prep,,False,"{KET,MOVERS,FLYERS}"
+or,conj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+orange,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+order,n,We have received your order.; You order your meal from the waiter.,False,{KET}
+other,det,,False,"{KET,FLYERS}"
+our,det,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+ours,pron,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+ourselves,pron,,False,{KET}
+out,adv,,False,"{KET,MOVERS,FLYERS}"
+outdoor,adj,,False,{KET}
+outdoors,adv,,False,{KET}
+out of,prep,,False,"{KET,MOVERS,FLYERS}"
+outside,prep,,False,"{KET,MOVERS,FLYERS}"
+oven,n,,False,"{KET,FLYERS}"
+over,prep,over 60 people (adv); to travel all over the world (prep),False,"{KET,FLYERS}"
+own,adj,They cook their own meals.,False,{KET}
+pack,v,pack a suitcase,False,{KET}
+page,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+pain,n,,False,{KET}
+paint,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+painter,n,,False,{KET}
+painting,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+pale,adj,,False,{KET}
+pair,n,a pair of shoes,False,"{KET,MOVERS,FLYERS}"
+panda,n,,False,"{KET,MOVERS,FLYERS}"
+paper,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+paragraph,n,,False,{KET}
+pardon,exclam,Pardon?,False,"{KET,STARTERS,MOVERS,FLYERS}"
+parent,n,,False,"{KET,MOVERS,FLYERS}"
+park,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+parking lot,n,(Am Eng) (Br Eng: car park),False,{KET}
+parrot,n,,False,"{KET,MOVERS,FLYERS}"
+part,n,the best part of the day,False,"{KET,STARTERS,MOVERS,FLYERS}"
+partner,n,,False,{KET}
+party,n,,False,"{KET,MOVERS,FLYERS}"
+pass,v,You pass the station on the left.; to pass a driving test,False,{KET}
+passenger,n,,False,"{KET,FLYERS}"
+passport,n,,False,{KET}
+password,n,,False,{KET}
+past,prep,"In the past, people didn’t have laptops.; It’s quarter past twelve.",False,"{KET,FLYERS}"
+pasta,n,,False,"{KET,MOVERS,FLYERS}"
+path,n,,False,"{KET,FLYERS}"
+pay,v,,False,{KET}
+PC,n,(personal computer),False,{KET}
+pear,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+pen,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+pence,n,,False,{KET}
+pencil,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+pencil case,n,,False,{KET}
+penfriend,n,,False,{KET}
+penguin,n,,False,"{KET,MOVERS,FLYERS}"
+penny,n,,False,{KET}
+people,n,,False,{KET}
+pepper,n,,False,"{KET,FLYERS}"
+per,prep,,False,{KET}
+perfect,adj,,False,{KET}
+perform,v,(ENTERTAIN),False,{KET}
+performance,n,(ENTERTAINMENT),False,{KET}
+perfume,n,,False,{KET}
+perhaps,adv,,False,"{KET,FLYERS}"
+person,n,,False,{KET}
+pet,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+petrol,n,,False,{KET}
+petrol station,n,,False,{KET}
+pharmacy,n,,False,{KET}
+phone,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+photo,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+photograph,n,,False,{KET}
+photographer,n,,False,"{KET,FLYERS}"
+photography,n,,False,{KET}
+physics,n,,False,{KET}
+piano,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+pick up,phr v,,True,"{KET,STARTERS,MOVERS,FLYERS}"
+picnic,n,,False,"{KET,MOVERS,FLYERS}"
+picture,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+piece,n,a piece of cake,False,"{KET,FLYERS}"
+pillow,n,,False,{KET}
+pilot,n,,False,"{KET,FLYERS}"
+pink,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+pity,n,What a pity!,False,{KET}
+pizza,n,,False,"{KET,FLYERS}"
+place,n,a nice place for a picnic; Let’s meet at my place.; book a place on a course; to take place,False,"{KET,MOVERS,FLYERS}"
+plan,n,,False,{KET}
+plane,n,The plane was late.,False,"{KET,STARTERS,MOVERS,FLYERS}"
+plant,n,,False,"{KET,MOVERS,FLYERS}"
+plastic,n,,False,"{KET,FLYERS}"
+plate,n,,False,"{KET,MOVERS,FLYERS}"
+platform,n,Your train leaves from Platform 8.,False,"{KET,FLYERS}"
+play,v,to play football (v); to play the guitar (v); a play at the theatre (n),False,"{KET,STARTERS,MOVERS,FLYERS}"
+player,n,,False,"{KET,MOVERS,FLYERS}"
+playground,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+pleasant,adj,,False,{KET}
+please,v,I’m very pleased for you. (v); Please be quiet!,False,"{KET,STARTERS,MOVERS,FLYERS}"
+pleased,adj,,False,"{KET,FLYERS}"
+plus,prep,,False,{KET}
+p.m.,adv,,False,{KET}
+pocket,n,,False,"{KET,FLYERS}"
+point,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+polar bear,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+police,n,,False,{KET}
+police car,n,,False,{KET}
+police officer,n,,False,"{KET,FLYERS}"
+police station,n,,False,"{KET,FLYERS}"
+polite,adj,,False,{KET}
+pool,n,swimming pool,False,"{KET,MOVERS,FLYERS}"
+poor,adj,,False,"{KET,FLYERS}"
+poor thing,adj,,False,{KET}
+you,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+pop,n,pop music,False,{KET}
+popular,adj,,False,"{KET,FLYERS}"
+port,n,,False,{KET}
+possible,adj,,False,{KET}
+possibly,adv,,False,{KET}
+post,v,to post a letter; What’s in the post today?; to post something online,False,"{KET,FLYERS}"
+postcard,n,,False,"{KET,FLYERS}"
+poster,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+post office,n,,False,"{KET,FLYERS}"
+potato,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+pound,n,(£),False,{KET}
+practice,n,football practice; (Br Eng) (Am Eng: practise),False,"{KET,MOVERS,FLYERS}"
+practise,v,You must practise if you want to play well.,False,"{KET,MOVERS,FLYERS}"
+prefer,v,,False,"{KET,FLYERS}"
+would prefer,v,I prefer football to basketball.; I’d prefer to come with you.,False,{KET}
+prepare,v,,False,"{KET,FLYERS}"
+present,n,a birthday present,False,"{KET,MOVERS,FLYERS}"
+pretty,adj,,False,"{KET,MOVERS,FLYERS}"
+price,n,,False,{KET}
+print,v,,False,{KET}
+printer,n,,False,{KET}
+prize,n,,False,"{KET,FLYERS}"
+probably,adv,,False,{KET}
+problem,n,,False,"{KET,FLYERS}"
+program,n,a computer program,False,{KET}
+programme,n,a TV programme,False,"{KET,FLYERS}"
+project,n,a school project,False,"{KET,FLYERS}"
+pull,v,,False,"{KET,FLYERS}"
+pupil,n,,False,{KET}
+puppy,n,,False,"{KET,MOVERS,FLYERS}"
+purple,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+purse,n,,False,{KET}
+push,v,,False,"{KET,FLYERS}"
+put,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+put on,phr v,,True,"{KET,MOVERS,FLYERS}"
+puzzle,n,,False,"{KET,FLYERS}"
+quarter,n,a quarter of an hour; quarter to/past seven,False,"{KET,FLYERS}"
+queen,n,,False,"{KET,FLYERS}"
+question,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+quick,adj,,False,"{KET,MOVERS,FLYERS}"
+quickly,adv,,False,"{KET,MOVERS,FLYERS}"
+quiet,adj,Please be quiet!; The restaurant was quiet last night.,False,"{KET,MOVERS,FLYERS}"
+quite,adv,Are you quite sure?; quite old,False,"{KET,FLYERS}"
+quiz,n,,False,"{KET,FLYERS}"
+rabbit,n,,False,"{KET,MOVERS,FLYERS}"
+race,n,a running race (n); She raced her brother to the bus stop. (v),False,"{KET,FLYERS}"
+racket,n,Can I borrow your tennis racket?,False,{KET}
+radio,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+railway,n,(station),False,"{KET,FLYERS}"
+rain,n,,False,"{KET,MOVERS,FLYERS}"
+raincoat,n,,False,{KET}
+rainforest,n,,False,{KET}
+rap,n,rap music,False,{KET}
+read,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+reading,n,,False,{KET}
+ready,adj,When will it be ready?,False,"{KET,FLYERS}"
+real,adj,,False,{KET}
+really,adv,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+reason,n,,False,{KET}
+receipt,n,,False,{KET}
+receive,v,,False,{KET}
+recently,adv,,False,{KET}
+receptionist,n,,False,{KET}
+recipe,n,,False,{KET}
+record,v,T hey’re recording a new album.,False,{KET}
+red,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+refrigerator,n,,False,{KET}
+relax,v,(become happy),False,{KET}
+relaxing,adj,,False,{KET}
+remember,v,,False,"{KET,FLYERS}"
+rent,v,,False,{KET}
+repair,v,,False,"{KET,FLYERS}"
+repeat,v,,False,"{KET,FLYERS}"
+rest,n,"to have a rest (n); ‘Try to rest,’ the doctor said. (v); the rest of the day (n)",False,{KET}
+restaurant,n,,False,"{KET,FLYERS}"
+return,n,my return from holiday (n); He returned home late. (v); She returned her library books. (v),False,{KET}
+review,n,,False,{KET}
+rice,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+rich,adj,,False,"{KET,FLYERS}"
+ride,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+riding,n,,False,{KET}
+right,n,He swam to the right. (n); your right hand (adj); That’s the right answer. (adj); Turn right here. (adv),False,"{KET,STARTERS,MOVERS,FLYERS}"
+right hand,adj,,False,{KET}
+river,n,,False,"{KET,MOVERS,FLYERS}"
+road,n,,False,"{KET,MOVERS,FLYERS}"
+roast,v,,False,{KET}
+rock,n,rock concert,False,"{KET,MOVERS,FLYERS}"
+roof,n,,False,"{KET,MOVERS,FLYERS}"
+room,n,a double room,False,"{KET,STARTERS,MOVERS,FLYERS}"
+round,adj,,False,"{KET,MOVERS,FLYERS}"
+roundabout,n,,False,{KET}
+rubber,n,,False,{KET}
+rubbish,n,Can you throw the rubbish in the bin?,False,{KET}
+rugby,n,,False,{KET}
+ruler,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+run,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+runner,n,,False,{KET}
+running,n,,False,{KET}
+sad,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+safe,adj,,False,"{KET,MOVERS,FLYERS}"
+sail,v,,False,"{KET,MOVERS,FLYERS}"
+sailing,n,,False,{KET}
+salad,n,,False,"{KET,MOVERS,FLYERS}"
+sale,n,for sale; I bought it in the sale.,False,{KET}
+salt,n,,False,"{KET,FLYERS}"
+same,adj,at the same time (adj); Your watch is the same as mine. (pron),False,"{KET,FLYERS}"
+sandwich,n,,False,"{KET,MOVERS,FLYERS}"
+Saturday,n,,False,"{KET,MOVERS,FLYERS}"
+sauce,n,,False,"{KET,MOVERS,FLYERS}"
+sausage,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+save,v,to save money; to save time,False,"{KET,FLYERS}"
+say,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+scared,adj,,False,{KET}
+scarf,n,,False,"{KET,MOVERS,FLYERS}"
+scary,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+school,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+schoolchild,n,,False,{KET}
+science,n,,False,"{KET,FLYERS}"
+scientist,n,,False,{KET}
+scissors,n,,False,"{KET,FLYERS}"
+scooter,n,,False,{KET}
+score,n,,False,"{KET,MOVERS,FLYERS}"
+screen,n,,False,"{KET,FLYERS}"
+sea,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+season,n,,False,{KET}
+seat,n,,False,"{KET,MOVERS,FLYERS}"
+second,adj,,False,"{KET,MOVERS,FLYERS}"
+secretary,n,,False,{KET}
+see,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+seem,v,She seems happy.; It seemed like a good idea.,False,{KET}
+selfie,n,,False,{KET}
+sell,v,,False,"{KET,FLYERS}"
+send,v,,False,"{KET,MOVERS,FLYERS}"
+sentence,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+September,n,,False,"{KET,FLYERS}"
+serious,adj,She is a very serious person.,False,{KET}
+serve,v,,False,{KET}
+set,n,,False,{KET}
+several,det,,False,"{KET,FLYERS}"
+shall,mv,,False,"{KET,MOVERS,FLYERS}"
+shame,n,What a shame!,False,{KET}
+shampoo,n,,False,"{KET,FLYERS}"
+share,v,Bob and Sam share an office.; Will you share your sandwich with me?,False,{KET}
+shark,n,,False,"{KET,MOVERS,FLYERS}"
+she,pron,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+sheep,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+sheet,n,a bed sheet; a sheet of paper,False,{KET}
+shelf,n,,False,"{KET,FLYERS}"
+ship,n,,False,{KET}
+shirt,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+shoe,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+shop,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+shop assistant,n,,False,{KET}
+shopper,n,,False,{KET}
+shopping,n,Let’s go shopping tomorrow.,False,"{KET,MOVERS,FLYERS}"
+shopping centre,n,,False,"{KET,MOVERS,FLYERS}"
+short,adj,a short time,False,"{KET,STARTERS,MOVERS,FLYERS}"
+shorts,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+should,mv,,False,"{KET,FLYERS}"
+shout,v,,False,"{KET,MOVERS,FLYERS}"
+show,v,Show me your photos. (v); a film show (n); show somebody round (v),False,"{KET,STARTERS,MOVERS,FLYERS}"
+shower,n,,False,"{KET,MOVERS,FLYERS}"
+shut,v,,False,{KET}
+shy,adj,,False,{KET}
+sick,adj,,False,"{KET,MOVERS,FLYERS}"
+side,n,this side of the room,False,{KET}
+sightseeing,n,,False,{KET}
+sign,n,,False,{KET}
+silver,n,,False,"{KET,FLYERS}"
+similar,adj,,False,{KET}
+simple,adj,,False,{KET}
+since,prep,,False,"{KET,FLYERS}"
+sing,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+singer,n,,False,"{KET,FLYERS}"
+singing,n,,False,{KET}
+single,adj,,False,{KET}
+sink,n,,False,{KET}
+sister,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+sit,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+sit down,phr v,,True,{KET}
+site,n,internet site,False,{KET}
+sitting room,n,,False,{KET}
+size,n,,False,{KET}
+skate,v,,False,"{KET,MOVERS,FLYERS}"
+skateboard,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+skateboarding,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+skating,n,,False,{KET}
+ski,v,,False,"{KET,FLYERS}"
+skiing,n,,False,{KET}
+skirt,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+sky,n,,False,"{KET,MOVERS,FLYERS}"
+sleep,v,,False,{KET}
+slice,n,,False,{KET}
+slim,adj,,False,{KET}
+slow,adj,,False,"{KET,MOVERS,FLYERS}"
+slowly,adv,,False,"{KET,MOVERS,FLYERS}"
+small,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+smart,adj,(stylish),False,{KET}
+smoke,v,,False,{KET}
+smoking,n,,False,{KET}
+snack,n,,False,"{KET,FLYERS}"
+snail,n,,False,"{KET,MOVERS,FLYERS}"
+snake,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+snow,n,,False,"{KET,MOVERS,FLYERS}"
+snowboard,n,,False,"{KET,FLYERS}"
+snowboarding,n,,False,"{KET,FLYERS}"
+so,conj,"So, I think it’s right. (conj); He ate too much, so he felt ill. (conj); He wanted to go but he didn’t say so. (adv)",False,"{KET,STARTERS,MOVERS,FLYERS}"
+soap,n,,False,"{KET,FLYERS}"
+soccer,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+social media,n,,False,{KET}
+sock,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+sofa,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+soft,adj,,False,"{KET,FLYERS}"
+software,n,,False,{KET}
+some,det,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+somebody,pron,,False,{KET}
+someone,pron,,False,"{KET,MOVERS,FLYERS}"
+something,pron,,False,"{KET,MOVERS,FLYERS}"
+sometimes,adv,,False,"{KET,MOVERS,FLYERS}"
+somewhere,adv,,False,"{KET,FLYERS}"
+son,n,,False,"{KET,MOVERS,FLYERS}"
+song,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+soon,adv,,False,"{KET,FLYERS}"
+sorry,adj,"I’m sorry I’m late.; Sorry, I don’t understand that.; Sorry to hear you’re not we ll.",False,"{KET,STARTERS,MOVERS,FLYERS}"
+sort,n,,False,{KET}
+sound,v,"That sounds nice.; To sound good/interesting/strange, etc.",False,"{KET,FLYERS}"
+soup,n,,False,"{KET,MOVERS,FLYERS}"
+south,n,,False,"{KET,FLYERS}"
+space,n,,False,"{KET,FLYERS}"
+spare,adj,I read a lot in my spare time.,False,{KET}
+speak,v,,False,"{KET,FLYERS}"
+speaker,n,,False,{KET}
+special,adj,,False,"{KET,FLYERS}"
+spell,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+spelling,n,,False,{KET}
+spend,v,Let’s spend the weekend at the beach.; He spends a lot of money on clothes.,False,"{KET,FLYERS}"
+spider,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+spoon,n,,False,"{KET,FLYERS}"
+sport,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+sports centre,n,,False,"{KET,MOVERS,FLYERS}"
+spring,n,I hate winter but I love spring.,False,"{KET,FLYERS}"
+square,n,,False,"{KET,MOVERS,FLYERS}"
+stadium,n,,False,"{KET,FLYERS}"
+staff,n,,False,{KET}
+stage,n,,False,"{KET,FLYERS}"
+stairs,n,,False,{KET}
+stamp,n,Put a stamp on the envelope.,False,"{KET,FLYERS}"
+stand,v,She was standing at the bus stop.,False,"{KET,STARTERS,MOVERS,FLYERS}"
+star,n,,False,"{KET,MOVERS,FLYERS}"
+start,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+station,n,,False,"{KET,MOVERS,FLYERS}"
+stay,v,I can’t stay long.; I stayed in New York for 10 days.; The shop stays open late.,False,"{KET,FLYERS}"
+steak,n,,False,{KET}
+steal,v,Someone’s stolen my bag!,False,{KET}
+still,adv,,False,"{KET,FLYERS}"
+stomach,n,,False,"{KET,MOVERS,FLYERS}"
+stomach ache,n,,False,{KET}
+stop,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+store,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+storm,n,,False,"{KET,FLYERS}"
+story,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+straight,adj,a straight line (adj); Go straight on. (adv),False,"{KET,MOVERS,FLYERS}"
+strange,adj,That’s a strange story!,False,"{KET,FLYERS}"
+strawberry,n,,False,"{KET,FLYERS}"
+street,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+striped,adj,,False,"{KET,FLYERS}"
+stripes,n,,False,{KET}
+strong,adj,,False,"{KET,MOVERS,FLYERS}"
+student,n,,False,"{KET,FLYERS}"
+studies,n,,False,{KET}
+study,v,,False,"{KET,FLYERS}"
+stuff,n,That’s where I keep all my stuff.,False,{KET}
+subject,n,What’s your favourite subject at school?; the subject of a talk,False,"{KET,FLYERS}"
+success,n,,False,{KET}
+successful,adj,,False,{KET}
+such,det,,False,"{KET,FLYERS}"
+suddenly,adv,,False,"{KET,FLYERS}"
+sugar,n,,False,"{KET,FLYERS}"
+suggest,v,I suggest having the meeting in the office.,False,{KET}
+suit,n,He was wearing a grey suit.,False,{KET}
+suitcase,n,,False,"{KET,FLYERS}"
+summer,n,,False,"{KET,FLYERS}"
+sun,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+Sunday,n,,False,"{KET,MOVERS,FLYERS}"
+sunglasses,n,,False,"{KET,FLYERS}"
+sunny,adj,,False,"{KET,MOVERS,FLYERS}"
+supermarket,n,,False,"{KET,MOVERS,FLYERS}"
+supper,n,,False,{KET}
+suppose,v,I suppose so.; I suppose you’re right.,False,{KET}
+sure,adj,I’m (not) sure.,False,"{KET,FLYERS}"
+surf,v,I like surfing (on) the internet.,False,{KET}
+surfboard,n,,False,{KET}
+surfboarding,n,,False,{KET}
+surfing,n,,False,{KET}
+surname,n,,False,"{KET,FLYERS}"
+surprise,n,,False,"{KET,FLYERS}"
+surprised,adj,,False,"{KET,MOVERS,FLYERS}"
+surprising,adj,,False,{KET}
+swan,n,,False,"{KET,FLYERS}"
+sweater,n,,False,"{KET,MOVERS,FLYERS}"
+sweet,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+swim,v,I swim in the college team.; I’d like to have a swim in the lake.,False,"{KET,STARTERS,MOVERS,FLYERS}"
+swimming,n,,False,{KET}
+swimming costume,n,(Br Eng) (Am Eng: bathing suit),False,{KET}
+swimming pool,n,,False,"{KET,MOVERS,FLYERS}"
+swimsuit,n,,False,"{KET,MOVERS,FLYERS}"
+table,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+table tennis,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+tablet,n,You can take notes using your tablet.,False,"{KET,STARTERS,MOVERS,FLYERS}"
+tail,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+take,v,I’ll take it to your room.; It takes three hours.,False,"{KET,MOVERS,FLYERS}"
+take off,phr v,She took off her shoes.,True,"{KET,MOVERS,FLYERS}"
+take part,v,,False,{KET}
+talk,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+tall,adj,,False,"{KET,MOVERS,FLYERS}"
+tasty,adj,,False,{KET}
+taxi,n,,False,"{KET,FLYERS}"
+tea,n,,False,"{KET,MOVERS,FLYERS}"
+teach,v,,False,"{KET,MOVERS,FLYERS}"
+teacher,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+team,n,,False,"{KET,FLYERS}"
+technology,n,,False,{KET}
+teenager,n,,False,{KET}
+telephone,n,,False,"{KET,FLYERS}"
+television,n,(TV),False,{KET}
+tell,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+temperature,n,The temperature was below zero.,False,"{KET,MOVERS,FLYERS}"
+tennis,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+tennis player,n,,False,{KET}
+tent,n,,False,"{KET,FLYERS}"
+term,n,,False,{KET}
+terrible,adj,,False,"{KET,MOVERS,FLYERS}"
+test,n,,False,{KET}
+text,n,,False,"{KET,MOVERS,FLYERS}"
+textbook,n,,False,{KET}
+text message,n,,False,{KET}
+than,prep,,False,"{KET,MOVERS,FLYERS}"
+thank,v,,False,"{KET,FLYERS}"
+thanks,exclam,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+thank you,exclam,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+that,conj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+the,det,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+theatre,n,(Br Eng) (Am Eng: theater),False,"{KET,FLYERS}"
+their,det,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+theirs,pron,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+them,pron,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+themselves,pron,,False,{KET}
+then,adv,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+there,adv,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+these,det,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+they,pron,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+thin,adj,,False,"{KET,MOVERS,FLYERS}"
+thing,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+think,v,,False,"{KET,MOVERS,FLYERS}"
+thirsty,adj,,False,"{KET,MOVERS,FLYERS}"
+this,det,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+those,det,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+through,prep,,False,"{KET,FLYERS}"
+throw,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+thunderstorm,n,,False,{KET}
+Thursday,n,,False,"{KET,MOVERS,FLYERS}"
+ticket,n,,False,"{KET,MOVERS,FLYERS}"
+tidy,adj,,False,"{KET,FLYERS}"
+tidy up,v,,False,{KET}
+tie,n,,False,{KET}
+tiger,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+tights,n,,False,{KET}
+till,prep,,False,{KET}
+time,n,,False,"{KET,FLYERS}"
+timetable,n,,False,"{KET,FLYERS}"
+tired,adj,,False,"{KET,MOVERS,FLYERS}"
+title,n,,False,{KET}
+to,prep,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+toast,n,,False,{KET}
+today,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+toe,n,,False,"{KET,FLYERS}"
+together,adv,,False,"{KET,FLYERS}"
+toilet,n,,False,{KET}
+tomato,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+tomorrow,n,,False,"{KET,FLYERS}"
+tonight,n,,False,{KET}
+tortoise,n,,False,"{KET,FLYERS}"
+too,adv,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+tooth,n,,False,{KET}
+toothache,n,,False,"{KET,MOVERS,FLYERS}"
+toothbrush,n,,False,"{KET,MOVERS,FLYERS}"
+top,n,the top of the page,False,"{KET,MOVERS,FLYERS}"
+topic,n,,False,{KET}
+total,n,,False,{KET}
+tour,n,The band are on tour this month.,False,"{KET,FLYERS}"
+tour guide,n,,False,{KET}
+tourist,n,,False,{KET}
+tourist information centre,n,,False,{KET}
+towel,n,,False,"{KET,MOVERS,FLYERS}"
+town,n,,False,"{KET,MOVERS,FLYERS}"
+toy,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+traffic,n,,False,"{KET,FLYERS}"
+traffic light,n,,False,{KET}
+train,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+training,n,sport; (transitive and intransitive),False,{KET}
+trainer,n,a pair of trainers,False,{KET}
+tram,n,,False,{KET}
+transport,n,,False,{KET}
+travel,v,,False,"{KET,MOVERS,FLYERS}"
+tree,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+trip,n,,False,"{KET,MOVERS,FLYERS}"
+trouble,n,,False,{KET}
+trousers,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+true,adj,,False,{KET}
+try,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+try on,phr v,,True,{KET}
+T-shirt,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+Tuesday,n,,False,"{KET,MOVERS,FLYERS}"
+tune,n,(music),False,"{KET,FLYERS}"
+turn,v,,False,"{KET,FLYERS}"
+turn off,phr v,Turn the TV off.,True,"{KET,FLYERS}"
+turn on,phr v,Turn the heating on.,True,"{KET,FLYERS}"
+twice,adv,,False,"{KET,FLYERS}"
+type,n,,False,{KET}
+tyre,n,(Am Eng: tire),False,"{KET,FLYERS}"
+umbrella,n,,False,"{KET,FLYERS}"
+uncle,n,,False,"{KET,MOVERS,FLYERS}"
+under,prep,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+underground,n,,False,{KET}
+understand,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+unfortunately,adj,,False,{KET}
+unhappy,n,,False,"{KET,FLYERS}"
+uniform,n,,False,"{KET,FLYERS}"
+university,n,,False,"{KET,FLYERS}"
+until,prep,,False,"{KET,FLYERS}"
+unusual,adj,,False,"{KET,FLYERS}"
+up,prep,,False,"{KET,MOVERS,FLYERS}"
+upload,v,,False,{KET}
+upset,adj,,False,{KET}
+upstairs,adv,,False,"{KET,MOVERS,FLYERS}"
+us,pron,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+use,v,,False,"{KET,FLYERS}"
+useful,adj,,False,{KET}
+usual,adj,,False,{KET}
+usually,adv,,False,"{KET,FLYERS}"
+v,prep,,False,{KET}
+versus,prep,Manchester United v Liverpool,False,{KET}
+variety,n,,False,{KET}
+various,adj,,False,{KET}
+vegetable,n,,False,"{KET,MOVERS,FLYERS}"
+very,adv,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+video,n,,False,"{KET,MOVERS,FLYERS}"
+video game,n,,False,{KET}
+view,n,,False,"{KET,FLYERS}"
+village,n,,False,"{KET,MOVERS,FLYERS}"
+violin,n,,False,"{KET,FLYERS}"
+visit,v,,False,"{KET,FLYERS}"
+visitor,n,,False,{KET}
+vocabulary,n,,False,{KET}
+volleyball,n,,False,"{KET,FLYERS}"
+wait,v,,False,"{KET,MOVERS,FLYERS}"
+waiter,n,,False,"{KET,FLYERS}"
+waitress,n,,False,{KET}
+wake,v,,False,"{KET,MOVERS,FLYERS}"
+wake up,phr v,,True,{KET}
+walk,v,I often go for a walk in the evening.,False,"{KET,STARTERS,MOVERS,FLYERS}"
+walking,n,,False,{KET}
+wall,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+wallet,n,,False,{KET}
+want,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+wardrobe,n,,False,{KET}
+warm,adj,,False,"{KET,FLYERS}"
+wash,v,,False,"{KET,MOVERS,FLYERS}"
+washing machine,n,,False,{KET}
+washing-up,n,,False,{KET}
+wash up,phr v,,True,{KET}
+watch,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+water,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+way,n,Do it this way.; one-way street; Is this the quickest way home?; by the way (prep phr),False,"{KET,FLYERS}"
+we,pron,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+wear,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+weather,n,,False,"{KET,MOVERS,FLYERS}"
+web,n,,False,{KET}
+web page,n,,False,{KET}
+website,n,,False,"{KET,MOVERS,FLYERS}"
+Wednesday,n,,False,"{KET,MOVERS,FLYERS}"
+week,n,,False,"{KET,MOVERS,FLYERS}"
+weekday,n,,False,{KET}
+weekend,n,,False,"{KET,MOVERS,FLYERS}"
+weekly,adj,,False,{KET}
+welcome,adj,You’re welcome (adj); Welcome to London! (exclam),False,{KET}
+well,adv,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+well known,adj,,False,{KET}
+west,n,,False,"{KET,FLYERS}"
+wet,adj,,False,"{KET,MOVERS,FLYERS}"
+whale,n,,False,"{KET,MOVERS,FLYERS}"
+what,det,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+wheel,n,,False,"{KET,FLYERS}"
+when,adv,,False,"{KET,MOVERS,FLYERS}"
+where,adv,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+which,det,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+while,conj,,False,"{KET,FLYERS}"
+white,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+who,pron,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+whole,n,the whole world (adj); the whole of July (n),False,{KET}
+whose,det,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+why,adv,,False,"{KET,MOVERS,FLYERS}"
+wide,adj,,False,{KET}
+wife,n,,False,"{KET,FLYERS}"
+wifi,n,,False,"{KET,FLYERS}"
+wild,adj,wild animals,False,"{KET,FLYERS}"
+wildlife,n,,False,{KET}
+will,mv,('ll),False,"{KET,FLYERS}"
+win,v,,False,"{KET,FLYERS}"
+wind,n,,False,"{KET,MOVERS,FLYERS}"
+window,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+windsurfing,n,,False,{KET}
+windy,adj,,False,"{KET,MOVERS,FLYERS}"
+wing,n,,False,"{KET,FLYERS}"
+winner,n,,False,"{KET,FLYERS}"
+winter,n,,False,"{KET,FLYERS}"
+wish,n,Best wishes,False,"{KET,FLYERS}"
+with,prep,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+without,prep,,False,"{KET,FLYERS}"
+woman,n,,False,{KET}
+wonderful,adj,,False,"{KET,FLYERS}"
+wood,n,,False,"{KET,FLYERS}"
+wooden,adj,,False,{KET}
+wool,n,,False,"{KET,FLYERS}"
+word,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+work,n,,False,"{KET,MOVERS,FLYERS}"
+work out,phr v,exercise,True,{KET}
+worker,n,,False,{KET}
+working hours,n,,False,{KET}
+world,n,,False,"{KET,MOVERS,FLYERS}"
+worried,adj,,False,"{KET,FLYERS}"
+worry,v,,False,{KET}
+worse,adj,,False,"{KET,MOVERS,FLYERS}"
+worst,adj,,False,"{KET,MOVERS,FLYERS}"
+would,mv,,False,"{KET,MOVERS,FLYERS}"
+wow,exclam,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+write,v,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+write down,phr v,,True,{KET}
+writer,n,,False,{KET}
+writing,n,,False,{KET}
+wrong,adj,,False,"{KET,MOVERS,FLYERS}"
+Yeah,exclam,,False,{KET}
+year,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+yellow,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+yes,adv,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+yesterday,adv,,False,"{KET,MOVERS,FLYERS}"
+yet,adv,Has he arrived yet?,False,"{KET,FLYERS}"
+yogurt,n,,False,{KET}
+yoghurt,n,,False,"{KET,FLYERS}"
+young,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+your,det,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+yours,pron,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+yourself,pron,,False,{KET}
+zebra,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+zero,n,,False,"{KET,FLYERS}"
+zoo,n,,False,"{KET,STARTERS,MOVERS,FLYERS}"
