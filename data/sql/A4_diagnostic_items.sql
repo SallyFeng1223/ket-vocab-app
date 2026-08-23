@@ -2,6 +2,7 @@
 -- A4 診斷抽樣 80 字 — L0（英→中四選一）題目
 -- 分層：Starters 15 / Movers 30 / KET-only 高頻具體 20 / KET-only 低頻抽象 15
 -- word_id 用 headword 對照 words 表查出，不需預先知道 UUID
+-- 已排除不適合 L0 四選一的字（過短/縮寫/虛詞），改抽同層級的實詞
 -- ============================================================
 
 insert into items (word_id, skill, prompt, answer, payload, status, qa_checked, content_version)
@@ -16,7 +17,7 @@ join (values
   ('grandpa', '{"distractors_zh": ["曲調", "名人", "麻煩"]}'),
   ('beautiful', '{"distractors_zh": ["更糟的", "成功的", "年輕的"]}'),
   ('guitar', '{"distractors_zh": ["顏色", "電車", "密碼"]}'),
-  ('some', '{"distractors_zh": ["每個", "一個", "那些"]}'),
+  ('rice', '{"distractors_zh": ["草莓", "網頁", "毛皮"]}'),
   ('sofa', '{"distractors_zh": ["同事", "襯衫", "果醬"]}'),
   ('pink', '{"distractors_zh": ["受歡迎的", "不尋常的", "你真可憐"]}'),
   ('wear', '{"distractors_zh": ["結束", "嘗試", "完成"]}'),
@@ -33,7 +34,7 @@ join (values
   ('terrible', '{"distractors_zh": ["友善的", "有霧的", "大聲的"]}'),
   ('difference', '{"distractors_zh": ["水母", "工作", "桌遊"]}'),
   ('swimming pool', '{"distractors_zh": ["小提琴", "信用卡", "紅綠燈"]}'),
-  ('up', '{"distractors_zh": ["穿過", "進入", "自從"]}'),
+  ('puppy', '{"distractors_zh": ["鴨子", "蜂蜜", "帳篷"]}'),
   ('Friday', '{"distractors_zh": ["救護車", "一點點", "工程師"]}'),
   ('temperature', '{"distractors_zh": ["臥室", "領帶", "刷子"]}'),
   ('sports centre', '{"distractors_zh": ["網際網路", "太陽眼鏡", "銀、銀色"]}'),
@@ -45,7 +46,7 @@ join (values
   ('coffee', '{"distractors_zh": ["手套", "時間", "背包"]}'),
   ('brilliant', '{"distractors_zh": ["遺失的、不見的", "難過的、不安的", "愉快的、宜人的"]}'),
   ('busy', '{"distractors_zh": ["成功的", "獨自的", "健康的"]}'),
-  ('have to', '{"distractors_zh": ["將會", "將要（提議）", "不能、不可以"]}'),
+  ('catch', '{"distractors_zh": ["參加；進入", "想念；錯過", "完成、結束"]}'),
   ('map', '{"distractors_zh": ["毯子", "河流", "商人"]}'),
   ('build', '{"distractors_zh": ["邀請", "嘗試", "修理"]}'),
   ('bus station', '{"distractors_zh": ["牛、母牛", "傢伙、人", "個人電腦"]}'),
@@ -60,7 +61,7 @@ join (values
   ('refrigerator', '{"distractors_zh": ["鯨魚", "鱷魚", "名人"]}'),
   ('hoodie', '{"distractors_zh": ["自助餐廳", "公車總站", "檸檬汽水"]}'),
   ('lorry', '{"distractors_zh": ["棒球", "七月", "浴缸"]}'),
-  ('PC', '{"distractors_zh": ["身分證明", "詳細資料", "網球選手"]}'),
+  ('department store', '{"distractors_zh": ["藥；醫學", "不快樂的", "家庭主婦"]}'),
   ('thunderstorm', '{"distractors_zh": ["領帶", "攝影", "親吻"]}'),
   ('tennis player', '{"distractors_zh": ["資訊科技", "頁面、頁", "自助餐廳"]}'),
   ('assistant', '{"distractors_zh": ["訂單、點餐", "點子、想法", "轉角、角落"]}'),
@@ -73,11 +74,11 @@ join (values
   ('television', '{"distractors_zh": ["英鎊", "便士", "咖哩"]}'),
   ('harbour', '{"distractors_zh": ["姓氏", "短褲", "樂團"]}'),
   ('kids', '{"distractors_zh": ["教科書", "垃圾桶", "市中心"]}'),
-  ('v', '{"distractors_zh": ["在（時間、地點）", "因為、由於", "從……出來"]}'),
+  ('bring back', '{"distractors_zh": ["寄送、傳送", "參加；進入", "錄音、錄製"]}'),
   ('pity', '{"distractors_zh": ["祝福、願望", "樂器；儀器", "滑鼠；老鼠"]}'),
   ('pay', '{"distractors_zh": ["等待", "回來", "記得"]}'),
   ('cost', '{"distractors_zh": ["滑鼠；老鼠", "提供、提議", "運動；練習"]}'),
-  ('Mr', '{"distractors_zh": ["帽子（鴨舌帽）", "……太太（稱謂）", "騎腳踏車（運動）"]}'),
+  ('writing', '{"distractors_zh": ["文章", "感冒", "現金"]}'),
   ('immediately', '{"distractors_zh": ["至少", "然後", "通常"]}'),
   ('cooking', '{"distractors_zh": ["耳朵", "信封", "網頁"]}'),
   ('fill', '{"distractors_zh": ["嘗試", "擔心", "攀爬"]}'),

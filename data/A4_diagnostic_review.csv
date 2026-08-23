@@ -7,7 +7,7 @@
 6,STARTERS,grandpa,n,爺爺,曲調,名人,麻煩
 7,STARTERS,beautiful,adj,美麗的,更糟的,成功的,年輕的
 8,STARTERS,guitar,n,吉他,顏色,電車,密碼
-9,STARTERS,some,det,一些,每個,一個,那些
+9,STARTERS,rice,n,米飯,草莓,網頁,毛皮
 10,STARTERS,sofa,n,沙發,同事,襯衫,果醬
 11,STARTERS,pink,adj,粉紅色的,受歡迎的,不尋常的,你真可憐
 12,STARTERS,wear,v,穿、戴,結束,嘗試,完成
@@ -24,7 +24,7 @@
 23,MOVERS,terrible,adj,糟糕的,友善的,有霧的,大聲的
 24,MOVERS,difference,n,差異,水母,工作,桌遊
 25,MOVERS,swimming pool,n,游泳池,小提琴,信用卡,紅綠燈
-26,MOVERS,up,prep,向上,穿過,進入,自從
+26,MOVERS,puppy,n,小狗,鴨子,蜂蜜,帳篷
 27,MOVERS,Friday,n,星期五,救護車,一點點,工程師
 28,MOVERS,temperature,n,溫度,臥室,領帶,刷子
 29,MOVERS,sports centre,n,運動中心,網際網路,太陽眼鏡,銀、銀色
@@ -36,7 +36,7 @@
 35,MOVERS,coffee,n,咖啡,手套,時間,背包
 36,MOVERS,brilliant,adj,很棒的、傑出的,遺失的、不見的,難過的、不安的,愉快的、宜人的
 37,MOVERS,busy,adj,忙碌的,成功的,獨自的,健康的
-38,MOVERS,have to,mv,必須,將會,將要（提議）,不能、不可以
+38,MOVERS,catch,v,抓住、接住,參加；進入,想念；錯過,完成、結束
 39,MOVERS,map,n,地圖,毯子,河流,商人
 40,MOVERS,build,v,建造,邀請,嘗試,修理
 41,MOVERS,bus station,n,公車總站,牛、母牛,傢伙、人,個人電腦
@@ -51,7 +51,7 @@
 50,KET_HIGH,refrigerator,n,冰箱,鯨魚,鱷魚,名人
 51,KET_HIGH,hoodie,n,連帽外套,自助餐廳,公車總站,檸檬汽水
 52,KET_HIGH,lorry,n,卡車,棒球,七月,浴缸
-53,KET_HIGH,PC,n,個人電腦,身分證明,詳細資料,網球選手
+53,KET_HIGH,department store,n,百貨公司,藥；醫學,不快樂的,家庭主婦
 54,KET_HIGH,thunderstorm,n,雷雨,領帶,攝影,親吻
 55,KET_HIGH,tennis player,n,網球選手,資訊科技,頁面、頁,自助餐廳
 56,KET_HIGH,assistant,n,助理、店員,訂單、點餐,點子、想法,轉角、角落
@@ -64,11 +64,11 @@
 63,KET_HIGH,television,n,電視,英鎊,便士,咖哩
 64,KET_HIGH,harbour,n,港口,姓氏,短褲,樂團
 65,KET_HIGH,kids,n,小孩們,教科書,垃圾桶,市中心
-66,KET_LOW,v,prep,對……（比賽用語）,在（時間、地點）,因為、由於,從……出來
+66,KET_LOW,bring back,v,帶回來、歸還,寄送、傳送,參加；進入,錄音、錄製
 67,KET_LOW,pity,n,可惜、遺憾,祝福、願望,樂器；儀器,滑鼠；老鼠
 68,KET_LOW,pay,v,付錢,等待,回來,記得
 69,KET_LOW,cost,n,費用、成本,滑鼠；老鼠,提供、提議,運動；練習
-70,KET_LOW,Mr,n,……先生（稱謂）,帽子（鴨舌帽）,……太太（稱謂）,騎腳踏車（運動）
+70,KET_LOW,writing,n,寫作,文章,感冒,現金
 71,KET_LOW,immediately,adv,立刻,至少,然後,通常
 72,KET_LOW,cooking,n,烹飪,耳朵,信封,網頁
 73,KET_LOW,fill,v,填滿,嘗試,擔心,攀爬
