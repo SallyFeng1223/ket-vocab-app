@@ -7,7 +7,7 @@
 // 去 Supabase 專案設定 → API 頁面複製這兩個值填進來：
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-const SUPABASE_URL = "REPLACE_WITH_YOUR_SUPABASE_URL";
-const SUPABASE_ANON_KEY = "REPLACE_WITH_YOUR_SUPABASE_ANON_KEY";
+const SUPABASE_URL = "https://ypknvbtmqersqmwghxkj.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_UhnNgY25wbvI0JNgc2bW0g_AEs1c7Xr";
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
