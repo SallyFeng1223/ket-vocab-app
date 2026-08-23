@@ -1174,7 +1174,7 @@ polite,adj,,False,{KET}
 pool,n,swimming pool,False,"{KET,MOVERS,FLYERS}"
 poor,adj,,False,"{KET,FLYERS}"
 poor thing,adj,,False,{KET}
-you,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
+poor you,adj,,False,{KET}
 pop,n,pop music,False,{KET}
 popular,adj,,False,"{KET,FLYERS}"
 port,n,,False,{KET}
@@ -1724,6 +1724,7 @@ yesterday,adv,,False,"{KET,MOVERS,FLYERS}"
 yet,adv,Has he arrived yet?,False,"{KET,FLYERS}"
 yogurt,n,,False,{KET}
 yoghurt,n,,False,"{KET,FLYERS}"
+you,pron,,False,"{KET,STARTERS,MOVERS,FLYERS}"
 young,adj,,False,"{KET,STARTERS,MOVERS,FLYERS}"
 your,det,,False,"{KET,STARTERS,MOVERS,FLYERS}"
 yours,pron,,False,"{KET,STARTERS,MOVERS,FLYERS}"

@@ -134,6 +134,10 @@ def pick_pos(groups: list[str]) -> tuple[str | None, list[str]]:
 def expand_slash(headword: str) -> list[str]:
     if headword == "at / @":
         return ["at"]  # 併入既有的 at，不另建
+    if headword == "poor thing/you":
+        # 字面拆開會產生單獨的 "you"，跟後面字母 Y 真正的 you (pron) 撞名，
+        # 因去重規則「保留第一筆」會把後面那筆真正的 you 蓋掉
+        return ["poor thing", "poor you"]
     if "/" in headword:
         return [p.strip() for p in headword.split("/")]
     return [headword]

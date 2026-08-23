@@ -1174,7 +1174,7 @@ polite,adj,,False
 pool,n,swimming pool,False
 poor,adj,,False
 poor thing,adj,,False
-you,adj,,False
+poor you,adj,,False
 pop,n,pop music,False
 popular,adj,,False
 port,n,,False
@@ -1724,6 +1724,7 @@ yesterday,adv,,False
 yet,adv,Has he arrived yet?,False
 yogurt,n,,False
 yoghurt,n,,False
+you,pron,,False
 young,adj,,False
 your,det,,False
 yours,pron,,False
