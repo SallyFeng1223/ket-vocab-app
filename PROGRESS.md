@@ -43,6 +43,7 @@
   - 欄位：`headword` / `pos` / `zh` / `level_tags` / `topics`
   - 驗收：`select count(*) from words` ≈ 1,500，且無 `zh` 為空
   - 時間不足時優先做：**Movers + KET-only 高頻具體**
+  - > 待確認：SQL 已產出（`data/sql/A3_words_batch_01.sql` ~ `14.sql`，共 1,733 筆，依序貼進 Supabase SQL Editor 執行），但尚未實際執行、未在 Supabase 跑過驗收查詢。實際字數（1,733）高於原估的 1,500，因為原詞表估計偏低，已用手工驗收過的 A/B/C 三批交叉核對過抽取邏輯無誤。等你執行完 SQL、確認 `count(*)` 與 `zh` 無空值後再勾選。
 - [ ] **A4 診斷抽樣 80 字的 L0 干擾選項**
   - 抽樣：Starters 15 / Movers 30 / KET-only 高頻具體 20 / KET-only 低頻抽象 15
   - 驗收：80 題皆有 3 個同詞性、長度相近的干擾選項
