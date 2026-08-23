@@ -1,0 +1,1733 @@
+headword,pos,sense_note,is_phrasal
+a,det,,False
+an,det,,False
+a few,det,I invited a few of my friends.; I’ll be ready in a few minutes.,False
+able,adj,be able to,False
+about,adv,What about a cold drink?; I have about £3. (adv); a book about animals (prep),False
+above,adv,,False
+accident,n,,False
+accommodation,n,,False
+across,adv,The bank’s across the road.; He walked across the bridge.,False
+act,v,,False
+action,adj,,False
+activity,n,,False
+actor,n,,False
+actually,adv,,False
+ad,n,an ad on TV,False
+add,v,,False
+address,n,,False
+adult,n,,False
+advanced,adj,,False
+adventure,n,,False
+advert,n,,False
+advertisement,n,,False
+advice,n,,False
+aeroplane,n,,False
+afraid,adj,,False
+after,adv,,False
+afternoon,n,,False
+afterwards,adv,,False
+again,adv,,False
+against,prep,We watched England play against France.,False
+age,n,I don’t know his age.,False
+aged,adj,aged 10 – 16,False
+ago,adv,,False
+agree,v,"Yes, I agree with you.; Don’t you agree, Sam?",False
+air,n,to travel by air,False
+airport,n,,False
+alarm clock,n,,False
+album,n,,False
+all,adv,,False
+all kinds of,det,,False
+allow,v,,False
+all right,adj,,False
+alright,adj,,False
+all sorts of,det,,False
+all the time,det,,False
+almost,adv,,False
+alone,adj,,False
+along,prep,,False
+already,adv,,False
+also,adv,,False
+always,adv,,False
+a.m.,adv,,False
+amazed,adj,,False
+amazing,adj,,False
+ambulance,n,,False
+among,prep,,False
+and,conj,,False
+angry,adj,,False
+animal,n,,False
+another,det,,False
+answer,n,,False
+any,det,,False
+anybody,pron,,False
+anymore,adv,,False
+anyone,pron,,False
+anything,pron,,False
+anyway,adv,,False
+anywhere,adv,,False
+apartment,n,,False
+apartment building,n,,False
+app,n,,False
+apple,n,,False
+appointment,n,an appointment with the doctor,False
+April,n,,False
+area,n,,False
+arm,n,,False
+armchair,n,,False
+around,adv,to travel around (adv); to sit around the table (prep),False
+arrive,v,,False
+art,n,,False
+article,n,an article about skiing,False
+artist,n,,False
+as,conj,as good as; as soon as possible; the same as; as well; as well as,False
+ask,v,,False
+assistant,n,,False
+as well,adv,,False
+at,prep,,False
+at all,prep,,False
+attractive,adj,The walls are an attractive colour.,False
+August,n,,False
+aunt,n,,False
+autumn,n,,False
+available,adj,,False
+away,adv,He’s gone away.; It’s two kilometres away.,False
+awesome,adj,,False
+awful,adj,,False
+baby,n,,False
+back,n,,False
+backpack,n,,False
+bad,adj,(be) bad for somebody,False
+badly,adv,,False
+badminton,n,,False
+bag,n,,False
+bake,v,,False
+ball,n,,False
+balloon,n,,False
+banana,n,,False
+band,n,The band are on tour this month.,False
+bank,n,I changed my money in the bank.,False
+barbecue,n,,False
+barbeque,n,,False
+baseball,n,,False
+basketball,n,,False
+bat,n,a baseball bat,False
+bath,n,,False
+bathing suit,n,,False
+bathroom,n,,False
+bathtub,n,,False
+battery,n,,False
+be,v,,False
+beach,n,,False
+bean,n,,False
+bear,n,,False
+beard,n,,False
+beautiful,adj,,False
+because,conj,,False
+because of,prep,,False
+become,v,,False
+bed,n,,False
+bedroom,n,,False
+bee,n,,False
+beetle,n,,False
+before,adv,,False
+begin,v,,False
+beginner,n,,False
+beginning,n,,False
+behind,adv,,False
+believe,v,,False
+belong,v,The bag belongs to me.,False
+below,adv,,False
+belt,n,,False
+beside,prep,,False
+best,adj,,False
+better,adj,,False
+between,prep,,False
+bicycle,n,,False
+big,adj,,False
+bike,n,,False
+bill,n,"Can I have my bill, please?",False
+bin,n,Can you throw the rubbish in the bin?,False
+biology,n,,False
+bird,n,,False
+birth,n,,False
+birthday,n,,False
+biscuit,n,(Br Eng) (Am Eng: cookie),False
+bit,n,"Just a little bit of cake, please.; I’m feeling a bit tired.",False
+black,n,,False
+blackboard,n,,False
+blanket,n,,False
+block,n,Shall we walk round the block?,False
+blog,n,,False
+blonde,adj,,False
+blood,n,,False
+blouse,n,,False
+blue,n,,False
+board,n,The teacher’s writing on the (black/white) board.,False
+board game,n,,False
+boat,n,,False
+body,n,,False
+boil,v,,False
+boiled,adj,,False
+book,n,a good book; book a place on the course,False
+bookcase,n,,False
+bookshelf,n,,False
+bookshop,n,(Br Eng) (Am Eng: bookstore),False
+bookstore,n,(Am Eng) (Br Eng: bookshop),False
+boot,n,a pair of boots,False
+bored,adj,,False
+boring,adj,,False
+born,v,I was born in Manchester.,False
+borrow,v,She borrowed a book from the library.,False
+boss,n,,False
+both,pron,,False
+bother,v,Sorry to bother you.,False
+bottle,n,,False
+bottom,n,at the bottom of the stairs,False
+bowl,n,,False
+box,n,,False
+boy,n,,False
+boyfriend,n,,False
+bracelet,n,,False
+brain,n,,False
+brave,adj,,False
+bread,n,,False
+break,n,a break for lunch (n); Someone’s broken the window. (v),False
+break down,phr v,The car has broken down.,True
+breakfast,n,,False
+bridge,n,,False
+bright,adj,bright pink,False
+brilliant,adj,I thought the film was brilliant!,False
+bring,v,,False
+bring back,v,,False
+broken,adj,,False
+brother,n,,False
+brown,n,,False
+brush,n,,False
+build,v,,False
+building,n,,False
+burger,n,,False
+bus,n,,False
+business,n,,False
+businessman,n,,False
+businesswoman,n,,False
+business person,n,,False
+bus station,n,,False
+bus stop,n,,False
+busy,adj,,False
+but,conj,,False
+butter,n,,False
+butterfly,n,,False
+buy,v,,False
+by,prep,,False
+by accident,prep,,False
+by the way,prep,,False
+by post,prep,,False
+bye,exclam,,False
+cabinet,n,,False
+cafe,n,,False
+café,n,,False
+cafeteria,n,,False
+cake,n,,False
+calendar,n,,False
+call,n,I’ll call (phone) again later this afternoon.; He’s called John.; I’m waiting for a call from Anna.,False
+camel,n,,False
+camera,n,,False
+camp,v,,False
+camping,n,,False
+campsite,n,,False
+cap,n,,False
+capital,n,,False
+can,n,I can ride a bike. (ability); Can I have one? (request); Can I help you? (offer); It can be cold here in winter. (possibility); You can watch TV now. (permission),False
+candy,n,,False
+cannot,mv,,False
+car,n,,False
+card,n,birthday card; credit card; card game (e.g. We played a card game in class.),False
+career,n,,False
+careful,adj,Be careful!,False
+carefully,adv,,False
+car park,n,(Br Eng) (Am Eng: parking lot),False
+carpet,n,,False
+carrot,n,,False
+carry,v,,False
+cartoon,n,,False
+case,n,,False
+cash,n,,False
+castle,n,,False
+cat,n,,False
+catch,v,,False
+CD,n,,False
+CD player,n,,False
+ceiling,n,,False
+cell phone,n,,False
+celebrate,v,,False
+celebrity,n,,False
+cent,n,,False
+centre,n,(Br Eng),False
+center,n,(Am Eng),False
+centimetre,n,(cm),False
+centimeter,n,(cm),False
+century,n,,False
+cereal,n,,False
+certainly,adv,,False
+chain,n,She wore a gold chain.; I need a new bicycle chain.,False
+chair,n,,False
+change,v,There is a change of room for this course.,False
+channel,n,,False
+character,n,He was my favourite character in the film.,False
+chat,n,,False
+chatroom,n,,False
+cheap,adj,,False
+check,v,,False
+cheese,n,,False
+chef,n,,False
+chemist,n,(Br Eng) (Am Eng: drugstore),False
+chemistry,n,,False
+cheque,n,,False
+chess,n,,False
+chicken,n,,False
+child,n,,False
+chilli,n,,False
+chips,n,egg and chips; (Br Eng) (Am Eng: biscuit),False
+chocolate,n,,False
+choose,v,,False
+cinema,n,,False
+circle,n,,False
+circus,n,,False
+city,n,,False
+city centre,n,,False
+class,n,a language class; a first-class ticket,False
+classical,adj,,False
+classmate,n,,False
+classroom,n,,False
+clean,adj,,False
+cleaner,n,,False
+clear,adj,It’s not clear to me.,False
+clearly,adv,,False
+clever,adj,,False
+click,n,Click here to go to our website.,False
+climb,v,,False
+climbing,n,,False
+clock,n,,False
+close,adj,,False
+close to,prep,,False
+closed,adj,,False
+closet,n,,False
+clothes,n,,False
+cloud,n,,False
+cloudy,adj,,False
+clown,n,,False
+club,n,to join a club,False
+coach,n,a coach trip; a tennis coach,False
+coat,n,,False
+coast,n,,False
+coffee,n,,False
+cola,n,,False
+cold,n,,False
+colleague,n,,False
+collect,v,,False
+college,n,,False
+colour,n,,False
+comb,n,,False
+come,v,,False
+come back,v,We came back from our holiday yesterday.,False
+comedy,n,,False
+comfortable,adj,,False
+comic,n,,False
+company,n,What’s the name of your company?,False
+competition,n,,False
+complete,v,,False
+computer,n,,False
+concert,n,,False
+congratulations,exclam,,False
+contact,n,,False
+continue,v,,False
+conversation,n,,False
+cook,n,,False
+cooker,n,,False
+cookie,n,(Am Eng) (Br Eng: biscuit),False
+cooking,n,,False
+cool,adj,That’s a cool bike! (adj),False
+copy,v,,False
+corner,n,the corner of the street,False
+correct,adj,,False
+cost,n,,False
+costume,n,I forgot my swimming costume.,False
+could,mv,I couldn’t find the information; Could you lend me some money?; We could go to the cinema tonight.,False
+country,n,,False
+countryside,n,,False
+course,n,a university course; a main course; of course (not),False
+court,n,a tennis court,False
+cousin,n,,False
+cover,v,I had to cover my eyes.; There was a flower on the book’s cover.,False
+cow,n,,False
+cream,n,I like strawberries and cream.; Mum’s cream T-shirt got dirty.,False
+creature,n,,False
+credit card,n,,False
+cricket,n,,False
+crocodile,n,,False
+cross,n,Don’t cross the road here! (v),False
+crossing,n,Use the crossing to cross the street.,False
+crowd,n,,False
+crowded,adj,,False
+cry,v,The baby’s crying.,False
+cup,n,,False
+cupboard,n,,False
+curry,n,,False
+curtain,n,,False
+customer,n,,False
+cut,v,,False
+cycle,v,,False
+cycling,n,,False
+dad,n,,False
+daily,adj,,False
+dance,n,,False
+dancer,n,,False
+dancing,n,,False
+danger,n,,False
+dangerous,adj,,False
+dark,adj,,False
+date,n,What’s the date today?,False
+daughter,n,,False
+day,n,,False
+dead,adj,,False
+dear,adj,"Dear Anne,",False
+December,n,,False
+decide,v,,False
+deep,adj,,False
+degree,n,The temperature’s 30 degrees today.,False
+delay,n,There will be a delay of two hours. (n),False
+delayed,adj,The flight is delayed.,False
+delicious,adj,,False
+deliver,v,,False
+dentist,n,,False
+department,n,,False
+department store,n,,False
+describe,v,,False
+desert,n,,False
+design,v,,False
+desk,n,,False
+dessert,n,,False
+details,n,,False
+diary,n,,False
+dictionary,n,,False
+die,v,,False
+difference,n,,False
+different,adj,,False
+difficult,adj,,False
+digital,adj,,False
+digital camera,n,,False
+dining room,n,,False
+dinner,n,,False
+dinosaur,n,,False
+diploma,n,,False
+directions,n,,False
+dirty,adj,,False
+disco,n,,False
+discount,n,,False
+discover,v,,False
+discuss,v,,False
+dish,n,Chicken and chips is my favourite dish.; I broke a dish when I was doing the washing up.,False
+dive,v,I learnt to dive at the swimming pool.,False
+diving,adj,I’ve j oined a diving club.,False
+do,v,,False
+doctor,n,,False
+document,n,,False
+dog,n,,False
+doll,n,,False
+dollar,n,,False
+dolphin,n,,False
+donkey,n,,False
+door,n,,False
+dot,n,dot com,False
+double,adj,a double room,False
+down,adv,,False
+download,n,I downloaded the songs from the internet.,False
+downstairs,adv,,False
+Dr,n,,False
+draw,v,,False
+drawer,n,,False
+drawing,n,,False
+dream,n,,False
+dress,n,,False
+dressed,adj,"Hurry, you need to get dressed!",False
+drink,n,,False
+drive,v,,False
+driver,n,,False
+driving,n,(Br Eng) (Br Eng: driver’s license),False
+driver’s licence,n,(Br Eng) (Br Eng: driver’s license),False
+drop,v,,False
+drugstore,n,(Am Eng) (Br Eng: chemist),False
+drum,n,,False
+dry,adj,,False
+duck,n,,False
+during,prep,,False
+DVD,n,,False
+DVD player,n,,False
+each,det,,False
+each other,pron,,False
+eagle,n,,False
+ear,n,,False
+early,adj,,False
+earn,v,,False
+earring,n,,False
+easily,adv,,False
+east,n,,False
+easy,adj,,False
+eat,v,,False
+egg,n,,False
+electric,adj,,False
+electricity,n,,False
+elephant,n,,False
+elevator,n,(Am Eng) (Br Eng: lift),False
+else,adv,Anything else?,False
+email,n,,False
+empty,adj,,False
+end,v,,False
+engine,n,,False
+engineer,n,,False
+enjoy,v,,False
+enough,adv,,False
+enter,v,Are you going to enter the poster competition?; Please enter through the side door.,False
+entrance,n,,False
+envelope,n,,False
+environment,n,,False
+equipment,n,You need special equipment to go diving.,False
+eraser,n,(Am Eng) (Br Eng: rubber),False
+especially,adv,,False
+euro,n,,False
+even,adv,,False
+evening,n,,False
+event,n,The Olympic games is a great event.,False
+ever,adv,,False
+every,det,,False
+everybody,pron,,False
+everyone,pron,,False
+everything,pron,,False
+everywhere,adv,,False
+exactly,adv,,False
+examination,n,,False
+exam,n,,False
+example,n,Look at the example first.; for example,False
+excellent,adj,,False
+except,conj,,False
+excited,adj,,False
+exciting,adj,,False
+excuse,v,Excuse me!,False
+exercise,n,He should do more exercise to get fit.; I’ve got a maths exercise to finish.,False
+exhibition,n,art exhibition,False
+exit,n,,False
+expensive,adj,,False
+experience,n,,False
+experiment,n,The science experiment was fun.,False
+explain,v,,False
+explore,v,,False
+explorer,n,This book’s about famous explorers.,False
+extinct,adj,,False
+extra,adj,,False
+eye,n,,False
+face,n,,False
+fact,n,,False
+factory,n,,False
+fail,v,,False
+fair,adj,She has fair hair.,False
+fall,n,in the fall (n) (Am Eng) (Br Eng: autumn); He fell and hurt his leg. (v),False
+fall over,phr v,,True
+family,n,,False
+famous,adj,,False
+fan,n,She’s a football fan.,False
+fantastic,adj,,False
+far,adv,How far is the next garage?,False
+farm,n,,False
+farmer,n,,False
+fashion,n,,False
+fast,adj,,False
+fast food,n,,False
+fat,adj,,False
+father,n,,False
+favourite,adj,,False
+February,n,,False
+feel,v,to feel well,False
+feelings,n,,False
+festival,n,,False
+few,det,,False
+field,n,,False
+file,n,,False
+fill,v,,False
+fill in,phr v,to fill in a form,True
+film,n,,False
+final,adj,,False
+finally,adv,,False
+find,v,I found my keys under the sofa.,False
+find out,phr v,,True
+fine,adj,"That’s fine!; I’m fine, thank you.; The weather is fine.",False
+finger,n,,False
+finish,v,,False
+fire,n,,False
+first,adv,First… then… (adv); John came first. (adv); first prize (adj),False
+first name,n,,False
+first of all,adv,"First of all, you must wash your hands.",False
+fish,n,,False
+fishing,n,,False
+fit,adj,I joined a gym to get fit.; I run to keep fit.,False
+fix,v,,False
+flat,n,,False
+flight,n,,False
+floor,n,The bedrooms are on the first floor.; Don’t leave your clothes on the floor.,False
+flower,n,,False
+fly,v,,False
+fog,n,,False
+foggy,adj,,False
+folder,n,,False
+follow,v,,False
+food,n,,False
+foot,n,my right foot,False
+football,n,,False
+football player,n,,False
+footballer,n,,False
+for,prep,,False
+for sale,n,,False
+foreign,adj,,False
+forest,n,,False
+forget,v,,False
+fork,n,knife and fork,False
+form,n,Fill in this form.,False
+free,adj,I got a free ticket to the match.; Are you free on Saturday?,False
+French fries,n,(Am Eng) (Br Eng: chips),False
+fresh,adj,fresh fruit,False
+fridge,n,,False
+Friday,n,,False
+fried,adj,,False
+friend,n,It’s easy for her make friends.,False
+friendly,adj,,False
+frightened,adj,,False
+frog,n,,False
+from,prep,,False
+front,n,at the front of the train; Stand in front of me.,False
+fruit,n,,False
+full,adj,,False
+fun,n,,False
+funny,adj,,False
+fur,n,,False
+furniture,n,,False
+further,adj,,False
+future,n,,False
+gallery,n,,False
+game,n,,False
+garage,n,,False
+garden,n,,False
+garlic,n,,False
+gas,n,(Am Eng) (Br Eng: petrol),False
+gas station,n,(Am Eng) (Br Eng: petrol station),False
+gate,n,,False
+geography,n,,False
+get,v,,False
+get back,v,I need to take the bus to get back home.,False
+get dressed,v,,False
+get fit,v,,False
+get married,v,,False
+get off,phr v,to get off the bus,True
+get on,phr v,to get on the bus,True
+get up,phr v,to get up in the morning,True
+gift,n,,False
+giraffe,n,,False
+girl,n,,False
+girlfriend,n,,False
+give,v,,False
+give back,v,I’ll give them back to you tomorrow.; I’ll give back your books tomorrow.,False
+give somebody a call,v,,False
+ring,v,,False
+glad,adj,,False
+glass,n,,False
+glasses,n,,False
+glove,n,,False
+go,v,,False
+goal,n,,False
+goat,n,,False
+gold,n,,False
+golden,adj,,False
+golf,n,,False
+good,adj,,False
+good afternoon,exclam,,False
+goodbye,exclam,,False
+good evening,exclam,,False
+good-looking,adj,,False
+good morning,exclam,,False
+good night,exclam,,False
+go out,phr v,Are you going out this evening? go shopping,True
+grade,n,,False
+gram,n,,False
+gramme,n,,False
+grandchild,n,,False
+grandad,n,,False
+granddad,n,,False
+granddaughter,n,,False
+grandfather,n,,False
+grandma,n,,False
+grandmother,n,,False
+grandpa,n,,False
+grandparent,n,,False
+grandson,n,,False
+granny,n,,False
+grape,n,,False
+grass,n,,False
+great,adj,,False
+green,adj,,False
+grey,n,(Br Eng) (Am Eng: gray),False
+grilled,adj,,False
+grocery store,n,(Am Eng),False
+ground,n,,False
+group,n,,False
+grow,v,,False
+grow up,phr v,,True
+guess,v,,False
+Guess what,v,,False
+guest,n,,False
+guest-house,n,,False
+guide,n,,False
+guidebook,n,,False
+guitar,n,,False
+guy,n,He’s a really nice guy.,False
+gym,n,,False
+hair,n,,False
+half,det,,False
+half-price,adj,,False
+hall,n,,False
+hand,n,,False
+handbag,n,,False
+happen,v,,False
+happy,adj,,False
+harbour,n,,False
+hard,adj,hard wood (adj); the homework was hard (adj); to work hard (adv),False
+hat,n,,False
+hate,v,,False
+have,v,,False
+have got to,mv,,False
+have to,mv,,False
+he,pron,,False
+head,n,My head hurts.,False
+headache,n,,False
+headphones,n,,False
+headteacher,n,,False
+health,n,,False
+healthy,adj,,False
+hear,v,,False
+heart,n,,False
+heating,n,Can you turn the heating on?,False
+heavy,adj,a heavy blanket,False
+helicopter,n,,False
+hello,exclam,,False
+help,v,Call me if you need any help.,False
+helpful,adj,,False
+her,det,,False
+here,adv,,False
+hers,pron,,False
+herself,pron,by herself,False
+hey,exclam,,False
+hi,exclam,,False
+high,adj,,False
+hill,n,,False
+him,pron,,False
+himself,pron,by himself,False
+hip hop,n,,False
+hippo,n,,False
+his,det,,False
+history,n,,False
+hit,v,,False
+hobby,n,,False
+hockey,n,,False
+hold,v,,False
+holiday,n,,False
+home,n,,False
+homework,n,,False
+honey,n,,False
+hoodie,n,,False
+hope,v,,False
+horrible,adj,,False
+horror,adj,,False
+horse,n,,False
+hospital,n,,False
+hot,adj,,False
+hotel,n,,False
+hour,n,,False
+house,n,,False
+housewife,n,,False
+how,adv,,False
+however,adv,,False
+huge,adj,,False
+hungry,adj,,False
+hurry,v,,False
+hurt,v,,False
+husband,n,,False
+I,pron,,False
+ice,n,,False
+ice cream,n,,False
+ice skating,n,,False
+ID,n,,False
+ID card,n,,False
+idea,n,,False
+identification,n,,False
+if,conj,,False
+ill,adj,,False
+immediately,adv,,False
+important,adj,,False
+impossible,adj,,False
+improve,v,,False
+in,adv,,False
+include,v,,False
+including,prep,,False
+indoor,adj,,False
+indoors,adv,,False
+information,n,,False
+in front of,prep,,False
+ingredient,n,,False
+insect,n,,False
+inside,adv,,False
+instead,adv,,False
+instead of,prep,,False
+instructions,n,,False
+instrument,n,,False
+interested,adj,,False
+interesting,adj,,False
+international,adj,,False
+internet,n,,False
+into,prep,,False
+invent,v,,False
+invention,n,,False
+invitation,n,,False
+invite,v,,False
+island,n,,False
+it,pron,,False
+IT,n,,False
+its,det,,False
+itself,pron,,False
+jacket,n,,False
+jam,n,fruit jam,False
+January,n,,False
+jazz,n,,False
+jeans,n,,False
+jellyfish,n,,False
+jewellery,n,(Br Eng) (Am Eng: jewelry),False
+job,n,,False
+join,v,,False
+journalist,n,,False
+journey,n,,False
+juice,n,,False
+July,n,,False
+jump,v,,False
+jumper,n,,False
+June,n,,False
+just,adv,I’ve just seen Tom.; Just a moment.,False
+kangaroo,n,,False
+keep,v,May I keep this?; Keep right!,False
+key,n,This is the key to my house.; The answer key is at the back of the book.,False
+keyboard,n,I play the keyboard in a band.; The keyboard for my computer is broken.,False
+kick,n,,False
+kid,n,,False
+kids,n,,False
+kilogramme,n,(kg) (Br Eng) (Am Eng: kilogram),False
+kilometre,n,(km) (Br Eng) (Am Eng: kilometer),False
+kind,n,That’s very kind of you.; What kind of book do you want?,False
+king,n,,False
+kiss,n,,False
+kit,n,,False
+kitchen,n,,False
+kite,n,,False
+kitten,n,,False
+knife,n,,False
+know,v,,False
+lake,n,,False
+lamp,n,,False
+language,n,,False
+laptop,n,(computer),False
+large,adj,,False
+last,adj,,False
+late,adv,The train is going to be late. (adj),False
+later,adv,I’ll see you later.,False
+latest,adj,,False
+laugh,v,,False
+lazy,adj,,False
+learn,v,,False
+least,adv,at least,False
+leather,n,,False
+leave,v,The train leaves at 10 o’clock.; I left my bag in the cinema.; There isn’t any milk left.,False
+left,adj,Go to the left. (n); left hand (adj); Turn left. (adv),False
+left-hand,adj,,False
+leg,n,,False
+lemon,n,,False
+lemonade,n,,False
+lend,v,,False
+length,n,The length of the lesson/journey was 50 minutes.; The length of the race was 100 metres.; Can you swim a length of the pool?,False
+less,adj,,False
+lesson,n,,False
+let,v,Let’s go to the beach.; Let me know when you arrive.; My parents let me go to the beach.,False
+letter,n,Saturday begins with a capital letter.; I posted the letter to you on Friday.,False
+level,n,language level,False
+library,n,,False
+licence,n,driving licence,False
+lie down,phr v,,True
+life,n,,False
+lift,n,Take the lift to the third floor.; Can I give you a lift to the station?,False
+light,n,,False
+like,adv,What’s the weather like? (adv); It’s like an orange but bigger. (prep); I’d like a drink. (v),False
+line,n,draw a line; the next line,False
+link,n,Click on the link.; (technology),False
+lion,n,,False
+list,n,,False
+listen,v,(to),False
+litre,n,(Br Eng) (Am Eng: liter),False
+little,adj,,False
+live,v,,False
+living room,n,,False
+lizard,n,,False
+local,adj,,False
+long,adj,,False
+look,v,You look happy.; Don’t look now!,False
+look after,phr v,,True
+look at,phr v,,True
+look for,phr v,,True
+look out,phr v,Look out – it’s going to fall!,True
+lorry,n,,False
+lose,v,We lost the game.; I’ve lost my passport.,False
+lost,adj,,False
+lots,n,,False
+a lot,n,a lot of homework.,False
+loud,adj,,False
+love,n,,False
+lovely,adj,,False
+low,adj,,False
+luck,n,,False
+luckily,adv,,False
+lucky,adj,,False
+luggage,n,,False
+lunch,n,,False
+lunchtime,n,,False
+machine,n,,False
+mad,adj,,False
+magazine,n,,False
+mail,n,,False
+main course,n,,False
+make,v,,False
+make sure,v,(that),False
+make-up,n,,False
+man,n,,False
+manager,n,,False
+mango,n,,False
+many,det,,False
+map,n,,False
+March,n,,False
+mark,n,,False
+market,n,,False
+married,adj,,False
+match,n,football match,False
+maths,n,(Br Eng) (Am Eng: math),False
+mathematics,n,(Br Eng) (Am Eng: math),False
+matter,n,It doesn’t matter. (v); What’s the matter? (n),False
+May,n,,False
+may,mv,,False
+maybe,adv,,False
+me,pron,,False
+meal,n,,False
+mean,v,,False
+meat,n,,False
+mechanic,n,,False
+medicine,n,,False
+meet,v,,False
+meeting,n,,False
+melon,n,,False
+member,n,a member of a club,False
+memory,n,My computer has 100GB of memory.,False
+menu,n,,False
+message,n,,False
+metal,n,,False
+metre,n,(Br Eng) (Am Eng: meter),False
+microphone,n,,False
+midday,n,,False
+middle,n,Bob’s the one in the middle of the photo.,False
+midnight,n,,False
+might,mv,,False
+mile,n,,False
+milk,n,,False
+million,n,,False
+mind,v,Do you mind if I close the window?; I don’t mind if…; Never mind.; Mind your head!,False
+mine,pron,,False
+mineral water,n,,False
+minus,prep,,False
+minute,n,,False
+mirror,n,,False
+Miss,n,,False
+miss,v,,False
+missing,adj,,False
+mistake,n,,False
+mix,v,,False
+mobile,n,(phone),False
+model,n,,False
+modern,adj,,False
+mom,n,(Am Eng),False
+moment,n,I’m in England at the moment.,False
+Monday,n,,False
+money,n,,False
+monkey,n,,False
+month,n,,False
+monthly,adj,,False
+moon,n,,False
+more,adj,,False
+morning,n,,False
+most,adj,,False
+mother,n,,False
+motorbike,n,,False
+motorway,n,,False
+mountain,n,,False
+mouse,n,I got a new mouse for my laptop.; I’ve got a pet mouse.,False
+mouth,n,,False
+move,v,,False
+movie,n,(Am Eng) (Br Eng: film),False
+movie star,n,(Am Eng) (Br Eng: film star),False
+movie theater,n,(Am Eng) (Br Eng: cinema),False
+Mr,n,,False
+Mrs,n,,False
+Ms,n,,False
+much,adj,,False
+mug,n,,False
+mum,n,(Br Eng),False
+museum,n,,False
+mushroom,n,,False
+music,n,,False
+musical,adj,,False
+musician,n,,False
+must,mv,,False
+my,det,,False
+myself,pron,by myself,False
+name,n,,False
+national,adj,,False
+nationality,n,,False
+nature,n,,False
+natural,adj,(NOT ARTIFICIAL),False
+near,adv,,False
+nearly,adv,,False
+neck,n,,False
+necklace,n,,False
+need,v,,False
+neighbour,n,,False
+nervous,adj,,False
+nest,n,,False
+net,n,I found a great website on the net.,False
+never,adv,,False
+new,adj,,False
+news,n,,False
+newspaper,n,,False
+next,adj,,False
+next to,prep,,False
+nice,adj,,False
+night,n,,False
+no,adv,,False
+nobody,pron,,False
+noise,n,,False
+noisy,adj,,False
+noon,n,,False
+no one,pron,,False
+normal,adj,,False
+north,n,,False
+nose,n,,False
+not,adv,,False
+note,n,The students took notes during the class.; She noted the name of the company.,False
+notebook,n,,False
+nothing,pron,,False
+notice,n,,False
+November,n,,False
+now,adv,,False
+number,n,,False
+nurse,n,,False
+ocean,n,,False
+occupation,n,,False
+October,n,,False
+octopus,n,,False
+o'clock,adv,,False
+of,prep,,False
+of course,adv,(not),False
+off,adv,,False
+offer,n,,False
+office,n,,False
+often,adv,,False
+oh,exclam,,False
+oh dear,exclam,,False
+oil,n,My car needs more oil.; cooking oil,False
+OK,exclam,,False
+okay,exclam,,False
+old,adj,,False
+Olympic,adj,,False
+omelette,n,,False
+on,prep,,False
+once,adv,only once,False
+one,det,,False
+onion,n,,False
+online,adj,,False
+only,adv,I only wanted to help.; the only one,False
+open,adj,,False
+opera,n,,False
+opinion,n,,False
+opposite,prep,,False
+or,conj,,False
+orange,n,,False
+order,n,We have received your order.; You order your meal from the waiter.,False
+other,det,,False
+our,det,,False
+ours,pron,,False
+ourselves,pron,,False
+out,adv,,False
+outdoor,adj,,False
+outdoors,adv,,False
+out of,prep,,False
+outside,prep,,False
+oven,n,,False
+over,prep,over 60 people (adv); to travel all over the world (prep),False
+own,adj,They cook their own meals.,False
+pack,v,pack a suitcase,False
+page,n,,False
+pain,n,,False
+paint,v,,False
+painter,n,,False
+painting,n,,False
+pale,adj,,False
+pair,n,a pair of shoes,False
+panda,n,,False
+paper,n,,False
+paragraph,n,,False
+pardon,exclam,Pardon?,False
+parent,n,,False
+park,n,,False
+parking lot,n,(Am Eng) (Br Eng: car park),False
+parrot,n,,False
+part,n,the best part of the day,False
+partner,n,,False
+party,n,,False
+pass,v,You pass the station on the left.; to pass a driving test,False
+passenger,n,,False
+passport,n,,False
+password,n,,False
+past,prep,"In the past, people didn’t have laptops.; It’s quarter past twelve.",False
+pasta,n,,False
+path,n,,False
+pay,v,,False
+PC,n,(personal computer),False
+pear,n,,False
+pen,n,,False
+pence,n,,False
+pencil,n,,False
+pencil case,n,,False
+penfriend,n,,False
+penguin,n,,False
+penny,n,,False
+people,n,,False
+pepper,n,,False
+per,prep,,False
+perfect,adj,,False
+perform,v,(ENTERTAIN),False
+performance,n,(ENTERTAINMENT),False
+perfume,n,,False
+perhaps,adv,,False
+person,n,,False
+pet,n,,False
+petrol,n,,False
+petrol station,n,,False
+pharmacy,n,,False
+phone,v,,False
+photo,n,,False
+photograph,n,,False
+photographer,n,,False
+photography,n,,False
+physics,n,,False
+piano,n,,False
+pick up,phr v,,True
+picnic,n,,False
+picture,n,,False
+piece,n,a piece of cake,False
+pillow,n,,False
+pilot,n,,False
+pink,adj,,False
+pity,n,What a pity!,False
+pizza,n,,False
+place,n,a nice place for a picnic; Let’s meet at my place.; book a place on a course; to take place,False
+plan,n,,False
+plane,n,The plane was late.,False
+plant,n,,False
+plastic,n,,False
+plate,n,,False
+platform,n,Your train leaves from Platform 8.,False
+play,v,to play football (v); to play the guitar (v); a play at the theatre (n),False
+player,n,,False
+playground,n,,False
+pleasant,adj,,False
+please,v,I’m very pleased for you. (v); Please be quiet!,False
+pleased,adj,,False
+plus,prep,,False
+p.m.,adv,,False
+pocket,n,,False
+point,v,,False
+polar bear,n,,False
+police,n,,False
+police car,n,,False
+police officer,n,,False
+police station,n,,False
+polite,adj,,False
+pool,n,swimming pool,False
+poor,adj,,False
+poor thing,adj,,False
+you,adj,,False
+pop,n,pop music,False
+popular,adj,,False
+port,n,,False
+possible,adj,,False
+possibly,adv,,False
+post,v,to post a letter; What’s in the post today?; to post something online,False
+postcard,n,,False
+poster,n,,False
+post office,n,,False
+potato,n,,False
+pound,n,(£),False
+practice,n,football practice; (Br Eng) (Am Eng: practise),False
+practise,v,You must practise if you want to play well.,False
+prefer,v,,False
+would prefer,v,I prefer football to basketball.; I’d prefer to come with you.,False
+prepare,v,,False
+present,n,a birthday present,False
+pretty,adj,,False
+price,n,,False
+print,v,,False
+printer,n,,False
+prize,n,,False
+probably,adv,,False
+problem,n,,False
+program,n,a computer program,False
+programme,n,a TV programme,False
+project,n,a school project,False
+pull,v,,False
+pupil,n,,False
+puppy,n,,False
+purple,adj,,False
+purse,n,,False
+push,v,,False
+put,v,,False
+put on,phr v,,True
+puzzle,n,,False
+quarter,n,a quarter of an hour; quarter to/past seven,False
+queen,n,,False
+question,n,,False
+quick,adj,,False
+quickly,adv,,False
+quiet,adj,Please be quiet!; The restaurant was quiet last night.,False
+quite,adv,Are you quite sure?; quite old,False
+quiz,n,,False
+rabbit,n,,False
+race,n,a running race (n); She raced her brother to the bus stop. (v),False
+racket,n,Can I borrow your tennis racket?,False
+radio,n,,False
+railway,n,(station),False
+rain,n,,False
+raincoat,n,,False
+rainforest,n,,False
+rap,n,rap music,False
+read,v,,False
+reading,n,,False
+ready,adj,When will it be ready?,False
+real,adj,,False
+really,adv,,False
+reason,n,,False
+receipt,n,,False
+receive,v,,False
+recently,adv,,False
+receptionist,n,,False
+recipe,n,,False
+record,v,T hey’re recording a new album.,False
+red,adj,,False
+refrigerator,n,,False
+relax,v,(become happy),False
+relaxing,adj,,False
+remember,v,,False
+rent,v,,False
+repair,v,,False
+repeat,v,,False
+rest,n,"to have a rest (n); ‘Try to rest,’ the doctor said. (v); the rest of the day (n)",False
+restaurant,n,,False
+return,n,my return from holiday (n); He returned home late. (v); She returned her library books. (v),False
+review,n,,False
+rice,n,,False
+rich,adj,,False
+ride,n,,False
+riding,n,,False
+right,n,He swam to the right. (n); your right hand (adj); That’s the right answer. (adj); Turn right here. (adv),False
+right hand,adj,,False
+river,n,,False
+road,n,,False
+roast,v,,False
+rock,n,rock concert,False
+roof,n,,False
+room,n,a double room,False
+round,adj,,False
+roundabout,n,,False
+rubber,n,,False
+rubbish,n,Can you throw the rubbish in the bin?,False
+rugby,n,,False
+ruler,n,,False
+run,v,,False
+runner,n,,False
+running,n,,False
+sad,adj,,False
+safe,adj,,False
+sail,v,,False
+sailing,n,,False
+salad,n,,False
+sale,n,for sale; I bought it in the sale.,False
+salt,n,,False
+same,adj,at the same time (adj); Your watch is the same as mine. (pron),False
+sandwich,n,,False
+Saturday,n,,False
+sauce,n,,False
+sausage,n,,False
+save,v,to save money; to save time,False
+say,v,,False
+scared,adj,,False
+scarf,n,,False
+scary,adj,,False
+school,n,,False
+schoolchild,n,,False
+science,n,,False
+scientist,n,,False
+scissors,n,,False
+scooter,n,,False
+score,n,,False
+screen,n,,False
+sea,n,,False
+season,n,,False
+seat,n,,False
+second,adj,,False
+secretary,n,,False
+see,v,,False
+seem,v,She seems happy.; It seemed like a good idea.,False
+selfie,n,,False
+sell,v,,False
+send,v,,False
+sentence,n,,False
+September,n,,False
+serious,adj,She is a very serious person.,False
+serve,v,,False
+set,n,,False
+several,det,,False
+shall,mv,,False
+shame,n,What a shame!,False
+shampoo,n,,False
+share,v,Bob and Sam share an office.; Will you share your sandwich with me?,False
+shark,n,,False
+she,pron,,False
+sheep,n,,False
+sheet,n,a bed sheet; a sheet of paper,False
+shelf,n,,False
+ship,n,,False
+shirt,n,,False
+shoe,n,,False
+shop,n,,False
+shop assistant,n,,False
+shopper,n,,False
+shopping,n,Let’s go shopping tomorrow.,False
+shopping centre,n,,False
+short,adj,a short time,False
+shorts,n,,False
+should,mv,,False
+shout,v,,False
+show,v,Show me your photos. (v); a film show (n); show somebody round (v),False
+shower,n,,False
+shut,v,,False
+shy,adj,,False
+sick,adj,,False
+side,n,this side of the room,False
+sightseeing,n,,False
+sign,n,,False
+silver,n,,False
+similar,adj,,False
+simple,adj,,False
+since,prep,,False
+sing,v,,False
+singer,n,,False
+singing,n,,False
+single,adj,,False
+sink,n,,False
+sister,n,,False
+sit,v,,False
+sit down,phr v,,True
+site,n,internet site,False
+sitting room,n,,False
+size,n,,False
+skate,v,,False
+skateboard,n,,False
+skateboarding,n,,False
+skating,n,,False
+ski,v,,False
+skiing,n,,False
+skirt,n,,False
+sky,n,,False
+sleep,v,,False
+slice,n,,False
+slim,adj,,False
+slow,adj,,False
+slowly,adv,,False
+small,adj,,False
+smart,adj,(stylish),False
+smoke,v,,False
+smoking,n,,False
+snack,n,,False
+snail,n,,False
+snake,n,,False
+snow,n,,False
+snowboard,n,,False
+snowboarding,n,,False
+so,conj,"So, I think it’s right. (conj); He ate too much, so he felt ill. (conj); He wanted to go but he didn’t say so. (adv)",False
+soap,n,,False
+soccer,n,,False
+social media,n,,False
+sock,n,,False
+sofa,n,,False
+soft,adj,,False
+software,n,,False
+some,det,,False
+somebody,pron,,False
+someone,pron,,False
+something,pron,,False
+sometimes,adv,,False
+somewhere,adv,,False
+son,n,,False
+song,n,,False
+soon,adv,,False
+sorry,adj,"I’m sorry I’m late.; Sorry, I don’t understand that.; Sorry to hear you’re not we ll.",False
+sort,n,,False
+sound,v,"That sounds nice.; To sound good/interesting/strange, etc.",False
+soup,n,,False
+south,n,,False
+space,n,,False
+spare,adj,I read a lot in my spare time.,False
+speak,v,,False
+speaker,n,,False
+special,adj,,False
+spell,v,,False
+spelling,n,,False
+spend,v,Let’s spend the weekend at the beach.; He spends a lot of money on clothes.,False
+spider,n,,False
+spoon,n,,False
+sport,n,,False
+sports centre,n,,False
+spring,n,I hate winter but I love spring.,False
+square,n,,False
+stadium,n,,False
+staff,n,,False
+stage,n,,False
+stairs,n,,False
+stamp,n,Put a stamp on the envelope.,False
+stand,v,She was standing at the bus stop.,False
+star,n,,False
+start,v,,False
+station,n,,False
+stay,v,I can’t stay long.; I stayed in New York for 10 days.; The shop stays open late.,False
+steak,n,,False
+steal,v,Someone’s stolen my bag!,False
+still,adv,,False
+stomach,n,,False
+stomach ache,n,,False
+stop,n,,False
+store,n,,False
+storm,n,,False
+story,n,,False
+straight,adj,a straight line (adj); Go straight on. (adv),False
+strange,adj,That’s a strange story!,False
+strawberry,n,,False
+street,n,,False
+striped,adj,,False
+stripes,n,,False
+strong,adj,,False
+student,n,,False
+studies,n,,False
+study,v,,False
+stuff,n,That’s where I keep all my stuff.,False
+subject,n,What’s your favourite subject at school?; the subject of a talk,False
+success,n,,False
+successful,adj,,False
+such,det,,False
+suddenly,adv,,False
+sugar,n,,False
+suggest,v,I suggest having the meeting in the office.,False
+suit,n,He was wearing a grey suit.,False
+suitcase,n,,False
+summer,n,,False
+sun,n,,False
+Sunday,n,,False
+sunglasses,n,,False
+sunny,adj,,False
+supermarket,n,,False
+supper,n,,False
+suppose,v,I suppose so.; I suppose you’re right.,False
+sure,adj,I’m (not) sure.,False
+surf,v,I like surfing (on) the internet.,False
+surfboard,n,,False
+surfboarding,n,,False
+surfing,n,,False
+surname,n,,False
+surprise,n,,False
+surprised,adj,,False
+surprising,adj,,False
+swan,n,,False
+sweater,n,,False
+sweet,n,,False
+swim,v,I swim in the college team.; I’d like to have a swim in the lake.,False
+swimming,n,,False
+swimming costume,n,(Br Eng) (Am Eng: bathing suit),False
+swimming pool,n,,False
+swimsuit,n,,False
+table,n,,False
+table tennis,n,,False
+tablet,n,You can take notes using your tablet.,False
+tail,n,,False
+take,v,I’ll take it to your room.; It takes three hours.,False
+take off,phr v,She took off her shoes.,True
+take part,v,,False
+talk,n,,False
+tall,adj,,False
+tasty,adj,,False
+taxi,n,,False
+tea,n,,False
+teach,v,,False
+teacher,n,,False
+team,n,,False
+technology,n,,False
+teenager,n,,False
+telephone,n,,False
+television,n,(TV),False
+tell,v,,False
+temperature,n,The temperature was below zero.,False
+tennis,n,,False
+tennis player,n,,False
+tent,n,,False
+term,n,,False
+terrible,adj,,False
+test,n,,False
+text,n,,False
+textbook,n,,False
+text message,n,,False
+than,prep,,False
+thank,v,,False
+thanks,exclam,,False
+thank you,exclam,,False
+that,conj,,False
+the,det,,False
+theatre,n,(Br Eng) (Am Eng: theater),False
+their,det,,False
+theirs,pron,,False
+them,pron,,False
+themselves,pron,,False
+then,adv,,False
+there,adv,,False
+these,det,,False
+they,pron,,False
+thin,adj,,False
+thing,n,,False
+think,v,,False
+thirsty,adj,,False
+this,det,,False
+those,det,,False
+through,prep,,False
+throw,v,,False
+thunderstorm,n,,False
+Thursday,n,,False
+ticket,n,,False
+tidy,adj,,False
+tidy up,v,,False
+tie,n,,False
+tiger,n,,False
+tights,n,,False
+till,prep,,False
+time,n,,False
+timetable,n,,False
+tired,adj,,False
+title,n,,False
+to,prep,,False
+toast,n,,False
+today,n,,False
+toe,n,,False
+together,adv,,False
+toilet,n,,False
+tomato,n,,False
+tomorrow,n,,False
+tonight,n,,False
+tortoise,n,,False
+too,adv,,False
+tooth,n,,False
+toothache,n,,False
+toothbrush,n,,False
+top,n,the top of the page,False
+topic,n,,False
+total,n,,False
+tour,n,The band are on tour this month.,False
+tour guide,n,,False
+tourist,n,,False
+tourist information centre,n,,False
+towel,n,,False
+town,n,,False
+toy,n,,False
+traffic,n,,False
+traffic light,n,,False
+train,n,,False
+training,n,sport; (transitive and intransitive),False
+trainer,n,a pair of trainers,False
+tram,n,,False
+transport,n,,False
+travel,v,,False
+tree,n,,False
+trip,n,,False
+trouble,n,,False
+trousers,n,,False
+true,adj,,False
+try,v,,False
+try on,phr v,,True
+T-shirt,n,,False
+Tuesday,n,,False
+tune,n,(music),False
+turn,v,,False
+turn off,phr v,Turn the TV off.,True
+turn on,phr v,Turn the heating on.,True
+twice,adv,,False
+type,n,,False
+tyre,n,(Am Eng: tire),False
+umbrella,n,,False
+uncle,n,,False
+under,prep,,False
+underground,n,,False
+understand,v,,False
+unfortunately,adj,,False
+unhappy,n,,False
+uniform,n,,False
+university,n,,False
+until,prep,,False
+unusual,adj,,False
+up,prep,,False
+upload,v,,False
+upset,adj,,False
+upstairs,adv,,False
+us,pron,,False
+use,v,,False
+useful,adj,,False
+usual,adj,,False
+usually,adv,,False
+v,prep,,False
+versus,prep,Manchester United v Liverpool,False
+variety,n,,False
+various,adj,,False
+vegetable,n,,False
+very,adv,,False
+video,n,,False
+video game,n,,False
+view,n,,False
+village,n,,False
+violin,n,,False
+visit,v,,False
+visitor,n,,False
+vocabulary,n,,False
+volleyball,n,,False
+wait,v,,False
+waiter,n,,False
+waitress,n,,False
+wake,v,,False
+wake up,phr v,,True
+walk,v,I often go for a walk in the evening.,False
+walking,n,,False
+wall,n,,False
+wallet,n,,False
+want,v,,False
+wardrobe,n,,False
+warm,adj,,False
+wash,v,,False
+washing machine,n,,False
+washing-up,n,,False
+wash up,phr v,,True
+watch,n,,False
+water,n,,False
+way,n,Do it this way.; one-way street; Is this the quickest way home?; by the way (prep phr),False
+we,pron,,False
+wear,v,,False
+weather,n,,False
+web,n,,False
+web page,n,,False
+website,n,,False
+Wednesday,n,,False
+week,n,,False
+weekday,n,,False
+weekend,n,,False
+weekly,adj,,False
+welcome,adj,You’re welcome (adj); Welcome to London! (exclam),False
+well,adv,,False
+well known,adj,,False
+west,n,,False
+wet,adj,,False
+whale,n,,False
+what,det,,False
+wheel,n,,False
+when,adv,,False
+where,adv,,False
+which,det,,False
+while,conj,,False
+white,adj,,False
+who,pron,,False
+whole,n,the whole world (adj); the whole of July (n),False
+whose,det,,False
+why,adv,,False
+wide,adj,,False
+wife,n,,False
+wifi,n,,False
+wild,adj,wild animals,False
+wildlife,n,,False
+will,mv,('ll),False
+win,v,,False
+wind,n,,False
+window,n,,False
+windsurfing,n,,False
+windy,adj,,False
+wing,n,,False
+winner,n,,False
+winter,n,,False
+wish,n,Best wishes,False
+with,prep,,False
+without,prep,,False
+woman,n,,False
+wonderful,adj,,False
+wood,n,,False
+wooden,adj,,False
+wool,n,,False
+word,n,,False
+work,n,,False
+work out,phr v,exercise,True
+worker,n,,False
+working hours,n,,False
+world,n,,False
+worried,adj,,False
+worry,v,,False
+worse,adj,,False
+worst,adj,,False
+would,mv,,False
+wow,exclam,,False
+write,v,,False
+write down,phr v,,True
+writer,n,,False
+writing,n,,False
+wrong,adj,,False
+Yeah,exclam,,False
+year,n,,False
+yellow,adj,,False
+yes,adv,,False
+yesterday,adv,,False
+yet,adv,Has he arrived yet?,False
+yogurt,n,,False
+yoghurt,n,,False
+young,adj,,False
+your,det,,False
+yours,pron,,False
+yourself,pron,,False
+zebra,n,,False
+zero,n,,False
+zoo,n,,False
