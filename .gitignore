@@ -18,3 +18,6 @@ __pycache__/
 
 # 原始資料來源
 data/source/
+
+# A3 批次產生流程的中繼檔（最終產物是 data/sql/*.sql）
+data/batch_input/
