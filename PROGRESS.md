@@ -80,6 +80,13 @@
 
 ## 階段 B — 核心引擎上線（W2，8/31–9/6）
 
+- [ ] **B0 L1／L2 payload 生成腳本**
+  - 規則式生成（規劃書 §5.6），不用 LLM、不需人工抽查
+  - `scripts/build_l2_tiles.py`、`scripts/build_l1_spellings.py`
+  - 驗收：`data/sql/B0_verify.sql` 查詢結果 L1/L2 皆無缺 payload，涵蓋單字數合理
+  - > 待確認：腳本已寫完並跑過，產出 `data/sql/B0_items_L1_01~05.sql`（共 1,405 筆）與
+    `data/sql/B0_items_L2_01~05.sql`（共 1,567 筆）。**還沒貼進 Supabase**，需要你執行
+    這些 SQL 檔並跑 `B0_verify.sql` 確認結果，才能勾選。
 - [ ] **B1 Profile 選擇畫面**
   - 驗收：哥哥、弟弟兩個 profile 可切換，資料互不影響
 - [ ] **B2 SRS 引擎（FSRS）+ 出題排程**
