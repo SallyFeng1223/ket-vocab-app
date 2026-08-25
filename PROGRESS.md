@@ -84,9 +84,9 @@
   - 規則式生成（規劃書 §5.6），不用 LLM、不需人工抽查
   - `scripts/build_l2_tiles.py`、`scripts/build_l1_spellings.py`
   - 驗收：`data/sql/B0_verify.sql` 查詢結果 L1/L2 皆無缺 payload，涵蓋單字數合理
-  - > 待確認：腳本已寫完並跑過，產出 `data/sql/B0_items_L1_01~05.sql`（共 1,405 筆）與
-    `data/sql/B0_items_L2_01~05.sql`（共 1,567 筆）。**還沒貼進 Supabase**，需要你執行
-    這些 SQL 檔並跑 `B0_verify.sql` 確認結果，才能勾選。
+  - > 待確認：腳本已修正 4 項問題（特殊字元跳過、tiles 轉小寫、shuffle 防呆、長度上限）並重新產出，
+    `data/sql/B0_items_L1_01~04.sql`（共 1,281 筆）、`data/sql/B0_items_L2_01~05.sql`（共 1,547 筆）。
+    **還沒貼進 Supabase**，需要你執行這些 SQL 檔並跑 `B0_verify.sql` 確認結果，才能勾選。
 - [ ] **B1 Profile 選擇畫面**
   - 驗收：哥哥、弟弟兩個 profile 可切換，資料互不影響
 - [ ] **B2 SRS 引擎（FSRS）+ 出題排程**
@@ -210,6 +210,10 @@
 - [ ] **12/20** 考試日
 
 ---
+
+> **給 B3 的備註**：L2 的 tiles 全部是小寫字母（items.answer 保留原始大小寫，例如 April
+> 就是 April），判分時比對 tiles 組出來的字串跟 answer，**必須 case-insensitive**，
+> 否則大寫開頭的字永遠判錯。
 
 ## 卡關待辦
 

@@ -11,15 +11,20 @@
   （硬性檢查，避免例如 their → there 這種撞到真字的情況）
 - 規則套用後湊不到 2 個合法候選的字：不生成 L1 題，只留給 L2
 - 大小寫沿用原始 headword（跟 L0 一致，例如 April 這類專有名詞不強制轉小寫）
+- 含空格的多字條目、含特殊字元（. ' - é）的字：本批次跳過，理由同 L2（B3 再決定
+  怎麼處理連字號/句點/撇號），不受長度上限影響（長度上限只套用在 L2 的磚塊數控制上）
 """
 
 import csv
 import json
+import re
 from pathlib import Path
 
 INPUT = Path("data/words_snapshot.csv")
 OUTPUT_DIR = Path("data/sql")
 BATCH_SIZE = 350
+
+SPECIAL_CHAR_PATTERN = re.compile(r"[()'./\-éÉ]")
 
 
 def sql_str(s: str) -> str:
@@ -137,6 +142,12 @@ def main() -> None:
 
     for r in rows:
         hw = r["headword"]
+        if " " in hw:
+            skipped.append((hw, "多字條目，同特殊字元一併延後（B3 再決定）"))
+            continue
+        if SPECIAL_CHAR_PATTERN.search(hw):
+            skipped.append((hw, "特殊字元，同多字條目一併延後（B3 再決定）"))
+            continue
         wrongs = generate_wrong_spellings(hw, real_words_lower)
         if len(wrongs) < 2:
             skipped.append((hw, f"規則湊不滿 2 個合法錯誤拼法（只找到 {len(wrongs)} 個：{wrongs}）"))
@@ -145,6 +156,9 @@ def main() -> None:
         generated.append((hw, payload))
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    for old in OUTPUT_DIR.glob("B0_items_L1_*.sql"):
+        old.unlink()
+
     batches = [generated[i : i + BATCH_SIZE] for i in range(0, len(generated), BATCH_SIZE)]
     written = []
     for i, batch in enumerate(batches, start=1):
@@ -156,7 +170,19 @@ def main() -> None:
         print(f"  - {p}")
 
     print()
-    print(f"跳過清單（{len(skipped)} 個字）：")
+    reason_counts: dict[str, int] = {}
+    for _, reason in skipped:
+        if reason.startswith("規則湊不滿"):
+            key = "規則湊不滿 2 個合法錯誤拼法"
+        else:
+            key = reason.split("，")[0].split("（")[0]
+        reason_counts[key] = reason_counts.get(key, 0) + 1
+    print(f"跳過清單分類統計（共 {len(skipped)} 個字）：")
+    for key, count in sorted(reason_counts.items(), key=lambda kv: -kv[1]):
+        print(f"  - {key}：{count} 個")
+
+    print()
+    print("跳過清單明細：")
     for hw, reason in skipped:
         print(f"  - {hw}：{reason}")
 
