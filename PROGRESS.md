@@ -85,7 +85,9 @@
   - `scripts/build_l2_tiles.py`、`scripts/build_l1_spellings.py`
   - 驗收：`data/sql/B0_verify.sql` 查詢結果 L1/L2 皆無缺 payload，涵蓋單字數合理
   - > 待確認：腳本已修正 4 項問題（特殊字元跳過、tiles 轉小寫、shuffle 防呆、長度上限）並重新產出，
-    `data/sql/B0_items_L1_01~04.sql`（共 1,281 筆）、`data/sql/B0_items_L2_01~05.sql`（共 1,547 筆）。
+    L1 多字條目（look after、get up 這類片語動詞）不受影響、正常生成。
+    `data/sql/B0_items_L1_01~04.sql`（共 1,398 筆）、`data/sql/B0_items_L2_01~05.sql`（共 1,547 筆）；
+    L1、L2 都沒有的字剩 52 個（多為長度≤2的虛詞、11個特殊字元字、少數片語動詞規則湊不到 2 個候選）。
     **還沒貼進 Supabase**，需要你執行這些 SQL 檔並跑 `B0_verify.sql` 確認結果，才能勾選。
 - [ ] **B1 Profile 選擇畫面**
   - 驗收：哥哥、弟弟兩個 profile 可切換，資料互不影響
