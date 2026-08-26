@@ -97,6 +97,12 @@
 - [ ] **B3 L1 辨形題 + L2 字母磚題**
   - 原訂 W3–W4 提前至此，兩者 payload 皆規則式生成（規劃書 §5.6）
   - 驗收：兩種題型皆可作答、判分正確
+  - > 待確認：`docs/js/renderer.js` 已加 L1/L2 分支，沿用 A5 的 buildChoicesForItem/
+    showItemAndWaitForAnswer 架構沒有改動核心結構。L2 判分 case-insensitive、tiles+
+    extra_tiles 合併後才洗牌、點擊組字免拖曳、磚塊 48×48px、有清除鈕。
+    本機用假資料（含重複字母 see、大小寫測試 April）在瀏覽器測過，四題全對、
+    判分邏輯正確，主控台無錯誤。**還沒接真實 Supabase 資料、也還沒在 iPad 上跑過**，
+    需要你實際測過才能勾選。
 - [ ] **B4 Session 流程**
   - 10 題一輪 + 結算畫面
   - 挫折控制：`consecutive_wrong >= 3` 觸發降級（規劃書 §5.5）

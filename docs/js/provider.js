@@ -14,7 +14,7 @@
 // @property {{distractors_zh: string[]}} payload - 題型專屬資料，L0 是 3 個干擾選項
 // @property {number} content_version  - 寫進 attempts.item_content_version 用
 
-import { shuffle } from "./utils.js?v=3";
+import { shuffle } from "./utils.js?v=4";
 
 const MAX_PER_SESSION = 40;
 
