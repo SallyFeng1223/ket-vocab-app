@@ -5,7 +5,7 @@
 // 之後 L3–L6 上線時，在 buildChoicesForItem() / showItemAndCollectAnswer() 依
 // item.skill 加對應分支即可，其他部分不用動。
 
-import { shuffle, escapeHtml } from "./utils.js?v=4";
+import { shuffle, escapeHtml } from "./utils.js?v=5";
 
 function buildChoicesForItem(item) {
   if (item.skill === "L0") {
@@ -18,11 +18,17 @@ function buildChoicesForItem(item) {
 }
 
 // L0（四選一）、L1（三選一）互動完全相同：顯示題幹＋按鈕，點一下就判分。
-function showChoiceItemAndWaitForAnswer(container, item, choices, index, total) {
+// showHint：§5.5 降級後出題要顯示提示，這裡用「開頭是哪個字母」當提示——
+// L3 首字母提示題型還沒做，先用這個最簡單的形式頂著，不用為了一個提示新開題型。
+function showChoiceItemAndWaitForAnswer(container, item, choices, index, total, showHint) {
   return new Promise((resolve) => {
+    const hintHtml = showHint
+      ? `<div class="hint">提示：開頭是「${escapeHtml(item.answer[0])}」</div>`
+      : "";
     container.innerHTML = `
       <div class="progress">第 ${index} / ${total} 題</div>
       <div class="prompt">${escapeHtml(item.prompt)}</div>
+      ${hintHtml}
       <div class="choices"></div>
     `;
     const choicesEl = container.querySelector(".choices");
@@ -52,7 +58,7 @@ function showChoiceItemAndWaitForAnswer(container, item, choices, index, total) 
 // L2（字母磚）：點擊組字，不用拖曳（iPad 上拖曳對小三容易失敗）。
 // tiles 跟 extra_tiles 合併後「再洗牌一次」才顯示——如果直接把 extra_tiles
 // 接在 tiles 後面，最後 2–3 塊的位置永遠是假字母，玩幾次就會被看出規律。
-function showTileItemAndWaitForAnswer(container, item, index, total) {
+function showTileItemAndWaitForAnswer(container, item, index, total, _showHint) {
   return new Promise((resolve) => {
     const pool = shuffle([...item.payload.tiles, ...item.payload.extra_tiles]);
     const targetLength = item.payload.tiles.length;
@@ -146,12 +152,17 @@ function showTileItemAndWaitForAnswer(container, item, index, total) {
 }
 
 function showItemAndCollectAnswer(container, item, index, total) {
+  // item.hint_used_forced：daily provider 標記這張卡目前是降級狀態（見 provider.js
+  // getDailyQueue）。診斷模式的 item 沒有這個欄位，undefined 視同 false。
+  const showHint = Boolean(item.hint_used_forced);
   if (item.skill === "L0" || item.skill === "L1") {
     const choices = buildChoicesForItem(item);
-    return showChoiceItemAndWaitForAnswer(container, item, choices, index, total);
+    return showChoiceItemAndWaitForAnswer(container, item, choices, index, total, showHint);
   }
   if (item.skill === "L2") {
-    return showTileItemAndWaitForAnswer(container, item, index, total);
+    // L2 從沒被降級進來過（demote map 只有 L1→L0、L2→L1），showHint 這裡用不到，
+    // 但還是把旗標傳進去，之後如果 demote map 改了不用回頭找這裡漏改。
+    return showTileItemAndWaitForAnswer(container, item, index, total, showHint);
   }
   throw new Error(`renderer 目前還不支援 skill=${item.skill}`);
 }
@@ -167,13 +178,16 @@ function isCorrectAnswer(item, chosen) {
 }
 
 /**
+ * 跑一輪題目（診斷模式跟日常模式共用，見規劃書 §2.2——差別只在 provider
+ * 給的是固定 80 題清單還是 SRS 排出來的 10 題，這支函式不需要知道差在哪）。
+ *
  * @param {Object} args
  * @param {HTMLElement} args.container
  * @param {import('./provider.js').DiagnosticItem[]} args.items
  * @param {(a: {item: import('./provider.js').DiagnosticItem, chosen: string, is_correct: boolean, response_ms: number, hint_used: boolean}) => Promise<void>} args.onAnswer
  * @returns {Promise<{itemCount: number, correctCount: number}>}
  */
-export async function runDiagnostic({ container, items, onAnswer }) {
+export async function runRound({ container, items, onAnswer }) {
   let correctCount = 0;
   const total = items.length;
 
@@ -188,7 +202,13 @@ export async function runDiagnostic({ container, items, onAnswer }) {
     const is_correct = isCorrectAnswer(item, chosen);
     if (is_correct) correctCount++;
 
-    await onAnswer({ item, chosen, is_correct, response_ms, hint_used: false });
+    await onAnswer({
+      item,
+      chosen,
+      is_correct,
+      response_ms,
+      hint_used: Boolean(item.hint_used_forced),
+    });
   }
 
   container.innerHTML = `<div class="done-message">做完了，謝謝你。</div>`;
