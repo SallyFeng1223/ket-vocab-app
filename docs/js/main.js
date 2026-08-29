@@ -2,16 +2,16 @@
 // 管 session 的開始/收尾、模式切換（診斷 → 日常）。這層不會被 W2 沿用，
 // 但 provider/renderer/recorder 都會。
 
-import { supabase } from "./supabaseClient.js?v=5";
-import { getDiagnosticQueue, getDailyQueue } from "./provider.js?v=5";
+import { supabase } from "./supabaseClient.js?v=6";
+import { getDiagnosticQueue, getDailyQueue } from "./provider.js?v=6";
 import {
   startSession,
   recordAnswer,
   finishSession,
   flushPendingAttempts,
   updateCardAfterAnswer,
-} from "./recorder.js?v=5";
-import { runRound } from "./renderer.js?v=5";
+} from "./recorder.js?v=6";
+import { runRound } from "./renderer.js?v=6";
 
 const loginSection = document.getElementById("login-section");
 const appSection = document.getElementById("app-section");

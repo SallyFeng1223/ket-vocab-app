@@ -6,7 +6,7 @@
 // B2 的完整 SRS（stability/difficulty/due_at）之後會加在另一支跟這裡並列的模組，
 // renderer.js 不需要改一行。
 
-import { SKILL_DEMOTE_MAP } from "./utils.js?v=5";
+import { SKILL_DEMOTE_MAP } from "./utils.js?v=6";
 
 const PENDING_KEY = "ket_pending_attempts";
 
