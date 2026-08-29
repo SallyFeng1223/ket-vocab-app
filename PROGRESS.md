@@ -125,6 +125,17 @@
     不會卡住整輪），但這是個需要決定要不要處理的缺口，記在下面卡關待辦。
 - [ ] **B5 attempts / cards 寫入**
   - 驗收：`answer_given`、`response_ms`、`hint_used` 皆有值
+  - > 逐欄檢查（見對話紀錄）：`consecutive_wrong`/`demoted_to` 於 B4 完成。
+    現在補上三個跟演算法無關的純計數欄位：`reps`（每次作答 +1）、
+    `lapses`（答錯 +1、答對不動，累計不歸零，驅動 §5.4 易錯加權，
+    跟連續歸零的 `consecutive_wrong` 是兩件事）、`last_review_at`（每次作答
+    更新為 now()）。另外對 `due_at` 加了 TEMPORARY 權宜措施：答對
+    now()+1天、答錯 now()，只為防止同一張卡在 B2 排程器接上前卡在同一天
+    反覆出現，不是排程演算法，程式碼裡標了 `// TEMPORARY`，B2 接上 FSRS
+    後整段刪除。`state`/`stability`/`difficulty`/`retrievability` 仍然不動，
+    等 B2。本機用 mock Supabase 測過 22 條斷言（含 reps/lapses 初值為
+    null 時也能正常起算，對應 B7 建卡時這兩欄從未被設過值的情況）。
+    **還沒接真實 Supabase 測過，需要你確認才能勾。**
 - [ ] **B6 金幣計數 + 靜態貓咪 SVG**
   - 先不做商店。金幣綁正確率與連續天數，**不綁作答量**
   - 驗收：金幣會累積，貓咪看得到

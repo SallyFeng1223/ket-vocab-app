@@ -126,7 +126,11 @@ export async function finishSession(supabase, sessionId, { itemCount, correctCou
 }
 
 /**
- * §5.5 挫折控制。cards.consecutive_wrong >= 3 → demoted_to 設為低一階 skill；
+ * §5.5 挫折控制，外加三個跟演算法無關的純計數欄位（B5 要求，不等 B2）：
+ * reps / lapses / last_review_at。state / stability / difficulty /
+ * retrievability 仍然不動，那些要接 FSRS 才有意義，現在寫會跟 B2 打架。
+ *
+ * cards.consecutive_wrong >= 3 → demoted_to 設為低一階 skill；
  * 降級後連對 2 次 → 解除降級。
  *
  * schema 沒有獨立的「降級後連對次數」欄位，這裡用同一個 consecutive_wrong 欄位
@@ -136,8 +140,15 @@ export async function finishSession(supabase, sessionId, { itemCount, correctCou
  * 這是刻意的欄位重用，不是新開一個欄位，之後如果覺得不好懂，換成
  * 一個獨立欄位（例如 demotion_correct_streak）也很單純，改這支函式就好。
  *
- * 只影響 §5.5 的降級狀態，不算完整 SRS（stability/difficulty/due_at 不動，
- * 那是 B2 的事）。失敗不拋例外中斷作答流程，只在主控台警告。
+ * lapses 跟 consecutive_wrong 不是同一件事：lapses 是累計答錯次數，答對
+ * 不歸零，B2 排「易錯加權 3 題」要靠它；consecutive_wrong 是連續答錯，
+ * 答對就清零，只驅動降級。兩個都要維護，別合併成一個。
+ *
+ * due_at 是 TEMPORARY：答對 = now()+1 天、答錯 = now()（今天再出），純粹
+ * 防止同一張卡在 B2 排程器接上前卡在同一天反覆出現，不是排程演算法。
+ * B2 接上 FSRS 後這段（標 TEMPORARY 的三行）整段刪除。
+ *
+ * 失敗不拋例外中斷作答流程，只在主控台警告。
  *
  * @param {import('@supabase/supabase-js').SupabaseClient} supabase
  * @param {string} cardId
@@ -146,7 +157,7 @@ export async function finishSession(supabase, sessionId, { itemCount, correctCou
 export async function updateCardAfterAnswer(supabase, cardId, isCorrect) {
   const { data: card, error: fetchError } = await supabase
     .from("cards")
-    .select("skill, consecutive_wrong, demoted_to")
+    .select("skill, consecutive_wrong, demoted_to, reps, lapses")
     .eq("id", cardId)
     .single();
 
@@ -178,9 +189,24 @@ export async function updateCardAfterAnswer(supabase, cardId, isCorrect) {
     }
   }
 
+  const reps = (card.reps ?? 0) + 1;
+  const lapses = (card.lapses ?? 0) + (isCorrect ? 0 : 1);
+  const now = new Date();
+  // TEMPORARY：B2 接上 FSRS 後刪除，改由排程器算 due_at
+  const dueAt = isCorrect
+    ? new Date(now.getTime() + 24 * 60 * 60 * 1000).toISOString()
+    : now.toISOString();
+
   const { error: updateError } = await supabase
     .from("cards")
-    .update({ consecutive_wrong: consecutiveWrong, demoted_to: demotedTo })
+    .update({
+      consecutive_wrong: consecutiveWrong,
+      demoted_to: demotedTo,
+      reps,
+      lapses,
+      last_review_at: now.toISOString(),
+      due_at: dueAt, // TEMPORARY
+    })
     .eq("id", cardId);
 
   if (updateError) {
