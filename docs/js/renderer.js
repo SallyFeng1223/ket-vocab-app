@@ -5,7 +5,7 @@
 // 之後 L3–L6 上線時，在 buildChoicesForItem() / showItemAndCollectAnswer() 依
 // item.skill 加對應分支即可，其他部分不用動。
 
-import { shuffle, escapeHtml } from "./utils.js?v=6";
+import { shuffle, escapeHtml } from "./utils.js?v=7";
 
 function buildChoicesForItem(item) {
   if (item.skill === "L0") {

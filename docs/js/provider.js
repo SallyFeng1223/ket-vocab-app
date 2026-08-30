@@ -18,7 +18,7 @@
 // @property {{distractors_zh: string[]}} payload - 題型專屬資料，L0 是 3 個干擾選項
 // @property {number} content_version  - 寫進 attempts.item_content_version 用
 
-import { shuffle, SKILL_DEMOTE_MAP } from "./utils.js?v=6";
+import { shuffle, SKILL_DEMOTE_MAP } from "./utils.js?v=7";
 
 const MAX_PER_SESSION = 40;
 const ROUND_SIZE = 10;
@@ -26,6 +26,10 @@ const ROUND_SIZE = 10;
 // 找不到對應題目要跳過都得從候選池裡補，池子太小會補不滿一輪。
 const DUE_CANDIDATE_BUFFER = 30;
 const SAME_WORD_MAX_PER_SESSION = 2;
+// concreteness 5/4 共 635 字，撈前 200 個當新字候選池——.in() 塞的 id 數量
+// 固定在這個大小，不會隨卡片總數成長（避免 URL 過長被擋掉）。
+const NEW_WORD_CANDIDATE_POOL = 200;
+const NEW_CARD_FETCH_LIMIT = 20;
 
 /**
  * @param {import('@supabase/supabase-js').SupabaseClient} supabase
@@ -111,54 +115,57 @@ async function selectDueAndNewCards(supabase, profileId) {
     throw new Error(`撈到期卡片失敗：${dueError.message}`);
   }
 
-  const { data: newCardsRaw, error: newError } = await supabase
-    .from("cards")
-    .select("id, word_id, skill, demoted_to")
-    .eq("profile_id", profileId)
-    .eq("state", "new")
-    .eq("suspended", false);
+  // 新字候選：先從 words 撈 concreteness 5/4（PROGRESS.md 給 B2 的備註第一段，
+  // 共 635 字）裡最具體的前 NEW_WORD_CANDIDATE_POOL 個 word_id，再拿這個固定
+  // 大小的 id 清單去 cards 找對應的 state='new' 卡。
+  //
+  // 這是修過的版本：舊版直接把這個 profile 全部 state='new' 的卡（現在 1,398
+  // 張）一次撈回來，導致下面 .in() 塞進上千個 UUID，URL 過長被 Supabase 擋掉
+  // （400 Bad Request）。兩段式查詢把塞進 .in() 的 id 數量鎖在候選池大小，
+  // 不會隨卡片總數成長。
+  //
+  // 不 select freq_rank（不確定欄位是否存在，而且同分時不指定順序沒有實質
+  // 差別）。原本備註的第二段「其餘字依 headword 長度排序」這次沒做——635 字
+  // 的新字池可以撐好幾個月，等真的撈不到候選（見下面 length===0 判斷）才需要
+  // 處理，先不做。
+  const { data: candidateWords, error: candidateWordsError } = await supabase
+    .from("words")
+    .select("id")
+    .in("concreteness", [5, 4])
+    .order("concreteness", { ascending: false })
+    .limit(NEW_WORD_CANDIDATE_POOL);
 
-  if (newError) {
-    throw new Error(`撈新字卡片失敗：${newError.message}`);
+  if (candidateWordsError) {
+    throw new Error(`撈候選新字失敗：${candidateWordsError.message}`);
   }
+
+  const candidateWordIds = (candidateWords ?? []).map((w) => w.id);
+  // .in() 不保證回傳順序跟輸入陣列一致，用這個 rank 記住 candidateWords
+  // 原本的 concreteness desc 順序，撈完 cards 後照這個排回去。
+  const rankByWordId = new Map(candidateWordIds.map((id, i) => [id, i]));
 
   const dueIds = new Set((dueCards ?? []).map((c) => c.id));
-  const newCards = (newCardsRaw ?? []).filter((c) => !dueIds.has(c.id));
+  let newCards = [];
+  if (candidateWordIds.length > 0) {
+    const { data: newCardsRaw, error: newError } = await supabase
+      .from("cards")
+      .select("id, word_id, skill, demoted_to")
+      .eq("profile_id", profileId)
+      .eq("state", "new")
+      .eq("suspended", false)
+      .in("word_id", candidateWordIds)
+      .limit(NEW_CARD_FETCH_LIMIT);
 
-  // 排新字順序（PROGRESS.md 給 B2 的備註）：
-  // 第一段 concreteness in (5,4)，依 concreteness desc、freq_rank asc；
-  // 第二段 其餘，依 headword 長度 asc。
-  const newCardWordIds = newCards.map((c) => c.word_id);
-  let wordMeta = new Map();
-  if (newCardWordIds.length > 0) {
-    const { data: words, error: wordsError } = await supabase
-      .from("words")
-      .select("id, headword, concreteness, freq_rank")
-      .in("id", newCardWordIds);
-
-    if (wordsError) {
-      throw new Error(`撈 words 排序資料失敗：${wordsError.message}`);
+    if (newError) {
+      throw new Error(`撈新字卡片失敗：${newError.message}`);
     }
-    wordMeta = new Map((words ?? []).map((w) => [w.id, w]));
+
+    newCards = (newCardsRaw ?? [])
+      .filter((c) => !dueIds.has(c.id))
+      .sort((a, b) => (rankByWordId.get(a.word_id) ?? 0) - (rankByWordId.get(b.word_id) ?? 0));
   }
 
-  const sortedNewCards = newCards.slice().sort((a, b) => {
-    const wa = wordMeta.get(a.word_id) ?? {};
-    const wb = wordMeta.get(b.word_id) ?? {};
-    const aHigh = (wa.concreteness ?? 0) >= 4;
-    const bHigh = (wb.concreteness ?? 0) >= 4;
-    if (aHigh !== bHigh) return aHigh ? -1 : 1;
-    if (aHigh) {
-      const cDiff = (wb.concreteness ?? 0) - (wa.concreteness ?? 0);
-      if (cDiff !== 0) return cDiff;
-      const fa = wa.freq_rank ?? Number.MAX_SAFE_INTEGER;
-      const fb = wb.freq_rank ?? Number.MAX_SAFE_INTEGER;
-      return fa - fb;
-    }
-    return (wa.headword ?? "").length - (wb.headword ?? "").length;
-  });
-
-  return (dueCards ?? []).concat(sortedNewCards);
+  return (dueCards ?? []).concat(newCards);
 }
 
 /**
