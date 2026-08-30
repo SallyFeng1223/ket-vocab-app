@@ -18,7 +18,7 @@
 // @property {{distractors_zh: string[]}} payload - 題型專屬資料，L0 是 3 個干擾選項
 // @property {number} content_version  - 寫進 attempts.item_content_version 用
 
-import { shuffle, SKILL_DEMOTE_MAP } from "./utils.js?v=7";
+import { shuffle, SKILL_DEMOTE_MAP } from "./utils.js?v=8";
 
 const MAX_PER_SESSION = 40;
 const ROUND_SIZE = 10;
@@ -102,11 +102,18 @@ export async function getDiagnosticQueue(supabase, profileId) {
 async function selectDueAndNewCards(supabase, profileId) {
   const nowIso = new Date().toISOString();
 
+  // 排除 state='new'：B7 把全部 1,398 張 L1 初始卡的 due_at 設成建卡當下的
+  // now()，不是分散的。這裡如果不排除 state='new'，這些卡會全部符合
+  // due_at<=now、從「到期」路徑被撈出來——due_at 幾乎同一時間戳記，同分時
+  // 退回資料庫回傳順序，完全繞過下面「新字」路徑的 concreteness 排序（B2
+  // 那條備註警告過的狀況）。「到期」路徑目前應該只處理真正的複習卡（L0，
+  // state='review'），新字一律走 concreteness 排序那條路徑。
   const { data: dueCards, error: dueError } = await supabase
     .from("cards")
     .select("id, word_id, skill, demoted_to")
     .eq("profile_id", profileId)
     .eq("suspended", false)
+    .neq("state", "new")
     .lte("due_at", nowIso)
     .order("due_at", { ascending: true })
     .limit(DUE_CANDIDATE_BUFFER);
