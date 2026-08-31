@@ -18,7 +18,7 @@
 // @property {{distractors_zh: string[]}} payload - 題型專屬資料，L0 是 3 個干擾選項
 // @property {number} content_version  - 寫進 attempts.item_content_version 用
 
-import { shuffle, SKILL_DEMOTE_MAP } from "./utils.js?v=8";
+import { shuffle, SKILL_DEMOTE_MAP } from "./utils.js?v=9";
 
 const MAX_PER_SESSION = 40;
 const ROUND_SIZE = 10;
@@ -131,13 +131,12 @@ async function selectDueAndNewCards(supabase, profileId) {
   // （400 Bad Request）。兩段式查詢把塞進 .in() 的 id 數量鎖在候選池大小，
   // 不會隨卡片總數成長。
   //
-  // 不 select freq_rank（不確定欄位是否存在，而且同分時不指定順序沒有實質
-  // 差別）。原本備註的第二段「其餘字依 headword 長度排序」這次沒做——635 字
-  // 的新字池可以撐好幾個月，等真的撈不到候選（見下面 length===0 判斷）才需要
-  // 處理，先不做。
+  // 不 select freq_rank（不確定欄位是否存在）。原本備註的第二段「其餘字依
+  // headword 長度排序」這次沒做——635 字的新字池可以撐好幾個月，等真的撈不到
+  // 候選（見下面 length===0 判斷）才需要處理，先不做。
   const { data: candidateWords, error: candidateWordsError } = await supabase
     .from("words")
-    .select("id")
+    .select("id, headword, concreteness")
     .in("concreteness", [5, 4])
     .order("concreteness", { ascending: false })
     .limit(NEW_WORD_CANDIDATE_POOL);
@@ -146,9 +145,18 @@ async function selectDueAndNewCards(supabase, profileId) {
     throw new Error(`撈候選新字失敗：${candidateWordsError.message}`);
   }
 
-  const candidateWordIds = (candidateWords ?? []).map((w) => w.id);
-  // .in() 不保證回傳順序跟輸入陣列一致，用這個 rank 記住 candidateWords
-  // 原本的 concreteness desc 順序，撈完 cards 後照這個排回去。
+  // PostgREST 不能 order by length(headword)，這段在 JS 端補第二個排序鍵：
+  // concreteness 同分時（實測發現 above/accident/accommodation... 這種
+  // a 開頭難字會全部擠在最前面，因為同分退回字母序），改成依 headword 長度
+  // 升冪，短字優先，降低第一輪就出現 accommodation 這種 13 字母字的挫折感。
+  const sortedCandidateWords = (candidateWords ?? []).slice().sort((a, b) => {
+    if (b.concreteness !== a.concreteness) return b.concreteness - a.concreteness;
+    return (a.headword ?? "").length - (b.headword ?? "").length;
+  });
+
+  const candidateWordIds = sortedCandidateWords.map((w) => w.id);
+  // .in() 不保證回傳順序跟輸入陣列一致，用這個 rank 記住上面排好的順序，
+  // 撈完 cards 後照這個排回去。
   const rankByWordId = new Map(candidateWordIds.map((id, i) => [id, i]));
 
   const dueIds = new Set((dueCards ?? []).map((c) => c.id));
