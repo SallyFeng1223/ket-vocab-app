@@ -21,7 +21,7 @@
 | 階段 | 週次 | 完成 / 總數 | 狀態 |
 |---|---|---|---|
 | A 資料奠基 + 診斷 | W1（8/24–8/30） | 7 / 8（A8 取消） | 完成 |
-| B 核心引擎上線 | W2（8/31–9/6） | 2 / 8 | 進行中 |
+| B 核心引擎上線 | W2（8/31–9/6） | 5 / 8（B5 部分完成） | 進行中 |
 | C 內容深化與拼寫 | W3–4（9/7–9/20） | 0 / 5 | 未開始 |
 | D 獎勵系統 | W5（9/21–9/27） | 0 / 5 | 未開始 |
 | E 文法與統計 | W6–7（9/28–10/11） | 0 / 4 | 未開始 |
@@ -94,48 +94,49 @@
   - 出題配比讀自 `app_settings`：到期複習 5 / 易錯加權 3 / 新字 2
   - 驗收：連續跑 3 天，`due_at` 分布合理，未出現複習債爆量
   - ⚠️ 卡關退路：改用簡化 SM-2
-- [ ] **B3 L1 辨形題 + L2 字母磚題**
+- [x] **B3 L1 辨形題 + L2 字母磚題**
   - 原訂 W3–W4 提前至此，兩者 payload 皆規則式生成（規劃書 §5.6）
   - 驗收：兩種題型皆可作答、判分正確
-  - > 待確認：`docs/js/renderer.js` 已加 L1/L2 分支，沿用 A5 的 buildChoicesForItem/
-    showItemAndWaitForAnswer 架構沒有改動核心結構。L2 判分 case-insensitive、tiles+
-    extra_tiles 合併後才洗牌、點擊組字免拖曳、磚塊 48×48px、有清除鈕。
-    本機用假資料（含重複字母 see、大小寫測試 April）在瀏覽器測過，四題全對、
-    判分邏輯正確，主控台無錯誤。**還沒接真實 Supabase 資料、也還沒在 iPad 上跑過**，
-    需要你實際測過才能勾選。
-- [ ] **B4 Session 流程**
+  - > 使用者已於真實 Supabase + 瀏覽器實測確認通過。`docs/js/renderer.js` 沿用 A5 的
+    buildChoicesForItem/showItemAndWaitForAnswer 架構，沒有改動核心結構。L2 判分
+    case-insensitive、tiles+extra_tiles 合併後才洗牌、點擊組字免拖曳、磚塊 48×48px、
+    有清除鈕。
+- [x] **B4 Session 流程**
   - 10 題一輪 + 結算畫面
   - 挫折控制：`consecutive_wrong >= 3` 觸發降級（規劃書 §5.5）
   - 驗收：中途離開時 `completed = false`
-  - > 待確認：`provider.js` 加 `getDailyQueue`（取題邏輯獨立成 `selectDueAndNewCards`，
-    之後換 B2 SRS 只改這一個函式）；`recorder.js` 加 `updateCardAfterAnswer` 做挫折控制
-    （`consecutive_wrong`/`demoted_to`，用同一欄位的正負號分別追蹤連錯/降級後連對，
-    細節見函式內註解）；`main.js` 加 `runDailySession`，診斷 80 題做完後自動轉入日常模式；
-    `renderer.js` 的 `runDiagnostic` 改名 `runRound`（診斷/日常共用同一支）並加提示顯示。
-    中途離開 completed=false 沿用 A5 既有機制，沒有新寫程式碼。
-    本機用假資料測過（含 mock Supabase 跑 20 條斷言：due優先/新字兩段排序/同字上限2次
-    /降級查無題目時跳過不中斷/降級後出低一階題目並標記提示/挫折控制狀態機含降級與解除），
-    也在瀏覽器裡確認提示文字會顯示、`hint_used` 正確傳遞。**還沒接真實 Supabase、
-    沒在 iPad 上跑過**，需要你實際測過才能勾選。
+  - > 使用者已於真實 Supabase + 瀏覽器實測確認通過。`provider.js` 的 `getDailyQueue`
+    （取題邏輯獨立成 `selectDueAndNewCards`，之後換 B2 SRS 只改這一個函式）；
+    `recorder.js` 的 `updateCardAfterAnswer` 做挫折控制（`consecutive_wrong`/
+    `demoted_to`，用同一欄位的正負號分別追蹤連錯/降級後連對，細節見函式內註解）；
+    `main.js` 的 `runDailySession`，診斷 80 題做完後自動轉入日常模式；`renderer.js`
+    的 `runDiagnostic` 改名 `runRound`（診斷/日常共用同一支）並加提示顯示。
+    中途離開 completed=false 沿用 A5 既有機制。
+  - > **實測過程修了三個真的 bug**（詳見對話紀錄）：
+    (1) `selectDueAndNewCards` 原本一次撈這個 profile 全部 state='new' 卡（1,398張），
+    `.in()` 塞進上千個 UUID 導致 URL 過長，Supabase 回 400——改成兩段式查詢，
+    先從 `words` 撈 concreteness 5/4 的前 200 個 word_id 當候選池，固定大小不隨卡片
+    數成長；
+    (2) 到期查詢原本沒排除 `state='new'`，而 B7 把全部 L1 初始卡的 `due_at` 設成建卡
+    當下的 `now()`，導致這些卡從「到期」路徑被撈出、繞過 concreteness 排序（第一題
+    因此出現虛詞 `a`）——加上 `.neq("state","new")`；
+    (3) concreteness 同分時原本沒有次要排序，退回字母序，導致 `accommodation` 這類
+    長字擠在第一輪——改成 JS 端依 headword 長度升冪排序。
   - > ⚠️ **測試時發現的內容缺口**：L0 題目只有 A4 診斷用的 80 個字（A8 取消，
     其餘 1,653 字從未生成 L0 題）。B7 卻幫全部 1,733 字都建了 L0 卡（維持性複習）。
     代表這 1,653 張 L0 卡到期時，`getDailyQueue` 會撈到卡但找不到對應題目，
     印警告後跳過——這些字的「維持性複習」實質上不會發生，直到之後補上 L0 題目。
     同樣的缺口也會出現在 L1→L0 降級的情境。目前不影響 B4 本身運作（會優雅跳過，
     不會卡住整輪），但這是個需要決定要不要處理的缺口，記在下面卡關待辦。
-- [ ] **B5 attempts / cards 寫入**
+- [x] **B5 attempts / cards 寫入（部分完成）**
   - 驗收：`answer_given`、`response_ms`、`hint_used` 皆有值
-  - > 逐欄檢查（見對話紀錄）：`consecutive_wrong`/`demoted_to` 於 B4 完成。
-    現在補上三個跟演算法無關的純計數欄位：`reps`（每次作答 +1）、
-    `lapses`（答錯 +1、答對不動，累計不歸零，驅動 §5.4 易錯加權，
-    跟連續歸零的 `consecutive_wrong` 是兩件事）、`last_review_at`（每次作答
-    更新為 now()）。另外對 `due_at` 加了 TEMPORARY 權宜措施：答對
-    now()+1天、答錯 now()，只為防止同一張卡在 B2 排程器接上前卡在同一天
-    反覆出現，不是排程演算法，程式碼裡標了 `// TEMPORARY`，B2 接上 FSRS
-    後整段刪除。`state`/`stability`/`difficulty`/`retrievability` 仍然不動，
-    等 B2。本機用 mock Supabase 測過 22 條斷言（含 reps/lapses 初值為
-    null 時也能正常起算，對應 B7 建卡時這兩欄從未被設過值的情況）。
-    **還沒接真實 Supabase 測過，需要你確認才能勾。**
+  - > 使用者已於真實 Supabase 實測確認：`reps` 全部 +1、`lapses` 只在答錯的卡上累加、
+    `due_at` 答對推明天答錯留今天、`answer_given` 存到實際輸入（如 accommodation
+    誤拼成 accomodation）、`response_ms`/`hint_used` 皆有值。`consecutive_wrong`/
+    `demoted_to` 於 B4 完成。**部分完成**：`state`/`stability`/`difficulty`/
+    `retrievability` 仍待 B2（真 SRS 排程器）才會動。`due_at` 目前是 TEMPORARY
+    權宜措施（答對+1天、答錯今天再出），程式碼裡標了 `// TEMPORARY`，B2 接上
+    FSRS 後整段刪除。
 - [ ] **B6 金幣計數 + 靜態貓咪 SVG**
   - 先不做商店。金幣綁正確率與連續天數，**不綁作答量**
   - 驗收：金幣會累積，貓咪看得到
