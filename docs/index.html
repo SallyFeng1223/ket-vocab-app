@@ -15,7 +15,8 @@
       color: #222;
     }
     #login-section,
-    #app-section {
+    #app-section,
+    #pet-section {
       max-width: 480px;
       margin: 0 auto;
       padding: 24px 16px;
@@ -25,6 +26,18 @@
     }
     #app-section {
       display: none;
+    }
+    #pet-section {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding-bottom: 0;
+    }
+    #coin-total {
+      font-size: 20px;
+      font-weight: bold;
+      color: #b8860b;
     }
     h1 {
       font-size: 20px;
@@ -163,8 +176,13 @@
     <div id="login-error"></div>
   </section>
 
+  <section id="pet-section">
+    <div id="pet-container"></div>
+    <div id="coin-total"></div>
+  </section>
+
   <section id="app-section"></section>
 
-  <script type="module" src="js/main.js?v=9"></script>
+  <script type="module" src="js/main.js?v=10"></script>
 </body>
 </html>

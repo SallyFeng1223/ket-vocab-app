@@ -2,31 +2,44 @@
 // 管 session 的開始/收尾、模式切換（診斷 → 日常）。這層不會被 W2 沿用，
 // 但 provider/renderer/recorder 都會。
 
-import { supabase } from "./supabaseClient.js?v=9";
-import { getDiagnosticQueue, getDailyQueue } from "./provider.js?v=9";
+import { supabase } from "./supabaseClient.js?v=10";
+import { getDiagnosticQueue, getDailyQueue } from "./provider.js?v=10";
 import {
   startSession,
   recordAnswer,
   finishSession,
   flushPendingAttempts,
   updateCardAfterAnswer,
-} from "./recorder.js?v=9";
-import { runRound } from "./renderer.js?v=9";
+} from "./recorder.js?v=10";
+import { runRound } from "./renderer.js?v=10";
+import { updateWalletAfterSession, getWalletCoins } from "./rewards.js?v=10";
+import { renderPetInto } from "./petSvg.js?v=10";
 
 const loginSection = document.getElementById("login-section");
 const appSection = document.getElementById("app-section");
+const petSection = document.getElementById("pet-section");
+const petContainer = document.getElementById("pet-container");
+const coinTotalEl = document.getElementById("coin-total");
 const loginForm = document.getElementById("login-form");
 const loginError = document.getElementById("login-error");
 
 function showLogin() {
   loginSection.style.display = "block";
   appSection.style.display = "none";
+  petSection.style.display = "none";
 }
 
 function showApp() {
   loginSection.style.display = "none";
   appSection.style.display = "block";
+  petSection.style.display = "flex";
+  renderPetInto(petContainer);
   runAppFlow();
+}
+
+async function refreshCoinTotal(profileId) {
+  const coins = await getWalletCoins(supabase, profileId);
+  coinTotalEl.textContent = `🪙 ${coins}`;
 }
 
 loginForm.addEventListener("submit", async (event) => {
@@ -72,6 +85,7 @@ async function runAppFlow() {
     await flushPendingAttempts(supabase);
 
     const profileId = await getProfileId();
+    await refreshCoinTotal(profileId);
 
     const diagnosticItems = await getDiagnosticQueue(supabase, profileId);
     if (diagnosticItems.length > 0) {
@@ -117,12 +131,22 @@ async function runDailySession(profileId) {
 
   await finishSession(supabase, sessionId, summary);
 
-  // 結算畫面：本輪答對幾題、獲得金幣。金幣是 B6 才做，這裡先顯示 0，
-  // 不顯示正確率百分比（規劃書 §8.1：完成度不用「答對次數 ÷ 總數」）。
+  // B6：依正確率 + 連續天數 + 今日目標算金幣，寫回 wallet/daily_stats
+  // （§7.1，細節見 rewards.js）。失敗不擋結算畫面，只是這輪金幣顯示 0。
+  let coinsEarned = 0;
+  try {
+    coinsEarned = await updateWalletAfterSession(supabase, profileId, summary);
+  } catch (err) {
+    console.warn(`金幣結算失敗：${err.message}`);
+  }
+  await refreshCoinTotal(profileId);
+
+  // 結算畫面：本輪答對幾題、獲得金幣。不顯示正確率百分比
+  // （規劃書 §8.1：完成度不用「答對次數 ÷ 總數」）。
   appSection.innerHTML = `
     <div class="summary">
       <div class="summary-line">這一輪答對 ${summary.correctCount} / ${summary.itemCount} 題</div>
-      <div class="summary-line">獲得金幣：0</div>
+      <div class="summary-line">獲得金幣：${coinsEarned}</div>
     </div>
   `;
 }
