@@ -6,7 +6,7 @@
 // B2 接上 FSRS：排程計算在 srs.js（只算不寫），這裡負責把結果寫回 cards。
 // renderer.js 不需要改一行。
 
-import { SKILL_DEMOTE_MAP } from "./utils.js?v=11";
+import { SKILL_DEMOTE_MAP, taipeiDateKey } from "./utils.js?v=11";
 import { rateAnswer, scheduleCard } from "./srs.js?v=11";
 
 const PENDING_KEY = "ket_pending_attempts";
@@ -219,5 +219,32 @@ export async function updateCardAfterAnswer(supabase, answer, srsContext) {
 
   if (updateError) {
     console.warn(`更新卡片失敗（寫卡 ${card.id}）：${updateError.message}`);
+  }
+}
+
+/**
+ * 把今天的新卡數寫進 daily_stats.new_words（規劃書 v1.4 §9 F 每週檢查要看這個
+ * 數字，決定 daily_new_limit 要不要從 6 上調）。數字由 provider 的
+ * countNewCardsToday 從 attempts 算出來，這裡只負責寫入。
+ *
+ * 用 update 不用 upsert：今天這列 daily_stats 由 rewards.js 的金幣結算建立，
+ * 這支在它之後呼叫。用 upsert 的話，萬一 rewards 失敗、這列不存在，就會插入
+ * 一列只有 new_words 的不完整資料。update 找不到列就是什麼都不做。
+ *
+ * 失敗不拋例外，只在主控台警告（統計欄位，不該擋住結算畫面）。
+ *
+ * @param {import('@supabase/supabase-js').SupabaseClient} supabase
+ * @param {string} profileId
+ * @param {number} newWords
+ */
+export async function updateDailyNewWords(supabase, profileId, newWords) {
+  const { error } = await supabase
+    .from("daily_stats")
+    .update({ new_words: newWords })
+    .eq("profile_id", profileId)
+    .eq("date", taipeiDateKey(new Date()));
+
+  if (error) {
+    console.warn(`寫入 daily_stats.new_words 失敗：${error.message}`);
   }
 }

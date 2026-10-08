@@ -110,7 +110,22 @@
     評分：答錯 Again／提示 Hard／慢於中位數×1.5 Hard／**快於中位數×0.5 Easy 只限 L2**
     （L1 三選一可猜中，最高 Good）／其餘 Good；樣本 <20 筆不看時間。
     需貼 `data/sql/B2_1_cards_fsrs_backfill.sql`（補 B7 L0 卡的 difficulty/last_review_at）。
+  - > **B2-2 已 commit（三個桶子排程器）**：`provider.js` 的 `getDailyQueue` 改寫，
+    配比讀 `session_mix`。到期 5（due_at asc）→ 易錯 3（剩餘到期卡依 lapses，不足
+    放寬到全部 lapses>0 卡）→ 新字 2（受每日新卡額度限制）→ 不足 10 題時依
+    到期→易錯→新字互補。每日新卡數由 `countNewCardsToday` 從 attempts 算（含 L2
+    晉級卡），每輪結束寫進 `daily_stats.new_words`。降級退路：降級後的題型沒有題目
+    時退回原題型＋提示，不讓卡片卡死。
+    需貼 `data/sql/B2_2_suspend_l0_without_items.sql`（停用 ~1,653 張無題目 L0 卡，
+    決策 14 的資料層落實；不停用會占滿到期桶候選池）、`data/sql/B2_2_profile_limit.sql`。
     > 待確認：真實 Supabase 實測
+  - > **刻意不做**：易錯桶不改出低一階題型（§5.4 原文「優先出低一階題型」）。
+    理由：§5.5 已有連錯降級機制，兩套同時決定題型會互相競爭。
+  - > **預估修正（待觀察，先不改規劃書）**：每日上限算「新卡」且含 L2 晉級卡，
+    穩定後每週 18 張新卡約 L1 新字與 L2 晉級卡各半，實際新字約每週 9 個、
+    10 週 90–120 字，而非 v1.4 §1.4 寫的 180 字。90 個走完 L1+L2 的字比 180 個
+    只練辨形的字更接近「拼得出來」。跑兩週看 `daily_stats.new_words` 實際數字再
+    決定是否修規劃書。
 - [x] **B3 L1 辨形題 + L2 字母磚題**
   - 原訂 W3–W4 提前至此，兩者 payload 皆規則式生成（規劃書 §5.6）
   - 驗收：兩種題型皆可作答、判分正確

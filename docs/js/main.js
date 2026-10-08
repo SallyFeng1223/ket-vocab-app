@@ -3,13 +3,14 @@
 // 但 provider/renderer/recorder 都會。
 
 import { supabase } from "./supabaseClient.js?v=11";
-import { getDiagnosticQueue, getDailyQueue } from "./provider.js?v=11";
+import { getDiagnosticQueue, getDailyQueue, countNewCardsToday } from "./provider.js?v=11";
 import {
   startSession,
   recordAnswer,
   finishSession,
   flushPendingAttempts,
   updateCardAfterAnswer,
+  updateDailyNewWords,
 } from "./recorder.js?v=11";
 import { runRound } from "./renderer.js?v=11";
 import { updateWalletAfterSession, getWalletCoins } from "./rewards.js?v=11";
@@ -143,6 +144,15 @@ async function runDailySession(profileId) {
     console.warn(`金幣結算失敗：${err.message}`);
   }
   await refreshCoinTotal(profileId);
+
+  // 今天的新卡數寫進 daily_stats.new_words（要在金幣結算之後，那時今天這列
+  // daily_stats 才確定存在，見 recorder.js updateDailyNewWords）
+  try {
+    const newWords = await countNewCardsToday(supabase, profileId);
+    await updateDailyNewWords(supabase, profileId, newWords);
+  } catch (err) {
+    console.warn(`計算今日新卡數失敗：${err.message}`);
+  }
 
   // 結算畫面：本輪答對幾題、獲得金幣。不顯示正確率百分比
   // （規劃書 §8.1：完成度不用「答對次數 ÷ 總數」）。
