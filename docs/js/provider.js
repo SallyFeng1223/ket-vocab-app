@@ -18,7 +18,7 @@
 // @property {{distractors_zh: string[]}} payload - 題型專屬資料，L0 是 3 個干擾選項
 // @property {number} content_version  - 寫進 attempts.item_content_version 用
 
-import { shuffle, SKILL_DEMOTE_MAP } from "./utils.js?v=10";
+import { shuffle, SKILL_DEMOTE_MAP } from "./utils.js?v=11";
 
 const MAX_PER_SESSION = 40;
 const ROUND_SIZE = 10;
@@ -30,6 +30,9 @@ const SAME_WORD_MAX_PER_SESSION = 2;
 // 固定在這個大小，不會隨卡片總數成長（避免 URL 過長被擋掉）。
 const NEW_WORD_CANDIDATE_POOL = 200;
 const NEW_CARD_FETCH_LIMIT = 20;
+// 出題時把整張卡帶給 recorder，答完直接在本地算 FSRS、不用回頭再讀一次（B2）
+const CARD_COLUMNS =
+  "id, word_id, skill, state, stability, difficulty, due_at, last_review_at, reps, lapses, consecutive_wrong, demoted_to";
 
 /**
  * @param {import('@supabase/supabase-js').SupabaseClient} supabase
@@ -110,7 +113,7 @@ async function selectDueAndNewCards(supabase, profileId) {
   // state='review'），新字一律走 concreteness 排序那條路徑。
   const { data: dueCards, error: dueError } = await supabase
     .from("cards")
-    .select("id, word_id, skill, demoted_to")
+    .select(CARD_COLUMNS)
     .eq("profile_id", profileId)
     .eq("suspended", false)
     .neq("state", "new")
@@ -164,7 +167,7 @@ async function selectDueAndNewCards(supabase, profileId) {
   if (candidateWordIds.length > 0) {
     const { data: newCardsRaw, error: newError } = await supabase
       .from("cards")
-      .select("id, word_id, skill, demoted_to")
+      .select(CARD_COLUMNS)
       .eq("profile_id", profileId)
       .eq("state", "new")
       .eq("suspended", false)
@@ -186,9 +189,9 @@ async function selectDueAndNewCards(supabase, profileId) {
 /**
  * @param {import('@supabase/supabase-js').SupabaseClient} supabase
  * @param {string} profileId
- * @returns {Promise<Array<DiagnosticItem & {card_id: string, hint_used_forced: boolean}>>}
- *   最多 10 筆。card_id 是這題對應的 cards.id（挫折控制要用來更新 consecutive_wrong/
- *   demoted_to）；hint_used_forced 代表這張卡目前是降級狀態，出題時要顯示提示。
+ * @returns {Promise<Array<DiagnosticItem & {card_id: string, card: Object, hint_used_forced: boolean}>>}
+ *   最多 10 筆。card_id 是這題對應的 cards.id；card 是整列 cards 資料（CARD_COLUMNS），
+ *   recorder 答完後用它在本地算 FSRS 與挫折控制；hint_used_forced 代表這張卡目前是降級狀態，出題時要顯示提示。
  */
 export async function getDailyQueue(supabase, profileId) {
   const candidates = await selectDueAndNewCards(supabase, profileId);
@@ -240,6 +243,7 @@ export async function getDailyQueue(supabase, profileId) {
       payload: item.payload,
       content_version: item.content_version,
       card_id: card.id,
+      card,
       hint_used_forced: Boolean(card.demoted_to),
     });
   }

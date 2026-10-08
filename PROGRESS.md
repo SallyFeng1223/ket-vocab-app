@@ -102,6 +102,15 @@
     ⚠️ **只套用在「新字」桶子，不可套用在到期複習。** 否則已在複習中的 KET-only 字
     會突然消失，1 月切回全表時那批卡片的 `due_at` 會過期一大片。
   - > B2 完成後使用者需在 Supabase 貼 SQL：`profiles.daily_new_limit` 12 → 6（決策 12）
+  - > **B2-1 已 commit（FSRS 接上）**：`docs/js/srs.js`（ts-fsrs 5.4.2，esm.sh 引入，
+    參數預設值，唯一例外 `enable_short_term: false`——cards 表沒有 `learning_steps`
+    欄位可存短期步驟）、`docs/js/settings.js`（讀 app_settings 共用入口）。
+    `updateCardAfterAnswer` 改寫 state/stability/difficulty/due_at，TEMPORARY 已刪；
+    卡片快照由 provider 帶過來，每題只往返一次。降級門檻改讀 `demote_threshold`。
+    評分：答錯 Again／提示 Hard／慢於中位數×1.5 Hard／**快於中位數×0.5 Easy 只限 L2**
+    （L1 三選一可猜中，最高 Good）／其餘 Good；樣本 <20 筆不看時間。
+    需貼 `data/sql/B2_1_cards_fsrs_backfill.sql`（補 B7 L0 卡的 difficulty/last_review_at）。
+    > 待確認：真實 Supabase 實測
 - [x] **B3 L1 辨形題 + L2 字母磚題**
   - 原訂 W3–W4 提前至此，兩者 payload 皆規則式生成（規劃書 §5.6）
   - 驗收：兩種題型皆可作答、判分正確

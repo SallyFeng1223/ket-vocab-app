@@ -3,10 +3,11 @@
 // 不直接碰資料庫；main.js 決定把 onAnswer 收到的資料交給 recorder。
 //
 // B4 先加 updateCardAfterAnswer 做 §5.5 挫折控制（consecutive_wrong/demoted_to）。
-// B2 的完整 SRS（stability/difficulty/due_at）之後會加在另一支跟這裡並列的模組，
+// B2 接上 FSRS：排程計算在 srs.js（只算不寫），這裡負責把結果寫回 cards。
 // renderer.js 不需要改一行。
 
-import { SKILL_DEMOTE_MAP } from "./utils.js?v=10";
+import { SKILL_DEMOTE_MAP } from "./utils.js?v=11";
+import { rateAnswer, scheduleCard } from "./srs.js?v=11";
 
 const PENDING_KEY = "ket_pending_attempts";
 
@@ -126,45 +127,43 @@ export async function finishSession(supabase, sessionId, { itemCount, correctCou
 }
 
 /**
- * §5.5 挫折控制，外加三個跟演算法無關的純計數欄位（B5 要求，不等 B2）：
- * reps / lapses / last_review_at。state / stability / difficulty /
- * retrievability 仍然不動，那些要接 FSRS 才有意義，現在寫會跟 B2 打架。
+ * 答完一題後更新這張卡：FSRS 排程（state / stability / difficulty / due_at，
+ * B2）、§5.5 挫折控制（consecutive_wrong / demoted_to）、純計數欄位
+ * （reps / lapses / last_review_at）。
  *
- * cards.consecutive_wrong >= 3 → demoted_to 設為低一階 skill；
- * 降級後連對 2 次 → 解除降級。
+ * 卡片目前的狀態由 provider 出題時一起帶過來（answer.item.card），不再先讀
+ * 一次資料庫——每題只往返一次（寫入），排程在本地算（規劃書 §6）。同一輪裡
+ * 一張卡只會出現一次，下一輪 provider 會重新撈，所以這份快照不會過期。
+ *
+ * 降級門檻讀 app_settings.demote_threshold（B2 起不再寫死）：
+ * consecutive_wrong 達門檻 → demoted_to 設為低一階 skill；
+ * 降級後連對 promote_back_after 次 → 解除降級。
  *
  * schema 沒有獨立的「降級後連對次數」欄位，這裡用同一個 consecutive_wrong 欄位
- * 兼職：未降級時是正數的連錯計數（>=3 觸發降級）；降級後改成負數的連對計數
- * （答對就往負的方向走一步，到 -2 解除降級並歸零；期間只要答錯一次就打斷、
+ * 兼職：未降級時是正數的連錯計數（達門檻觸發降級）；降級後改成負數的連對計數
+ * （答對就往負的方向走一步，到 -promote_back_after 解除降級並歸零；期間只要答錯一次就打斷、
  * 歸零重算，不會因此又重新累積到升級門檻，因為已經在降級狀態了）。
  * 這是刻意的欄位重用，不是新開一個欄位，之後如果覺得不好懂，換成
  * 一個獨立欄位（例如 demotion_correct_streak）也很單純，改這支函式就好。
  *
  * lapses 跟 consecutive_wrong 不是同一件事：lapses 是累計答錯次數，答對
  * 不歸零，B2 排「易錯加權 3 題」要靠它；consecutive_wrong 是連續答錯，
- * 答對就清零，只驅動降級。兩個都要維護，別合併成一個。
- *
- * due_at 是 TEMPORARY：答對 = now()+1 天、答錯 = now()（今天再出），純粹
- * 防止同一張卡在 B2 排程器接上前卡在同一天反覆出現，不是排程演算法。
- * B2 接上 FSRS 後這段（標 TEMPORARY 的三行）整段刪除。
+ * 答對就清零，只驅動降級。兩個都要維護，別合併成一個。ts-fsrs 自己也會算
+ * reps/lapses，但它的 lapses 只在複習卡答錯時 +1，跟這裡的定義不同，所以
+ * 不採用（見 srs.js scheduleCard 註解）。
  *
  * 失敗不拋例外中斷作答流程，只在主控台警告。
  *
  * @param {import('@supabase/supabase-js').SupabaseClient} supabase
- * @param {string} cardId
- * @param {boolean} isCorrect
+ * @param {{item: {skill: string, card: Object}, is_correct: boolean, response_ms: number, hint_used: boolean}} answer
+ *   renderer 交給 onAnswer 的作答資料；item.card 是 provider 帶過來的 cards 列
+ * @param {Awaited<ReturnType<typeof import('./srs.js').loadSrsContext>>} srsContext
  */
-export async function updateCardAfterAnswer(supabase, cardId, isCorrect) {
-  const { data: card, error: fetchError } = await supabase
-    .from("cards")
-    .select("skill, consecutive_wrong, demoted_to, reps, lapses")
-    .eq("id", cardId)
-    .single();
-
-  if (fetchError) {
-    console.warn(`挫折控制更新失敗（讀卡 ${cardId}）：${fetchError.message}`);
-    return;
-  }
+export async function updateCardAfterAnswer(supabase, answer, srsContext) {
+  const card = answer.item.card;
+  const isCorrect = answer.is_correct;
+  const { consecutive_wrong: demoteAt, promote_back_after: promoteBackAfter } =
+    srsContext.demoteThreshold;
 
   let consecutiveWrong = card.consecutive_wrong ?? 0;
   let demotedTo = card.demoted_to;
@@ -172,7 +171,7 @@ export async function updateCardAfterAnswer(supabase, cardId, isCorrect) {
   if (demotedTo) {
     if (isCorrect) {
       consecutiveWrong = Math.min(consecutiveWrong, 0) - 1;
-      if (consecutiveWrong <= -2) {
+      if (consecutiveWrong <= -promoteBackAfter) {
         demotedTo = null;
         consecutiveWrong = 0;
       }
@@ -183,7 +182,7 @@ export async function updateCardAfterAnswer(supabase, cardId, isCorrect) {
     consecutiveWrong = 0;
   } else {
     consecutiveWrong += 1;
-    if (consecutiveWrong >= 3) {
+    if (consecutiveWrong >= demoteAt) {
       demotedTo = SKILL_DEMOTE_MAP[card.skill] ?? null;
       consecutiveWrong = 0; // 降級生效，計數器歸零重新開始追蹤「降級後連對次數」
     }
@@ -192,24 +191,33 @@ export async function updateCardAfterAnswer(supabase, cardId, isCorrect) {
   const reps = (card.reps ?? 0) + 1;
   const lapses = (card.lapses ?? 0) + (isCorrect ? 0 : 1);
   const now = new Date();
-  // TEMPORARY：B2 接上 FSRS 後刪除，改由排程器算 due_at
-  const dueAt = isCorrect
-    ? new Date(now.getTime() + 24 * 60 * 60 * 1000).toISOString()
-    : now.toISOString();
+
+  // 評分用這題「實際出的題型」（降級時是低一階那個），中位數才對得上
+  const rating = rateAnswer(
+    {
+      skill: answer.item.skill,
+      isCorrect,
+      hintUsed: answer.hint_used,
+      responseMs: answer.response_ms,
+    },
+    srsContext.medians
+  );
+  // 算不出來（卡片資料不完整）時是 null，只更新計數欄位、排程欄位維持原樣
+  const scheduled = scheduleCard(card, rating, now);
 
   const { error: updateError } = await supabase
     .from("cards")
     .update({
+      ...(scheduled ?? {}),
       consecutive_wrong: consecutiveWrong,
       demoted_to: demotedTo,
       reps,
       lapses,
       last_review_at: now.toISOString(),
-      due_at: dueAt, // TEMPORARY
     })
-    .eq("id", cardId);
+    .eq("id", card.id);
 
   if (updateError) {
-    console.warn(`挫折控制更新失敗（寫卡 ${cardId}）：${updateError.message}`);
+    console.warn(`更新卡片失敗（寫卡 ${card.id}）：${updateError.message}`);
   }
 }

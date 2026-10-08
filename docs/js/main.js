@@ -2,18 +2,19 @@
 // 管 session 的開始/收尾、模式切換（診斷 → 日常）。這層不會被 W2 沿用，
 // 但 provider/renderer/recorder 都會。
 
-import { supabase } from "./supabaseClient.js?v=10";
-import { getDiagnosticQueue, getDailyQueue } from "./provider.js?v=10";
+import { supabase } from "./supabaseClient.js?v=11";
+import { getDiagnosticQueue, getDailyQueue } from "./provider.js?v=11";
 import {
   startSession,
   recordAnswer,
   finishSession,
   flushPendingAttempts,
   updateCardAfterAnswer,
-} from "./recorder.js?v=10";
-import { runRound } from "./renderer.js?v=10";
-import { updateWalletAfterSession, getWalletCoins } from "./rewards.js?v=10";
-import { renderPetInto } from "./petSvg.js?v=10";
+} from "./recorder.js?v=11";
+import { runRound } from "./renderer.js?v=11";
+import { updateWalletAfterSession, getWalletCoins } from "./rewards.js?v=11";
+import { renderPetInto } from "./petSvg.js?v=11";
+import { loadSrsContext } from "./srs.js?v=11";
 
 const loginSection = document.getElementById("login-section");
 const appSection = document.getElementById("app-section");
@@ -118,13 +119,15 @@ async function runDailySession(profileId) {
     return;
   }
 
+  // 反應時間中位數、降級門檻：開局載入一次，整輪共用，不每題查資料庫
+  const srsContext = await loadSrsContext(supabase, profileId);
+
   const sessionId = await startSession(supabase, profileId, "daily");
 
   const onAnswer = async (answer) => {
     await recordAnswer(supabase, { profileId, sessionId }, answer);
-    // §5.5 挫折控制（consecutive_wrong/demoted_to）。完整 SRS（stability/difficulty/
-    // due_at）是 B2 的事，這裡先只更新這兩個欄位。
-    await updateCardAfterAnswer(supabase, answer.item.card_id, answer.is_correct);
+    // FSRS 排程 + §5.5 挫折控制，寫回 cards（細節見 recorder.js）
+    await updateCardAfterAnswer(supabase, answer, srsContext);
   };
 
   const summary = await runRound({ container: appSection, items, onAnswer });
