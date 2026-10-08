@@ -128,7 +128,15 @@
     湊滿就停——修正舊版「固定撈同一批 200 字、約 11 週用光」的問題，排序規則不變。
     concreteness ≤3 的第二段仍未做（430 字撐過 12/20）。
     需貼 `data/sql/B2_app_settings.sql`（insert pool_filter、delete coin_rules）。
-    > 待確認：真實 Supabase 實測
+  - > B2_2 停用 SQL 已貼（L0 未停用剩 80 張）、B2_app_settings.sql 已貼（剩 5 筆），
+    使用者已確認。B2-1～B2-3 已 push（10/08）；10/08 push 前那一輪測試跑的是舊版，不算數。
+  - > **B2-4 已 commit（§5.2 L1→L2 晉級）**：答完 L1 卡後，若 state 達
+    `promotion.required_state` 且 stability ≥ `promotion.min_stability_days`
+    （review／7 天），幫同一字建 L2 新卡（upsert ignoreDuplicates，該字無 L2 題目則
+    不建）。L1 連兩次 Good 約 stability 13.8 即晉級；三選一連猜中約 11% 會誤晉級，
+    但 L2 字母磚本身就是驗證關卡，門檻不調（使用者已確認）。只開 L1→L2，L3/L4 待 G2。
+    需貼 `data/sql/B2_4_check_cards_insert_policy.sql` 確認 cards 有 INSERT 政策。
+    > 待確認：RLS INSERT 政策；真實 Supabase 實測（晉級卡有建出來）
   - > **刻意不做**：易錯桶不改出低一階題型（§5.4 原文「優先出低一階題型」）。
     理由：§5.5 已有連錯降級機制，兩套同時決定題型會互相競爭。
   - > **預估修正（待觀察，先不改規劃書）**：每日上限算「新卡」且含 L2 晉級卡，

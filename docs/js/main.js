@@ -2,8 +2,8 @@
 // 管 session 的開始/收尾、模式切換（診斷 → 日常）。這層不會被 W2 沿用，
 // 但 provider/renderer/recorder 都會。
 
-import { supabase } from "./supabaseClient.js?v=11";
-import { getDiagnosticQueue, getDailyQueue, countNewCardsToday } from "./provider.js?v=11";
+import { supabase } from "./supabaseClient.js?v=12";
+import { getDiagnosticQueue, getDailyQueue, countNewCardsToday } from "./provider.js?v=12";
 import {
   startSession,
   recordAnswer,
@@ -11,11 +11,11 @@ import {
   flushPendingAttempts,
   updateCardAfterAnswer,
   updateDailyNewWords,
-} from "./recorder.js?v=11";
-import { runRound } from "./renderer.js?v=11";
-import { updateWalletAfterSession, getWalletCoins } from "./rewards.js?v=11";
-import { renderPetInto } from "./petSvg.js?v=11";
-import { loadSrsContext } from "./srs.js?v=11";
+} from "./recorder.js?v=12";
+import { runRound } from "./renderer.js?v=12";
+import { updateWalletAfterSession, getWalletCoins } from "./rewards.js?v=12";
+import { renderPetInto } from "./petSvg.js?v=12";
+import { loadSrsContext } from "./srs.js?v=12";
 
 const loginSection = document.getElementById("login-section");
 const appSection = document.getElementById("app-section");

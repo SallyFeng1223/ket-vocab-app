@@ -9,7 +9,7 @@
 // cards 表的欄位兩種演算法通用：如果 FSRS 卡關要退回簡化 SM-2，只換這支檔案。
 
 import { fsrs, generatorParameters, Rating, State } from "https://esm.sh/ts-fsrs@5.4.2";
-import { getAppSetting } from "./settings.js?v=11";
+import { getAppSetting } from "./settings.js?v=12";
 
 const scheduler = fsrs(generatorParameters({ enable_short_term: false }));
 
@@ -76,14 +76,43 @@ export async function loadResponseMedians(supabase, profileId) {
  * 一輪日常模式需要的 SRS 相關資料，開局載入一次，傳給每一題的
  * updateCardAfterAnswer，避免每題都回頭查資料庫。
  *
- * @returns {Promise<{medians: Record<string, number|null>, demoteThreshold: {consecutive_wrong: number, promote_back_after: number}}>}
+ * @returns {Promise<{medians: Record<string, number|null>, demoteThreshold: {consecutive_wrong: number, promote_back_after: number}, promotion: {required_state: string, min_stability_days: number}}>}
  */
 export async function loadSrsContext(supabase, profileId) {
-  const [medians, demoteThreshold] = await Promise.all([
+  const [medians, demoteThreshold, promotion] = await Promise.all([
     loadResponseMedians(supabase, profileId),
     getAppSetting(supabase, "demote_threshold"),
+    getAppSetting(supabase, "promotion"),
   ]);
-  return { medians, demoteThreshold };
+  return { medians, demoteThreshold, promotion };
+}
+
+// §5.2 晉級順序。目前只開 L1 → L2：L3/L4 題型還沒做（2027-01 階段 G2），
+// 晉級過去也沒有題目可出。L0 → L1 不需要——B7 已經幫每個有 L1 題目的字都建好
+// L1 卡（L0 認字已達 96%，L1 是起點）。
+const PROMOTE_TO = { L1: "L2" };
+
+/**
+ * §5.2：卡片達到 promotion.required_state 且 stability 超過
+ * promotion.min_stability_days（app_settings.promotion，目前 review / 7 天）
+ * 時，回傳要建立的下一個 skill；不符合回傳 null。
+ *
+ * L1 連續兩次 Good 大約就會超過 7 天（B2-1 實測 stability 13.8）。三選一
+ * 連猜對兩次的機率約 11%，會有少數字誤晉級，但晉級只是多建一張 L2 卡，L1 卡
+ * 仍在複習軌道上；L2 字母磚猜不出來，真不會就會連錯觸發降級——L2 本身就是
+ * 驗證關卡（B2 已確認，不調門檻）。
+ *
+ * @param {string} skill - 卡片本身的 skill（不是降級後出的題型）
+ * @param {{state: string, stability: number} | null} scheduled - scheduleCard 的回傳值
+ * @param {{required_state: string, min_stability_days: number}} promotion
+ * @returns {string | null}
+ */
+export function nextSkillToPromote(skill, scheduled, promotion) {
+  const next = PROMOTE_TO[skill];
+  if (!next || !scheduled) return null;
+  if (scheduled.state !== promotion.required_state) return null;
+  if (scheduled.stability < promotion.min_stability_days) return null;
+  return next;
 }
 
 /**

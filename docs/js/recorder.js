@@ -6,8 +6,8 @@
 // B2 接上 FSRS：排程計算在 srs.js（只算不寫），這裡負責把結果寫回 cards。
 // renderer.js 不需要改一行。
 
-import { SKILL_DEMOTE_MAP, taipeiDateKey } from "./utils.js?v=11";
-import { rateAnswer, scheduleCard } from "./srs.js?v=11";
+import { SKILL_DEMOTE_MAP, taipeiDateKey } from "./utils.js?v=12";
+import { rateAnswer, scheduleCard, nextSkillToPromote } from "./srs.js?v=12";
 
 const PENDING_KEY = "ket_pending_attempts";
 
@@ -219,6 +219,58 @@ export async function updateCardAfterAnswer(supabase, answer, srsContext) {
 
   if (updateError) {
     console.warn(`更新卡片失敗（寫卡 ${card.id}）：${updateError.message}`);
+    return;
+  }
+
+  const nextSkill = nextSkillToPromote(card.skill, scheduled, srsContext.promotion);
+  if (nextSkill) {
+    await promoteCard(supabase, card, nextSkill, now);
+  }
+}
+
+/**
+ * §5.2 晉級：幫同一個字建立下一個 skill 的新卡（state='new'，進新字桶，受每日
+ * 新卡額度限制）。舊卡不動，繼續在原 skill 的複習軌道上。
+ *
+ * 那個字沒有下一個 skill 的題目就不建（例如 B0 規則湊不出字母磚的字）——建了
+ * 也出不了題，只會一直卡在新字桶的候選裡。
+ *
+ * 用 upsert + ignoreDuplicates（= insert ... on conflict do nothing）：已經有
+ * 這張卡（B7b 種子卡、或之前已晉級過）就什麼都不做。靠的是
+ * UNIQUE (profile_id, word_id, skill) 約束，所以重複呼叫是安全的。
+ *
+ * 失敗不拋例外，只在主控台警告：晉級沒建成，下次這張卡再答對時還會再試。
+ */
+async function promoteCard(supabase, card, nextSkill, now) {
+  const { data: nextItems, error: itemError } = await supabase
+    .from("items")
+    .select("id")
+    .eq("word_id", card.word_id)
+    .eq("skill", nextSkill)
+    .eq("status", "active")
+    .limit(1);
+
+  if (itemError) {
+    console.warn(`晉級查題目失敗（word_id=${card.word_id}）：${itemError.message}`);
+    return;
+  }
+  if (!nextItems || nextItems.length === 0) return;
+
+  const { error: insertError } = await supabase.from("cards").upsert(
+    {
+      profile_id: card.profile_id,
+      word_id: card.word_id,
+      skill: nextSkill,
+      state: "new",
+      due_at: now.toISOString(),
+    },
+    { onConflict: "profile_id,word_id,skill", ignoreDuplicates: true }
+  );
+
+  if (insertError) {
+    console.warn(
+      `晉級建卡失敗（word_id=${card.word_id} → ${nextSkill}）：${insertError.message}`
+    );
   }
 }
 

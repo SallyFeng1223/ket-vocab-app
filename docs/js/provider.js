@@ -18,8 +18,8 @@
 // @property {{distractors_zh: string[]}} payload - 題型專屬資料，L0 是 3 個干擾選項
 // @property {number} content_version  - 寫進 attempts.item_content_version 用
 
-import { shuffle, taipeiDateKey, taipeiDayStartIso } from "./utils.js?v=11";
-import { getAppSetting } from "./settings.js?v=11";
+import { shuffle, taipeiDateKey, taipeiDayStartIso } from "./utils.js?v=12";
+import { getAppSetting } from "./settings.js?v=12";
 
 const MAX_PER_SESSION = 40;
 const ROUND_SIZE = 10;
@@ -38,7 +38,7 @@ const NEW_WORD_ID_CHUNK = 100;
 const NEW_CARD_FETCH_LIMIT = 20;
 // 出題時把整張卡帶給 recorder，答完直接在本地算 FSRS、不用回頭再讀一次（B2）
 const CARD_COLUMNS =
-  "id, word_id, skill, state, stability, difficulty, due_at, last_review_at, reps, lapses, consecutive_wrong, demoted_to";
+  "id, profile_id, word_id, skill, state, stability, difficulty, due_at, last_review_at, reps, lapses, consecutive_wrong, demoted_to";
 
 /**
  * @param {import('@supabase/supabase-js').SupabaseClient} supabase
