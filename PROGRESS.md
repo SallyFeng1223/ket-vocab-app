@@ -135,8 +135,10 @@
     （review／7 天），幫同一字建 L2 新卡（upsert ignoreDuplicates，該字無 L2 題目則
     不建）。L1 連兩次 Good 約 stability 13.8 即晉級；三選一連猜中約 11% 會誤晉級，
     但 L2 字母磚本身就是驗證關卡，門檻不調（使用者已確認）。只開 L1→L2，L3/L4 待 G2。
-    需貼 `data/sql/B2_4_check_cards_insert_policy.sql` 確認 cards 有 INSERT 政策。
-    > 待確認：RLS INSERT 政策；真實 Supabase 實測（晉級卡有建出來）
+    需貼 `data/sql/B2_4_check_cards_insert_policy.sql` 確認 cards 有 INSERT 政策
+    ——**已確認**：`cards_auth` 政策 cmd=ALL、roles={authenticated}、with_check=true，
+    INSERT 已涵蓋，不用補政策。
+    > 待確認：真實 Supabase 實測（晉級卡有建出來）
   - > **B2-5 已 commit（retrievability）**：答題時與 FSRS 欄位一起寫回（剛複習完約 1）；
     每次排程時，撈到但沒選進這一輪的到期／易錯候選卡在背景更新（變化 <0.005 不寫，
     不擋出題）。不做全表重算——3,000 多張卡從前端逐筆更新太慢，這欄位到 G7 家長
