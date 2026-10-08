@@ -109,7 +109,9 @@
     卡片快照由 provider 帶過來，每題只往返一次。降級門檻改讀 `demote_threshold`。
     評分：答錯 Again／提示 Hard／慢於中位數×1.5 Hard／**快於中位數×0.5 Easy 只限 L2**
     （L1 三選一可猜中，最高 Good）／其餘 Good；樣本 <20 筆不看時間。
-    需貼 `data/sql/B2_1_cards_fsrs_backfill.sql`（補 B7 L0 卡的 difficulty/last_review_at）。
+    需貼 `data/sql/B2_1_cards_fsrs_backfill.sql`（補 B7 L0 卡的 difficulty/last_review_at）
+    ——**使用者已貼，補完後查詢回傳 0 列，已確認**。
+    > 待確認：真實 Supabase 實測（答題後 FSRS 欄位寫回）
   - > **B2-2 已 commit（三個桶子排程器）**：`provider.js` 的 `getDailyQueue` 改寫，
     配比讀 `session_mix`。到期 5（due_at asc）→ 易錯 3（剩餘到期卡依 lapses，不足
     放寬到全部 lapses>0 卡）→ 新字 2（受每日新卡額度限制）→ 不足 10 題時依
@@ -117,7 +119,15 @@
     晉級卡），每輪結束寫進 `daily_stats.new_words`。降級退路：降級後的題型沒有題目
     時退回原題型＋提示，不讓卡片卡死。
     需貼 `data/sql/B2_2_suspend_l0_without_items.sql`（停用 ~1,653 張無題目 L0 卡，
-    決策 14 的資料層落實；不停用會占滿到期桶候選池）、`data/sql/B2_2_profile_limit.sql`。
+    決策 14 的資料層落實；不停用會占滿到期桶候選池）、`data/sql/B2_2_profile_limit.sql`
+    （**daily_new_limit 已改成 6，使用者已確認**）。
+    > 待確認：suspend SQL 是否已貼；真實 Supabase 實測
+  - > **B2-3 已 commit（pool_filter＋新字候選池修正）**：新字桶讀 `pool_filter`，
+    開啟時用 `level_tags` 篩（只套用新字桶）。候選池改成先撈全部 concreteness 5/4
+    候選字（Flyers 期 430 字）在 JS 排序，再每次 100 個 word_id 去 cards 找新卡、
+    湊滿就停——修正舊版「固定撈同一批 200 字、約 11 週用光」的問題，排序規則不變。
+    concreteness ≤3 的第二段仍未做（430 字撐過 12/20）。
+    需貼 `data/sql/B2_app_settings.sql`（insert pool_filter、delete coin_rules）。
     > 待確認：真實 Supabase 實測
   - > **刻意不做**：易錯桶不改出低一階題型（§5.4 原文「優先出低一階題型」）。
     理由：§5.5 已有連錯降級機制，兩套同時決定題型會互相競爭。

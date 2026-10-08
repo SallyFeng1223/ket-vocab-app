@@ -29,9 +29,12 @@ const DUE_CANDIDATE_BUFFER = 30;
 // 易錯桶放寬到「全部卡片依 lapses 排序」時撈的候選數，理由同上
 const LAPSE_CANDIDATE_BUFFER = 30;
 const SAME_WORD_MAX_PER_SESSION = 2;
-// concreteness 5/4 共 635 字，撈前 200 個當新字候選池——.in() 塞的 id 數量
-// 固定在這個大小，不會隨卡片總數成長（避免 URL 過長被擋掉）。
-const NEW_WORD_CANDIDATE_POOL = 200;
+// 新字候選字一次最多撈這麼多（concreteness 5/4 全表 635 字、Flyers 期 430 字，
+// 都在範圍內）。PostgREST 預設單次最多回 1,000 列，明確寫出來避免默默被截斷。
+const NEW_WORD_FETCH_MAX = 1000;
+// 拿排好序的 word_id 去 cards 找新卡時，每次塞進 .in() 的 id 數。100 個 UUID
+// 約 3.7KB，遠低於 URL 長度上限（B4 踩過 .in() 塞上千個 UUID 被回 400 的坑）。
+const NEW_WORD_ID_CHUNK = 100;
 const NEW_CARD_FETCH_LIMIT = 20;
 // 出題時把整張卡帶給 recorder，答完直接在本地算 FSRS、不用回頭再讀一次（B2）
 const CARD_COLUMNS =
@@ -147,57 +150,76 @@ async function fetchLapseCandidates(supabase, profileId) {
   return data ?? [];
 }
 
-// 新字桶的候選：先從 words 撈 concreteness 5/4（PROGRESS.md 給 B2 的備註第一段，
-// 共 635 字）裡最具體的前 NEW_WORD_CANDIDATE_POOL 個 word_id，再拿這個固定
-// 大小的 id 清單去 cards 找對應的 state='new' 卡。
+// 新字桶的候選。三步：
 //
-// 兩段式查詢是 B4 修過的版本：舊版直接把這個 profile 全部 state='new' 的卡
-// （1,398 張）一次撈回來，.in() 塞進上千個 UUID，URL 過長被 Supabase 擋掉
-// （400 Bad Request）。兩段式把塞進 .in() 的 id 數量鎖在候選池大小。
+// 1. 從 words 撈全部 concreteness 5/4 的字（PROGRESS.md 給 B2 的備註第一段），
+//    如果 app_settings.pool_filter 開著，再依 level_tags 篩（Flyers 期只出
+//    Flyers 字，決策 11）。只撈 id/headword/concreteness，幾百列，不用 .in()。
+// 2. JS 端排序：concreteness 降冪，同分時 headword 長度升冪。PostgREST 不能
+//    order by length(headword)，所以在這裡排。B4 實測發現同分時退回字母序，
+//    above/accident/accommodation 這種 a 開頭長字會擠在最前面，短字優先可以
+//    降低第一輪就遇到 13 字母字的挫折感。
+// 3. 照排好的順序，每次拿 NEW_WORD_ID_CHUNK 個 word_id 去 cards 找 state='new'
+//    的卡，湊滿 NEW_CARD_FETCH_LIMIT 張就停。
 //
-// 不 select freq_rank（不確定欄位是否存在）。
+// B2-3 修正：舊版只撈資料庫回傳的前 200 個字當候選池，這 200 個字每次都是同
+// 一批、不管它們的新卡是不是已經用完——大約 11 週就會用光，之後新字桶永遠是
+// 空的；長度排序也只在這 200 個字裡面排，不是在全部候選字裡排。
+//
+// pool_filter 只套用在這裡（新字桶），不可套用在到期複習與易錯桶：否則已經
+// 在複習中的 KET-only 字會突然消失，1 月切回全表時那批卡的 due_at 會過期一大片。
+//
+// concreteness 3 以下的字（原備註第二段「其餘依 headword 長度」）還沒做：
+// Flyers 期候選有 430 字，以每週約 18 張新卡計，撐過 12/20 綽綽有餘。
 async function fetchNewCandidates(supabase, profileId) {
-  const { data: candidateWords, error: candidateWordsError } = await supabase
+  const poolFilter = await getAppSetting(supabase, "pool_filter");
+
+  let wordsQuery = supabase
     .from("words")
     .select("id, headword, concreteness")
-    .in("concreteness", [5, 4])
-    .order("concreteness", { ascending: false })
-    .limit(NEW_WORD_CANDIDATE_POOL);
+    .in("concreteness", [5, 4]);
+  if (poolFilter.enabled) {
+    wordsQuery = wordsQuery.overlaps("level_tags", poolFilter.level_tags);
+  }
+  const { data: candidateWords, error: candidateWordsError } = await wordsQuery.limit(
+    NEW_WORD_FETCH_MAX
+  );
 
   if (candidateWordsError) {
     throw new Error(`撈候選新字失敗：${candidateWordsError.message}`);
   }
 
-  // PostgREST 不能 order by length(headword)，這段在 JS 端補第二個排序鍵：
-  // concreteness 同分時（實測發現 above/accident/accommodation... 這種
-  // a 開頭難字會全部擠在最前面，因為同分退回字母序），改成依 headword 長度
-  // 升冪，短字優先，降低第一輪就出現 accommodation 這種 13 字母字的挫折感。
-  const sortedCandidateWords = (candidateWords ?? []).slice().sort((a, b) => {
-    if (b.concreteness !== a.concreteness) return b.concreteness - a.concreteness;
-    return (a.headword ?? "").length - (b.headword ?? "").length;
-  });
+  const sortedWordIds = (candidateWords ?? [])
+    .slice()
+    .sort((a, b) => {
+      if (b.concreteness !== a.concreteness) return b.concreteness - a.concreteness;
+      return (a.headword ?? "").length - (b.headword ?? "").length;
+    })
+    .map((w) => w.id);
+  // .in() 不保證回傳順序跟輸入陣列一致，用這個 rank 記住上面排好的順序
+  const rankByWordId = new Map(sortedWordIds.map((id, i) => [id, i]));
 
-  const candidateWordIds = sortedCandidateWords.map((w) => w.id);
-  if (candidateWordIds.length === 0) return [];
-  // .in() 不保證回傳順序跟輸入陣列一致，用這個 rank 記住上面排好的順序，
-  // 撈完 cards 後照這個排回去。
-  const rankByWordId = new Map(candidateWordIds.map((id, i) => [id, i]));
+  const found = [];
+  for (let i = 0; i < sortedWordIds.length && found.length < NEW_CARD_FETCH_LIMIT; i += NEW_WORD_ID_CHUNK) {
+    const chunk = sortedWordIds.slice(i, i + NEW_WORD_ID_CHUNK);
+    const { data, error } = await supabase
+      .from("cards")
+      .select(CARD_COLUMNS)
+      .eq("profile_id", profileId)
+      .eq("state", "new")
+      .eq("suspended", false)
+      .in("word_id", chunk);
 
-  const { data, error } = await supabase
-    .from("cards")
-    .select(CARD_COLUMNS)
-    .eq("profile_id", profileId)
-    .eq("state", "new")
-    .eq("suspended", false)
-    .in("word_id", candidateWordIds)
-    .limit(NEW_CARD_FETCH_LIMIT);
-
-  if (error) {
-    throw new Error(`撈新字卡片失敗：${error.message}`);
+    if (error) {
+      throw new Error(`撈新字卡片失敗：${error.message}`);
+    }
+    found.push(
+      ...(data ?? []).sort(
+        (a, b) => (rankByWordId.get(a.word_id) ?? 0) - (rankByWordId.get(b.word_id) ?? 0)
+      )
+    );
   }
-  return (data ?? []).sort(
-    (a, b) => (rankByWordId.get(a.word_id) ?? 0) - (rankByWordId.get(b.word_id) ?? 0)
-  );
+  return found.slice(0, NEW_CARD_FETCH_LIMIT);
 }
 
 async function fetchDailyNewLimit(supabase, profileId) {
