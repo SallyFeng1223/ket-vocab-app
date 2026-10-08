@@ -9,7 +9,7 @@
 // cards 表的欄位兩種演算法通用：如果 FSRS 卡關要退回簡化 SM-2，只換這支檔案。
 
 import { fsrs, generatorParameters, Rating, State } from "https://esm.sh/ts-fsrs@5.4.2";
-import { getAppSetting } from "./settings.js?v=12";
+import { getAppSetting } from "./settings.js?v=13";
 
 const scheduler = fsrs(generatorParameters({ enable_short_term: false }));
 
@@ -157,35 +157,15 @@ export function rateAnswer({ skill, isCorrect, hintUsed, responseMs }, medians) 
  *   cards 表的一列
  * @param {number} rating - rateAnswer 的回傳值
  * @param {Date} now
- * @returns {{state: string, stability: number, difficulty: number, due_at: string} | null}
+ * @returns {{state: string, stability: number, difficulty: number, due_at: string, retrievability: number} | null}
  *   卡片資料不完整、算不出來時回傳 null（呼叫端只更新計數欄位，不動排程欄位）
  */
 export function scheduleCard(card, rating, now) {
-  const fsrsState = STATE_TO_FSRS[card.state] ?? State.New;
-
-  // 非新卡一定要有 stability / difficulty / last_review_at，否則 ts-fsrs 會算出 NaN。
-  // B7 建的 L0 卡原本缺 difficulty 與 last_review_at，B2_1_cards_fsrs_backfill.sql 補齊；
-  // 這裡是保險，萬一還有漏網的卡，寧可這次不排程也不要把 NaN 寫進資料庫。
-  if (
-    fsrsState !== State.New &&
-    (card.stability == null || card.difficulty == null || card.last_review_at == null)
-  ) {
+  const input = toFsrsInput(card, now);
+  if (!input) {
     console.warn("FSRS：卡片缺 stability/difficulty/last_review_at，這次不排程", card);
     return null;
   }
-
-  const input = {
-    state: fsrsState,
-    due: card.due_at ? new Date(card.due_at) : now,
-    stability: card.stability ?? 0,
-    difficulty: card.difficulty ?? 0,
-    elapsed_days: 0,
-    scheduled_days: 0,
-    learning_steps: 0,
-    reps: 0,
-    lapses: 0,
-    last_review: card.last_review_at ? new Date(card.last_review_at) : undefined,
-  };
 
   const { card: next } = scheduler.next(input, now, rating);
 
@@ -199,5 +179,49 @@ export function scheduleCard(card, rating, now) {
     stability: next.stability,
     difficulty: next.difficulty,
     due_at: next.due.toISOString(),
+    // 剛複習完的保留率（約 1），跟其他欄位一起寫回，不另外往返
+    retrievability: scheduler.get_retrievability(next, now, false),
+  };
+}
+
+/**
+ * 這張卡現在的估計保留率（0–1），給 cards.retrievability 快取欄位用（§4.2：
+ * 統計用，家長端統計頁 G7 會讀）。新卡沒有保留率可言，回傳 null。
+ *
+ * @param {{state: string, stability: number|null, difficulty: number|null, due_at: string|null, last_review_at: string|null}} card
+ * @param {Date} now
+ * @returns {number | null}
+ */
+export function retrievabilityOf(card, now) {
+  if (card.state === "new") return null;
+  const input = toFsrsInput(card, now);
+  if (!input) return null;
+  const r = scheduler.get_retrievability(input, now, false);
+  return Number.isFinite(r) ? r : null;
+}
+
+// cards 表的一列 → ts-fsrs 的 Card 輸入。非新卡一定要有 stability /
+// difficulty / last_review_at，否則 ts-fsrs 會算出 NaN，這時回傳 null。
+// B7 建的 L0 卡原本缺 difficulty 與 last_review_at，B2_1_cards_fsrs_backfill.sql
+// 已補齊；這裡是保險，寧可這次不算也不要把 NaN 寫進資料庫。
+function toFsrsInput(card, now) {
+  const fsrsState = STATE_TO_FSRS[card.state] ?? State.New;
+  if (
+    fsrsState !== State.New &&
+    (card.stability == null || card.difficulty == null || card.last_review_at == null)
+  ) {
+    return null;
+  }
+  return {
+    state: fsrsState,
+    due: card.due_at ? new Date(card.due_at) : now,
+    stability: card.stability ?? 0,
+    difficulty: card.difficulty ?? 0,
+    elapsed_days: 0,
+    scheduled_days: 0,
+    learning_steps: 0,
+    reps: 0,
+    lapses: 0,
+    last_review: card.last_review_at ? new Date(card.last_review_at) : undefined,
   };
 }

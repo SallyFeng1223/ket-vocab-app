@@ -6,8 +6,8 @@
 // B2 接上 FSRS：排程計算在 srs.js（只算不寫），這裡負責把結果寫回 cards。
 // renderer.js 不需要改一行。
 
-import { SKILL_DEMOTE_MAP, taipeiDateKey } from "./utils.js?v=12";
-import { rateAnswer, scheduleCard, nextSkillToPromote } from "./srs.js?v=12";
+import { SKILL_DEMOTE_MAP, taipeiDateKey } from "./utils.js?v=13";
+import { rateAnswer, scheduleCard, nextSkillToPromote, retrievabilityOf } from "./srs.js?v=13";
 
 const PENDING_KEY = "ket_pending_attempts";
 
@@ -298,5 +298,45 @@ export async function updateDailyNewWords(supabase, profileId, newWords) {
 
   if (error) {
     console.warn(`寫入 daily_stats.new_words 失敗：${error.message}`);
+  }
+}
+
+// retrievability 變化小於這個值就不寫，省掉沒意義的請求（統計用的快取欄位，
+// 小數第三位的差異沒有人看得出來）
+const RETRIEVABILITY_WRITE_THRESHOLD = 0.005;
+
+/**
+ * 每次排程時，把撈到但沒選進這一輪的候選卡（到期／易錯，約 30–60 張）的
+ * retrievability 快取更新成現在的值（B2 規格「retrievability 在每日排程時一併
+ * 更新」）。選進這一輪的卡不在這裡處理：答題時 updateCardAfterAnswer 會一起寫。
+ *
+ * 不做全表重算：全表 3,000 多張卡，從前端逐筆更新太慢；這個欄位要到家長端
+ * 統計頁（2027-01 階段 G7）才會讀，到時候在統計頁用 stability + last_review_at
+ * 直接算就好。
+ *
+ * main.js 不等它跑完（不 await），在背景進行、不擋出題；失敗只在主控台警告。
+ *
+ * @param {import('@supabase/supabase-js').SupabaseClient} supabase
+ * @param {Object[]} cards - provider 回傳的 unpickedCards（含 retrievability 欄位）
+ */
+export async function refreshRetrievability(supabase, cards) {
+  const now = new Date();
+  const updates = cards
+    .map((card) => ({ card, r: retrievabilityOf(card, now) }))
+    .filter(
+      ({ card, r }) =>
+        r != null &&
+        (card.retrievability == null ||
+          Math.abs(r - card.retrievability) >= RETRIEVABILITY_WRITE_THRESHOLD)
+    );
+
+  const results = await Promise.all(
+    updates.map(({ card, r }) =>
+      supabase.from("cards").update({ retrievability: r }).eq("id", card.id)
+    )
+  );
+  const failed = results.filter((res) => res.error);
+  if (failed.length > 0) {
+    console.warn(`retrievability 更新失敗 ${failed.length} 張：${failed[0].error.message}`);
   }
 }

@@ -2,8 +2,8 @@
 // 管 session 的開始/收尾、模式切換（診斷 → 日常）。這層不會被 W2 沿用，
 // 但 provider/renderer/recorder 都會。
 
-import { supabase } from "./supabaseClient.js?v=12";
-import { getDiagnosticQueue, getDailyQueue, countNewCardsToday } from "./provider.js?v=12";
+import { supabase } from "./supabaseClient.js?v=13";
+import { getDiagnosticQueue, getDailyQueue, countNewCardsToday } from "./provider.js?v=13";
 import {
   startSession,
   recordAnswer,
@@ -11,11 +11,12 @@ import {
   flushPendingAttempts,
   updateCardAfterAnswer,
   updateDailyNewWords,
-} from "./recorder.js?v=12";
-import { runRound } from "./renderer.js?v=12";
-import { updateWalletAfterSession, getWalletCoins } from "./rewards.js?v=12";
-import { renderPetInto } from "./petSvg.js?v=12";
-import { loadSrsContext } from "./srs.js?v=12";
+  refreshRetrievability,
+} from "./recorder.js?v=13";
+import { runRound } from "./renderer.js?v=13";
+import { updateWalletAfterSession, getWalletCoins } from "./rewards.js?v=13";
+import { renderPetInto } from "./petSvg.js?v=13";
+import { loadSrsContext } from "./srs.js?v=13";
 
 const loginSection = document.getElementById("login-section");
 const appSection = document.getElementById("app-section");
@@ -112,7 +113,12 @@ async function runDiagnosticSession(profileId, items) {
 }
 
 async function runDailySession(profileId) {
-  const items = await getDailyQueue(supabase, profileId);
+  const { items, unpickedCards } = await getDailyQueue(supabase, profileId);
+
+  // 沒選進這一輪的候選卡，背景更新 retrievability 快取；不 await，不擋出題
+  refreshRetrievability(supabase, unpickedCards).catch((err) =>
+    console.warn(`retrievability 背景更新失敗：${err.message}`)
+  );
 
   if (items.length === 0) {
     // 沒有到期或新字可出：不開新 session，直接顯示訊息

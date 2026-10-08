@@ -6,7 +6,7 @@
 //
 // getDailyQueue（B4 建立、B2 改寫）是日常模式，用三個桶子（到期複習／易錯加權／
 // 新字，配比讀 app_settings.session_mix）組一輪 10 題，細節見該函式註解。
-// 不管哪個 provider，回傳陣列的形狀都要維持跟下面這個 typedef 一致，
+// 不管哪個 provider，回傳的題目陣列形狀都要維持跟下面這個 typedef 一致，
 // renderer.js / recorder.js 才不用跟著改。
 //
 // @typedef {Object} DiagnosticItem
@@ -18,8 +18,8 @@
 // @property {{distractors_zh: string[]}} payload - 題型專屬資料，L0 是 3 個干擾選項
 // @property {number} content_version  - 寫進 attempts.item_content_version 用
 
-import { shuffle, taipeiDateKey, taipeiDayStartIso } from "./utils.js?v=12";
-import { getAppSetting } from "./settings.js?v=12";
+import { shuffle, taipeiDateKey, taipeiDayStartIso } from "./utils.js?v=13";
+import { getAppSetting } from "./settings.js?v=13";
 
 const MAX_PER_SESSION = 40;
 const ROUND_SIZE = 10;
@@ -38,7 +38,7 @@ const NEW_WORD_ID_CHUNK = 100;
 const NEW_CARD_FETCH_LIMIT = 20;
 // 出題時把整張卡帶給 recorder，答完直接在本地算 FSRS、不用回頭再讀一次（B2）
 const CARD_COLUMNS =
-  "id, profile_id, word_id, skill, state, stability, difficulty, due_at, last_review_at, reps, lapses, consecutive_wrong, demoted_to";
+  "id, profile_id, word_id, skill, state, stability, difficulty, due_at, last_review_at, reps, lapses, consecutive_wrong, demoted_to, retrievability";
 
 /**
  * @param {import('@supabase/supabase-js').SupabaseClient} supabase
@@ -309,10 +309,12 @@ export async function countNewCardsToday(supabase, profileId) {
  *
  * @param {import('@supabase/supabase-js').SupabaseClient} supabase
  * @param {string} profileId
- * @returns {Promise<Array<DiagnosticItem & {card_id: string, card: Object, hint_used_forced: boolean}>>}
- *   最多 10 筆。card_id 是這題對應的 cards.id；card 是整列 cards 資料（CARD_COLUMNS），
- *   recorder 答完後用它在本地算 FSRS 與挫折控制；hint_used_forced 代表這張卡目前是
- *   降級狀態，出題時要顯示提示。
+ * @returns {Promise<{items: Array<DiagnosticItem & {card_id: string, card: Object, hint_used_forced: boolean}>, unpickedCards: Object[]}>}
+ *   items：最多 10 筆。card_id 是這題對應的 cards.id；card 是整列 cards 資料
+ *   （CARD_COLUMNS），recorder 答完後用它在本地算 FSRS 與挫折控制；hint_used_forced
+ *   代表這張卡目前是降級狀態，出題時要顯示提示。
+ *   unpickedCards：這次撈到但沒選進這一輪的到期／易錯候選卡，main.js 拿去在背景
+ *   更新 retrievability 快取（選進這一輪的卡，答題時就會一起更新）。
  */
 export async function getDailyQueue(supabase, profileId) {
   const [mix, newLimit, newToday, dueCards, lapseCards, newCards] = await Promise.all([
@@ -417,5 +419,8 @@ export async function getDailyQueue(supabase, profileId) {
   pickFrom(lapseCards, ROUND_SIZE);
   pickFrom(newCards, newBudget);
 
-  return queue;
+  const unpickedCards = [...new Map(dueCards.concat(lapseCards).map((c) => [c.id, c])).values()]
+    .filter((c) => !usedCardIds.has(c.id));
+
+  return { items: queue, unpickedCards };
 }
