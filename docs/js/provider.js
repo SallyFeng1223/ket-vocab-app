@@ -18,8 +18,8 @@
 // @property {{distractors_zh: string[]}} payload - 題型專屬資料，L0 是 3 個干擾選項
 // @property {number} content_version  - 寫進 attempts.item_content_version 用
 
-import { shuffle, taipeiDateKey, taipeiDayStartIso } from "./utils.js?v=13";
-import { getAppSetting } from "./settings.js?v=13";
+import { shuffle, taipeiDateKey, taipeiDayStartIso } from "./utils.js?v=14";
+import { getAppSetting } from "./settings.js?v=14";
 
 const MAX_PER_SESSION = 40;
 const ROUND_SIZE = 10;
@@ -28,6 +28,8 @@ const ROUND_SIZE = 10;
 const DUE_CANDIDATE_BUFFER = 30;
 // 易錯桶放寬到「全部卡片依 lapses 排序」時撈的候選數，理由同上
 const LAPSE_CANDIDATE_BUFFER = 30;
+// 不進易錯加權桶的題型（理由見 fetchLapseCandidates 註解）
+const SKILLS_EXCLUDED_FROM_LAPSE = ["L0"];
 const SAME_WORD_MAX_PER_SESSION = 2;
 // 新字候選字一次最多撈這麼多（concreteness 5/4 全表 635 字、Flyers 期 430 字，
 // 都在範圍內）。PostgREST 預設單次最多回 1,000 列，明確寫出來避免默默被截斷。
@@ -134,12 +136,19 @@ async function fetchDueCandidates(supabase, profileId) {
 // 易錯桶放寬時的候選：全部卡片依 lapses 排序（不看是否到期，今天剛答錯的卡
 // 也會進來，等於後面幾輪還有機會再遇到——9/30 確認的設計）。
 // 加 lapses > 0：不然補進來的會是一堆從沒錯過的卡，失去「易錯」的意義。
+//
+// 排除 L0（10/11 驗收修復）：L0 答錯後 FSRS 把 stability 砍到約 0.2、隔天到期，
+// 又因 lapses 高被易錯桶每輪抓回來，形成循環（實測 foot、bring back 一天 reps
+// 達 10 次）。這繞過了「L0 只做維持性複習」的定位（§1.4、決策 7），而且每輪
+// 3 個易錯名額被 L0 占掉、拼字就少練 3 題。L0 照樣走到期桶做維持性複習，只是
+// 不進易錯加權。SKILLS_EXCLUDED_FROM_LAPSE 也用在 getDailyQueue 的第一段易錯挑選。
 async function fetchLapseCandidates(supabase, profileId) {
   const { data, error } = await supabase
     .from("cards")
     .select(CARD_COLUMNS)
     .eq("profile_id", profileId)
     .eq("suspended", false)
+    .not("skill", "in", `(${SKILLS_EXCLUDED_FROM_LAPSE.join(",")})`)
     .gt("lapses", 0)
     .order("lapses", { ascending: false })
     .limit(LAPSE_CANDIDATE_BUFFER);
@@ -296,7 +305,7 @@ export async function countNewCardsToday(supabase, profileId) {
  *
  *   1. 到期複習 session_mix.due 張：依 due_at 由舊到新
  *   2. 易錯加權 session_mix.lapse_weighted 張：先從「剩下的到期卡」依 lapses
- *      高到低補；不夠再放寬到全部卡片依 lapses 排序
+ *      高到低補；不夠再放寬到全部卡片依 lapses 排序。兩段都不含 L0 卡
  *   3. 新字 session_mix.new 張：不能超過今天剩下的新卡額度（daily_new_limit
  *      減今天已出現的新卡）
  *   4. 前面哪個桶子不夠，剩下的名額依「到期 → 易錯 → 新字」互補，新字仍受
@@ -403,9 +412,10 @@ export async function getDailyQueue(supabase, profileId) {
   // 1. 到期複習
   pickFrom(dueCards, mix.due);
 
-  // 2. 易錯加權：先剩下的到期卡依 lapses 排序，不夠再放寬到全部卡片
+  // 2. 易錯加權：先剩下的到期卡依 lapses 排序，不夠再放寬到全部卡片。
+  //    兩段都排除 L0（L0 只走到期桶做維持性複習，見 fetchLapseCandidates）
   const remainingDueByLapses = dueCards
-    .filter((c) => !usedCardIds.has(c.id))
+    .filter((c) => !usedCardIds.has(c.id) && !SKILLS_EXCLUDED_FROM_LAPSE.includes(c.skill))
     .sort((a, b) => (b.lapses ?? 0) - (a.lapses ?? 0));
   const lapsePicked = pickFrom(remainingDueByLapses, mix.lapse_weighted);
   pickFrom(lapseCards, mix.lapse_weighted - lapsePicked);
