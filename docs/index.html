@@ -34,6 +34,13 @@
       gap: 12px;
       padding-bottom: 0;
     }
+    /* X1 黑貓：先固定成顯示尺寸（寬 120、viewBox 200×280 等比例高 168），
+       避免貓在拿到 profile 之後才畫出來時版面跳動 */
+    #pet-container {
+      width: 120px;
+      height: 168px;
+      flex: none;
+    }
     #coin-total {
       font-size: 20px;
       font-weight: bold;
@@ -183,6 +190,6 @@
 
   <section id="app-section"></section>
 
-  <script type="module" src="js/main.js?v=14"></script>
+  <script type="module" src="js/main.js?v=15"></script>
 </body>
 </html>

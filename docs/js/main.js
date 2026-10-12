@@ -2,8 +2,8 @@
 // 管 session 的開始/收尾、模式切換（診斷 → 日常）。這層不會被 W2 沿用，
 // 但 provider/renderer/recorder 都會。
 
-import { supabase } from "./supabaseClient.js?v=14";
-import { getDiagnosticQueue, getDailyQueue, countNewCardsToday } from "./provider.js?v=14";
+import { supabase } from "./supabaseClient.js?v=15";
+import { getDiagnosticQueue, getDailyQueue, countNewCardsToday } from "./provider.js?v=15";
 import {
   startSession,
   recordAnswer,
@@ -12,11 +12,11 @@ import {
   updateCardAfterAnswer,
   updateDailyNewWords,
   refreshRetrievability,
-} from "./recorder.js?v=14";
-import { runRound } from "./renderer.js?v=14";
-import { updateWalletAfterSession, getWalletCoins } from "./rewards.js?v=14";
-import { renderPetInto } from "./petSvg.js?v=14";
-import { loadSrsContext } from "./srs.js?v=14";
+} from "./recorder.js?v=15";
+import { runRound } from "./renderer.js?v=15";
+import { updateWalletAfterSession, getWalletCoins } from "./rewards.js?v=15";
+import { renderCat, pickPose } from "./cat.js?v=15";
+import { loadSrsContext } from "./srs.js?v=15";
 
 const loginSection = document.getElementById("login-section");
 const appSection = document.getElementById("app-section");
@@ -36,7 +36,7 @@ function showApp() {
   loginSection.style.display = "none";
   appSection.style.display = "block";
   petSection.style.display = "flex";
-  renderPetInto(petContainer);
+  // 貓在 runAppFlow 拿到 profile id 之後才畫（姿態要依 profile 記住上一次，X1）
   runAppFlow();
 }
 
@@ -88,6 +88,8 @@ async function runAppFlow() {
     await flushPendingAttempts(supabase);
 
     const profileId = await getProfileId();
+    // X1：進入主畫面時抽一次姿態（不跟上一次相同），這次停留期間不換
+    petContainer.innerHTML = renderCat(pickPose(profileId), "normal", {});
     await refreshCoinTotal(profileId);
 
     const diagnosticItems = await getDiagnosticQueue(supabase, profileId);

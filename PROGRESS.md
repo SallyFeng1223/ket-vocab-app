@@ -332,9 +332,23 @@ SRS 可用性。B6 程式碼已 commit，只差貼 SQL 與實測，屬使用者�
 
 - [x] X1-1 定稿基準坐姿（哥哥已確認：黑貓、ω 嘴）
 - [x] X1-2 完成站立、揮手、歪頭三個姿態 SVG
-- [ ] X1-3 建立 renderCat(pose, mood, equipped) 模組，取代 B6 靜態貓
-- [ ] X1-4 進入主畫面時隨機抽一個姿態，且不與上一次相同（上一次的姿態存在 localStorage）
+- [x] X1-3 建立 renderCat(pose, mood, equipped) 模組，取代 B6 靜態貓
+- [x] X1-4 進入主畫面時隨機抽一個姿態，且不與上一次相同（上一次的姿態存在 localStorage）
 - [ ] X1-5 驗收：重新整理 10 次，姿態有變化且不連續重複；用一頂測試帽子確認在四個姿態的位置都正確
+  > X1-3／X1-4 實作（10/12）：`docs/js/cat.js`（renderCat、pickPose）＋ `docs/js/catArt.js`
+  （由 `scripts/build_cat_art.py` 從 `assets/cat/` 原稿自動產生，不要手改；原稿改了重跑腳本）。
+  HEAD 只存一份、四姿態共用；`<metadata>` 去掉；原稿 `<style>` 的通用 class 與 id 一律加
+  `cat-` 前綴（不改成直接屬性，因 CSS class 會蓋過直接屬性，改了外觀會變）。
+  `petSvg.js` 已刪除。顯示 120×168（寬度 120 版），`#pet-container` CSS 固定尺寸防跳動。
+  姿態在拿到 profile id 後才抽（localStorage key `catLastPose:<profile_id>`，讀寫包 try/catch）。
+  驗收頁 `docs/cat_test.html`（不從遊戲連過去），四姿態並排戴測試帽。
+  > 待確認（X1-5）：iPad 重新整理 10 次姿態不連續重複；測試帽位置；L2 字母磚題不需捲動
+  （需要捲動就改回高度 120 版）。
+
+設計限制（影響 D3）：原稿 viewBox 在耳朵上方幾乎沒有留白——stand 姿態 head 在 y=80，
+配件只要高過 head 本地座標 y≈-80（耳尖是 -76）就會被畫布切掉。第一版測試帽（頂端 -94）
+在 stand 被切掉帽尖，已縮成頂端 -78。D3 畫帽子要守這個高度，或屆時再決定是否加高 viewBox
+（會改變顯示比例）。
 
 設計決策（影響 D3）：
 - 配件全部掛在 head 群組內的 slot-hat / slot-face / slot-neck，姿態只改 head 的 transform，所以配件畫一次即可適用所有姿態

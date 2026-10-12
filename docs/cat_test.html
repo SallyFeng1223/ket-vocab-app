@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>X1 黑貓驗收（家長用）</title>
+  <!--
+    X1-5 驗收用頁面，只給家長看，遊戲畫面不會連到這裡。
+    不連 Supabase、不讀寫任何資料。
+    四個姿態並排，每隻都戴同一頂測試帽子（放在 slot-hat），一次確認帽子
+    在四個姿態的位置都正確——配件掛在 head 裡，應該跟著頭一起歪、一起移動。
+  -->
+  <style>
+    body {
+      margin: 0;
+      padding: 24px 16px;
+      font-family: -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      background: #f7f7f7;
+      color: #222;
+    }
+    h1 {
+      font-size: 20px;
+      text-align: center;
+    }
+    p {
+      max-width: 560px;
+      margin: 0 auto 16px;
+      font-size: 14px;
+      color: #555;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+    figure {
+      margin: 0;
+      padding: 12px;
+      background: #fff;
+      border-radius: 8px;
+      text-align: center;
+    }
+    figcaption {
+      margin-top: 4px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>X1 黑貓驗收：測試帽子 × 四個姿態</h1>
+  <p>
+    看四隻貓的帽子是不是都穩穩戴在兩耳之間、跟著頭一起歪。
+    第二排是沒戴帽子的原樣，對照用。
+  </p>
+  <div class="row" id="with-hat"></div>
+  <div class="row" id="no-hat" style="margin-top: 16px"></div>
+
+  <script type="module">
+    import { renderCat, POSE_NAMES } from "./js/cat.js?v=15";
+
+    // 測試用三角帽，座標是 head 的本地座標：底邊中心在 slot-hat 錨點 (0,-44)。
+    // 只用直接屬性、不用 class，不會跟頁面或貓的樣式互相影響。
+    //
+    // 高度刻意壓在 y ≥ -79（不超過耳尖 -76 太多）：原稿 viewBox 在耳朵上方幾乎
+    // 沒有留白，stand 姿態的 head 在 y=80，配件只要高過 head 本地 y=-80 就會被
+    // 畫布切掉。這是 D3 畫帽子時的限制，見 PROGRESS.md X1 備註。
+    const TEST_HAT = `
+      <polygon points="-17,-40 17,-40 0,-70" fill="#E8574B" stroke="#121116" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M-10 -50 L 10 -50 M-5 -60 L 5 -60" stroke="#FFD43B" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="0" cy="-73" r="5" fill="#FFD43B" stroke="#121116" stroke-width="2.5"/>
+    `;
+
+    function render(containerId, equipped) {
+      document.getElementById(containerId).innerHTML = POSE_NAMES.map(
+        (pose) => `<figure>${renderCat(pose, "normal", equipped)}<figcaption>${pose}</figcaption></figure>`
+      ).join("");
+    }
+
+    render("with-hat", { hat: TEST_HAT });
+    render("no-hat", {});
+  </script>
+</body>
+</html>
