@@ -354,6 +354,33 @@ SRS 可用性。B6 程式碼已 commit，只差貼 SQL 與實測，屬使用者�
 - 配件全部掛在 head 群組內的 slot-hat / slot-face / slot-neck，姿態只改 head 的 transform，所以配件畫一次即可適用所有姿態
 - shop_items 的 category 不使用 clothes（貼在身體上的配件每個姿態都要重新定位），改用 neck 類（領結、圍巾、項鍊）。這只是改 category 的值，不需要改 schema
 
+### X2 答錯當下顯示正確答案（核准：10/12，類型：學習缺陷修正）
+
+理由：原本答錯後不顯示正確答案，學生無法得知正確拼法。
+範圍：只改答錯後的回饋畫面；完成頁錯題清單列入 v2 願望清單。
+
+- [x] X2-1 第一階段調查
+  > 上線題型只有 L0/L1/L2（docs/js/renderer.js 對其他 skill 直接 throw，沒有「其他已上線
+  題型」要處理）。答錯目前直接跳下一題，完全沒有回饋畫面，`attempt_no_in_item` 寫死 1，
+  沒有「同一題再試一次」機制。`response_ms` 已經是「送出答案那一刻」停止計時（按鈕 click /
+  L2 submit() 裡算完才 resolve），不用改計時邏輯。跟降級提示（`.hint`）不會疊在同一個位置，
+  只是資訊會重複（提示還留著、正確答案也顯示），判斷不算衝突、不處理。
+  採用做法 B：`runRound()` 的 `onAnswer`（寫 DB／更新卡片）呼叫時機完全不變，答錯才另外顯示
+  回饋、等「繼續」才進下一題，兩者用 `Promise.all` 同時進行，不互相等。
+- [x] X2-2 實作（分支 `x2-wrong-feedback`）
+  > `docs/js/renderer.js`：`showChoiceItemAndWaitForAnswer`/`showTileItemAndWaitForAnswer`
+  送出答案當下鎖住全部按鈕/磚塊（含未用到的干擾磚），resolve 時多帶一個 `showFeedback()`
+  callback；`runRound()` 答錯才呼叫它，跟 `onAnswer` 的 promise 一起 `Promise.all`。L0 比照
+  L1（兩者本來就共用同一支渲染函式，選錯標紅、正確標綠）；L2 保留學生拼出的結果，下方大字
+  顯示正確拼法。文字一律「正確答案是 ___」，中性語氣。`docs/index.html` 加
+  `.choice-wrong`/`.choice-correct`/`.feedback`/`.continue-btn` 樣式，繼續按鈕
+  min-height 64px。cache-busting v15→v16。
+  在獨立瀏覽器測試環境（非 docs/、假資料）驗證四種情境：L0 答錯、L1 答錯、L2 答錯（保留
+  "ppale" 誤拼、顯示 "apple"）、控制組答對（零改動、直接跳下一題）都正確；也確認回饋畫面
+  不等 `onAnswer` 的模擬網路延遲就先顯示。**還沒接真實 Supabase、沒在 iPad 上跑過。**
+- [ ] X2-3 B2 三天測試結束後合併上線
+- [ ] X2-4 iPad 驗收
+
 ---
 
 ## 🛑 階段 F — 維運（W8–W17，10/12–12/20）
@@ -460,3 +487,4 @@ SRS 可用性。B6 程式碼已 commit，只差貼 SQL 與實測，屬使用者�
 - concreteness 低分端需重評。1–2 分那批混入感官動詞（hurt、sick、loud、
   scary、wake up）與虛詞（I、he、so、every），判準應是「可否被感官直接經驗」
   而非「是否為名詞」。分布呈啞鈴形（1 有 669、5 有 451、3 只有 138）。考後處理。
+- 完成頁列出本輪答錯的題目與正確答案（X2 的延伸，這次只處理答錯當下的回饋畫面）。

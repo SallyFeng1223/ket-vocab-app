@@ -7,7 +7,7 @@
 // 姿態只改 head 的 transform；配件掛在 head 裡的 slot-hat / slot-face / slot-neck，
 // 所以一個配件畫一次就適用所有姿態（X1 設計決策，影響 D3）。
 
-import { CAT_STYLE, HEAD, POSES } from "./catArt.js?v=15";
+import { CAT_STYLE, HEAD, POSES } from "./catArt.js?v=16";
 
 export const POSE_NAMES = Object.keys(POSES);
 

@@ -5,7 +5,7 @@
 // 之後 L3–L6 上線時，在 buildChoicesForItem() / showItemAndCollectAnswer() 依
 // item.skill 加對應分支即可，其他部分不用動。
 
-import { shuffle, escapeHtml } from "./utils.js?v=15";
+import { shuffle, escapeHtml } from "./utils.js?v=16";
 
 function buildChoicesForItem(item) {
   if (item.skill === "L0") {
@@ -46,12 +46,44 @@ function showChoiceItemAndWaitForAnswer(container, item, choices, index, total, 
       buttons.forEach((btn, idx) => {
         btn.addEventListener("click", () => {
           if (btn.disabled) return;
+          // X2：送出當下立刻鎖住全部選項，避免回饋畫面期間連點觸發第二次作答
           buttons.forEach((b) => (b.disabled = true));
           const response_ms = Math.round(performance.now() - shownAt);
-          resolve({ chosen: choices[idx], response_ms });
+          const chosenText = choices[idx];
+          resolve({
+            chosen: chosenText,
+            response_ms,
+            showFeedback: () =>
+              showChoiceFeedback(container, buttons, choices, chosenText, item.answer),
+          });
         });
       });
     });
+  });
+}
+
+// X2：答錯後的回饋——沿用同一批按鈕（不重畫），學生選的標紅、正確的標綠，
+// 下方顯示「正確答案是 ___」，按「繼續」才進下一題。L0（中文題幹、英文選項）
+// 跟 L1 共用這支渲染函式，所以兩者用一樣的紅/綠標示方式，不用另外處理。
+function showChoiceFeedback(container, buttons, choices, chosenText, answerText) {
+  return new Promise((resolve) => {
+    buttons.forEach((btn, idx) => {
+      if (choices[idx] === chosenText) btn.classList.add("choice-wrong");
+      if (choices[idx] === answerText) btn.classList.add("choice-correct");
+    });
+
+    const feedbackEl = document.createElement("div");
+    feedbackEl.className = "feedback";
+    feedbackEl.innerHTML = `
+      <div class="feedback-text">正確答案是 ${escapeHtml(answerText)}</div>
+      <button type="button" class="continue-btn">繼續</button>
+    `;
+    container.appendChild(feedbackEl);
+    feedbackEl.querySelector(".continue-btn").addEventListener(
+      "click",
+      () => resolve(),
+      { once: true }
+    );
   });
 }
 
@@ -126,9 +158,20 @@ function showTileItemAndWaitForAnswer(container, item, index, total, _showHint) 
     function submit() {
       if (submitted) return;
       submitted = true;
+      // X2：送出當下鎖住全部磚塊跟控制按鈕（包含沒用到的乾擾磚），避免回饋
+      // 畫面期間誤觸發第二次作答。pool/answer-area 的 click handler 已經靠
+      // submitted 這個旗標擋掉動作，這裡額外加 disabled 讓視覺上也看得出來。
+      poolEl.querySelectorAll(".tile-btn").forEach((b) => (b.disabled = true));
+      answerEl.querySelectorAll(".tile-btn").forEach((b) => (b.disabled = true));
+      clearBtn.disabled = true;
+      submitBtn.disabled = true;
       const chosen = answerIndices.map((i) => pool[i]).join("");
       const response_ms = Math.round(performance.now() - shownAt);
-      resolve({ chosen, response_ms });
+      resolve({
+        chosen,
+        response_ms,
+        showFeedback: () => showTileFeedback(container, item.answer),
+      });
     }
 
     clearBtn.addEventListener("click", () => {
@@ -148,6 +191,25 @@ function showTileItemAndWaitForAnswer(container, item, index, total, _showHint) 
       renderAnswerArea();
       renderPool();
     });
+  });
+}
+
+// X2：L2 答錯後的回饋——保留學生拼出來的結果（不清空 answer-area），
+// 下方用大字顯示正確拼法，按「繼續」才進下一題。
+function showTileFeedback(container, answerText) {
+  return new Promise((resolve) => {
+    const feedbackEl = document.createElement("div");
+    feedbackEl.className = "feedback";
+    feedbackEl.innerHTML = `
+      <div class="feedback-text">正確答案是 ${escapeHtml(answerText)}</div>
+      <button type="button" class="continue-btn">繼續</button>
+    `;
+    container.appendChild(feedbackEl);
+    feedbackEl.querySelector(".continue-btn").addEventListener(
+      "click",
+      () => resolve(),
+      { once: true }
+    );
   });
 }
 
@@ -193,7 +255,7 @@ export async function runRound({ container, items, onAnswer }) {
 
   for (let i = 0; i < total; i++) {
     const item = items[i];
-    const { chosen, response_ms } = await showItemAndCollectAnswer(
+    const { chosen, response_ms, showFeedback } = await showItemAndCollectAnswer(
       container,
       item,
       i + 1,
@@ -202,13 +264,22 @@ export async function runRound({ container, items, onAnswer }) {
     const is_correct = isCorrectAnswer(item, chosen);
     if (is_correct) correctCount++;
 
-    await onAnswer({
+    const onAnswerPromise = onAnswer({
       item,
       chosen,
       is_correct,
       response_ms,
       hint_used: Boolean(item.hint_used_forced),
     });
+
+    // X2：答錯才顯示回饋，答對流程完全不變（不呼叫 showFeedback）。回饋畫面
+    // 跟 onAnswer 的資料庫寫入同時進行，不互相等——不讓學生對著回饋畫面等
+    // 網路，也不讓寫入因為學生還在看回饋而延後；兩件事都做完才進下一題。
+    if (!is_correct) {
+      await Promise.all([onAnswerPromise, showFeedback()]);
+    } else {
+      await onAnswerPromise;
+    }
   }
 
   container.innerHTML = `<div class="done-message">做完了，謝謝你。</div>`;
