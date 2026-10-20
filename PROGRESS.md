@@ -388,6 +388,26 @@ SRS 可用性。B6 程式碼已 commit，只差貼 SQL 與實測，屬使用者�
 - [ ] **2027/01/05** 開發解凍，KET 期開始
 - [ ] **每月一次** 匯出資料庫備份到雲端硬碟（記錄日期：___ / ___ / ___）
 
+### 凍結期資料修正紀錄
+
+> **2026-10-20：A3 level_tags 漏標 22 個字（凍結期內的資料修正，不改 app 程式碼）**
+>
+> 起因：使用中發現 `pool_filter`（FLYERS）把 `foot` 這類字排除在新字池外，一查發現
+> A3（`scripts/tag_yle_levels.py`）的解析器沒處理 YLE 官方詞表的幾種格式：
+> 斜線形態（`child/children`）、UK/US 替代拼法（`truck (UK lorry)`）、巢狀括號
+> （`candy (UK sweet(s))`）、可省略延伸（`wake (up)`、`have (got) to`）。
+> 新寫 `scripts/fix_level_tags.py`（獨立腳本，不改 `tag_yle_levels.py`，也不改
+> app 程式碼）用兩條「只命中已存在的字，不會造出新字」的通用規則重新解析、
+> 跟現有 `words.level_tags` 比對出差異，已人工核對過。
+>
+> 影響：STARTERS 399→410、MOVERS 698→716、FLYERS 1085→1107，
+> FLYERS 專屬新字（無 MOVERS 無 STARTERS）387→391。
+>
+> SQL：`data/sql/F_fix_level_tags.sql`（22 筆 `update`，用
+> `array(select distinct unnest(level_tags || 缺項))` 對 Supabase 當下實際的
+> `level_tags` 做聯集附加，不是整欄覆蓋——只新增標籤，不移除任何現有標籤）。
+> 待你貼到 Supabase 執行。
+
 ---
 
 > **給 B3 的備註**：L2 的 tiles 全部是小寫字母（items.answer 保留原始大小寫，例如 April
