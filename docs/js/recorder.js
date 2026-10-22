@@ -6,8 +6,8 @@
 // B2 接上 FSRS：排程計算在 srs.js（只算不寫），這裡負責把結果寫回 cards。
 // renderer.js 不需要改一行。
 
-import { SKILL_DEMOTE_MAP, taipeiDateKey } from "./utils.js?v=16";
-import { rateAnswer, scheduleCard, nextSkillToPromote, retrievabilityOf } from "./srs.js?v=16";
+import { SKILL_DEMOTE_MAP, taipeiDateKey } from "./utils.js?v=17";
+import { rateAnswer, scheduleCard, nextSkillToPromote, retrievabilityOf } from "./srs.js?v=17";
 
 const PENDING_KEY = "ket_pending_attempts";
 

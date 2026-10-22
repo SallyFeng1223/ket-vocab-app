@@ -116,6 +116,18 @@
     .choice-btn:disabled {
       opacity: 0.6;
     }
+    /* X2：答錯後標色不用 disabled 的灰階，要明確蓋掉，所以這兩個規則
+       寫在 :disabled 後面、權重也用 !important 確保顯示出來 */
+    .choice-btn.choice-wrong {
+      background: #ffd9d9 !important;
+      border-color: #c0392b !important;
+      opacity: 1 !important;
+    }
+    .choice-btn.choice-correct {
+      background: #d9f2d9 !important;
+      border-color: #2e7d32 !important;
+      opacity: 1 !important;
+    }
     .answer-area {
       display: flex;
       flex-wrap: wrap;
@@ -162,6 +174,29 @@
       user-select: none;
       -webkit-user-select: none;
     }
+    /* X2：答錯回饋（正確答案 + 繼續按鈕） */
+    .feedback {
+      margin-top: 24px;
+      text-align: center;
+    }
+    .feedback-text {
+      font-size: 32px;
+      font-weight: bold;
+      color: #2e7d32;
+      margin-bottom: 16px;
+      word-break: break-word;
+    }
+    .continue-btn {
+      width: 100%;
+      min-height: 64px;
+      font-size: 22px;
+      font-weight: bold;
+      border: 2px solid #333;
+      border-radius: 8px;
+      background: #eef6ff;
+      user-select: none;
+      -webkit-user-select: none;
+    }
     .done-message,
     .error-message {
       text-align: center;
@@ -190,6 +225,6 @@
 
   <section id="app-section"></section>
 
-  <script type="module" src="js/main.js?v=16"></script>
+  <script type="module" src="js/main.js?v=17"></script>
 </body>
 </html>
