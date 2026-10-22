@@ -408,6 +408,20 @@ SRS 可用性。B6 程式碼已 commit，只差貼 SQL 與實測，屬使用者�
 > `level_tags` 做聯集附加，不是整欄覆蓋——只新增標籤，不移除任何現有標籤）。
 > 待你貼到 Supabase 執行。
 
+> **2026-10-22：易錯桶放寬規則沒排除當天已複習過的卡（凍結期內的程式修正）**
+>
+> 起因：逾期卡為 0 時，易錯桶放寬到「全部卡片依 lapses 排序」不看 due_at，
+> 導致同一批 lapses 最高的卡（gate、key、leg、man、bathtub、eye）每輪都被
+> 重複抓到。實測 `gate`（stability 8.1）三天內出現 8 次（reps 15→23），FSRS
+> 排好的間隔被完全繞過。
+>
+> 修法：`docs/js/provider.js` 的 `fetchLapseCandidates`（易錯桶放寬那段）加
+> `last_review_at` 早於台北時區今天開始時刻的條件，同一張卡一天最多被這段
+> 放寬邏輯選中一次。「到期卡優先」那段（`fetchDueCandidates`）沒有改。
+>
+> 影響範圍：只改 `docs/js/provider.js` 的查詢條件；同步把 `docs/` 下所有
+> script 的 cache-busting 版本號 `?v=15` → `?v=16`（照慣例全部一起升版）。
+
 ---
 
 > **給 B3 的備註**：L2 的 tiles 全部是小寫字母（items.answer 保留原始大小寫，例如 April

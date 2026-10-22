@@ -18,8 +18,8 @@
 // @property {{distractors_zh: string[]}} payload - 題型專屬資料，L0 是 3 個干擾選項
 // @property {number} content_version  - 寫進 attempts.item_content_version 用
 
-import { shuffle, taipeiDateKey, taipeiDayStartIso } from "./utils.js?v=15";
-import { getAppSetting } from "./settings.js?v=15";
+import { shuffle, taipeiDateKey, taipeiDayStartIso } from "./utils.js?v=16";
+import { getAppSetting } from "./settings.js?v=16";
 
 const MAX_PER_SESSION = 40;
 const ROUND_SIZE = 10;
@@ -137,12 +137,19 @@ async function fetchDueCandidates(supabase, profileId) {
 // 也會進來，等於後面幾輪還有機會再遇到——9/30 確認的設計）。
 // 加 lapses > 0：不然補進來的會是一堆從沒錯過的卡，失去「易錯」的意義。
 //
+// 排除「今天（台北時間）已經複習過」的卡（10/22 凍結期修正）：放寬段不看
+// due_at，逾期卡用完之後會一直撈到同一批 lapses 最高的卡，不管今天是否已經
+// 答過。實測 gate（stability 8.1）三天內被易錯桶抓回 8 次，FSRS 的間隔完全被
+// 繞過。排除今天已複習的卡後，同一張卡一天最多被這段放寬邏輯選中一次；
+// 「到期卡優先」那段（fetchDueCandidates）不受影響，一樣用 due_at 判斷。
 // 排除 L0（10/11 驗收修復）：L0 答錯後 FSRS 把 stability 砍到約 0.2、隔天到期，
 // 又因 lapses 高被易錯桶每輪抓回來，形成循環（實測 foot、bring back 一天 reps
 // 達 10 次）。這繞過了「L0 只做維持性複習」的定位（§1.4、決策 7），而且每輪
 // 3 個易錯名額被 L0 占掉、拼字就少練 3 題。L0 照樣走到期桶做維持性複習，只是
 // 不進易錯加權。SKILLS_EXCLUDED_FROM_LAPSE 也用在 getDailyQueue 的第一段易錯挑選。
 async function fetchLapseCandidates(supabase, profileId) {
+  const todayStartIso = taipeiDayStartIso(taipeiDateKey(new Date()));
+
   const { data, error } = await supabase
     .from("cards")
     .select(CARD_COLUMNS)
@@ -150,6 +157,7 @@ async function fetchLapseCandidates(supabase, profileId) {
     .eq("suspended", false)
     .not("skill", "in", `(${SKILLS_EXCLUDED_FROM_LAPSE.join(",")})`)
     .gt("lapses", 0)
+    .lt("last_review_at", todayStartIso)
     .order("lapses", { ascending: false })
     .limit(LAPSE_CANDIDATE_BUFFER);
 

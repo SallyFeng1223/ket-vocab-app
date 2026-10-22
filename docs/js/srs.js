@@ -9,7 +9,7 @@
 // cards 表的欄位兩種演算法通用：如果 FSRS 卡關要退回簡化 SM-2，只換這支檔案。
 
 import { fsrs, generatorParameters, Rating, State } from "https://esm.sh/ts-fsrs@5.4.2";
-import { getAppSetting } from "./settings.js?v=15";
+import { getAppSetting } from "./settings.js?v=16";
 
 const scheduler = fsrs(generatorParameters({ enable_short_term: false }));
 
