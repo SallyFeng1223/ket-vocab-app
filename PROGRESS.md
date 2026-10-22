@@ -422,6 +422,27 @@ SRS 可用性。B6 程式碼已 commit，只差貼 SQL 與實測，屬使用者�
 > 影響範圍：只改 `docs/js/provider.js` 的查詢條件；同步把 `docs/` 下所有
 > script 的 cache-busting 版本號 `?v=15` → `?v=16`（照慣例全部一起升版）。
 
+> **2026-10-22：man、woman 的 L1 題目撞到不規則複數真字（凍結期資料修正，不改 app 程式碼）**
+>
+> 起因：`scripts/build_l1_spellings.py`（B0-2）生成 wrong_spellings 時，真字黑名單
+> 只拿 `words_snapshot.csv` 的 headword 當基準，`men`/`women` 不是獨立 headword，
+> 母音互換規則（a↔e）把 `man`/`woman` 換成這兩個不規則複數真字：
+> `man → ["mann", "men"]`、`woman → ["womann", "women"]`。哥哥答 L1 時選到真字被判錯。
+>
+> 套用 §5.6 的 5 條規則重新驗證：扣掉 men/women 後，man、woman 都只剩 1 個合法
+> 候選，湊不到 2 個——按 §5.6 原文，這兩個字本來就不該有 L1 題目。
+>
+> 處理方式（跟你討論後決定，不刪歷史資料）：man、woman 的 L1 items 設
+> `status='retired'`（歷史 attempts 不受影響）、同步停用這兩個字的 L1 卡片
+> （`suspended=true`，避免重演 L0 無題目卡卡住到期桶的坑）、幫這兩個字建 L2
+> 卡片（`state='new'`，L2 題目已確認是 active）。已確認 provider.js 撈題目都有
+> `status='active'` 條件，retired 的 items 不會被撈到。
+>
+> SQL：`data/sql/F_fix_man_woman_L1.sql`。待你貼到 Supabase 執行。
+>
+> 根因（黑名單沒涵蓋不規則複數）不在凍結期修，記在「卡關待辦」下方給 G 階段
+> 的備註。
+
 ---
 
 > **給 B3 的備註**：L2 的 tiles 全部是小寫字母（items.answer 保留原始大小寫，例如 April
@@ -464,6 +485,13 @@ SRS 可用性。B6 程式碼已 commit，只差貼 SQL 與實測，屬使用者�
 > §5.6 規則庫只處理單字內部形態，對「動詞＋介係詞」結構無效，需另外設計誤拼規則
 > （如 `turn on` → `turnon` 連寫、`tunr on` 換位、`turn no` 順序錯）或改用 L6 詞塊排序。
 > 規劃書 v1.4 §9 階段 G10 處理（原 C4），B 階段不做。
+
+> **給 G 階段的備註**：`scripts/build_l1_spellings.py` 的真字黑名單（`real_words_lower`，
+> 只拿 `words_snapshot.csv` 的 headword 當基準）沒涵蓋不規則複數，母音互換規則
+> （a/e 互換）把 `man`/`woman` 換成真字 `men`/`women`，撞到跟 F 階段
+> `F_fix_man_woman_L1.sql` 一樣的坑（詳見該檔案開頭註解）。1 月解凍後重新產生
+> L1 題目時，黑名單要加入不規則複數：`men`、`women`、`feet`、`teeth`、`mice`、
+> `children`、`people`。凍結期不改腳本。
 
 ---
 
